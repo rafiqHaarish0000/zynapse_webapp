@@ -1,0 +1,55 @@
+.contact {
+  background-color: #000;
+  color: #fff;
+  position: relative; /* required for z-index to work */
+  z-index: 4;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin-top: 48px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}

@@ -1,0 +1,339 @@
+.work {
+  background-color: black;
+  color: #fff; /* Light violet text color */
+  position: sticky;
+  z-index: 3;
+  padding: 80px 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.work-content h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.work-description {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #fff;
+  max-width: 800px;
+  margin: 0 auto 40px; /* center + spacing */
+  line-height: 1.6;
+}
+
+/* Video background */
+.work-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+
+  /* Hidden initially */
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 1.2s ease, transform 2s ease;
+}
+
+/* Visible state */
+.work-bg.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.work h2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.work p {
+  font-size: 1.3rem;
+  color: #fff;
+  max-width: 700px;
+  margin: 0 auto 48px;
+  font-weight: 600;
+}
+/* Updated CSS */
+.carousel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  perspective: 1000px;
+  margin-top: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-item {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(179, 136, 255, 0.2);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  filter: grayscale(20%);
+}
+
+.carousel-item.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: grayscale(0%);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(179, 136, 255, 0.4);
+}
+
+.carousel-item:hover img {
+  filter: blur(4px) brightness(0.7);
+  transform: scale(1.1);
+}
+
+
+/* Compact Card Stack Styles */
+.card-stack-section {
+  position: relative;
+  padding: 60px 0;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+.stack-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Text appears first */
+.center-text {
+  text-align: center;
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cards appear after text */
+.card-stack {
+  position: relative;
+  display: grid;
+  grid-template: 
+    "top1 . top2" auto
+    ". . ." 20px
+    "bottom1 . bottom2" auto / 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 0;
+  padding: 20px 0;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInScale 0.6s 0.6s forwards;
+}
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Smaller Cards */
+.card {
+  width: 160px;
+  height: 220px;
+  perspective: 800px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Sticky Top Cards */
+.top-card {
+  position: sticky;
+  top: 100px;
+  z-index: 10;
+}
+
+.top-card-1 {
+  grid-area: top1;
+  transform: rotate(-5deg) translateZ(10px);
+}
+
+.top-card-2 {
+  grid-area: top2;
+  transform: rotate(5deg) translateZ(10px);
+}
+
+/* Bottom Cards */
+.bottom-card {
+  grid-row-start: 3;
+  margin-top: 40px;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bottom-card-1 {
+  grid-area: bottom1;
+  transform: rotate(3deg);
+}
+
+.bottom-card-2 {
+  grid-area: bottom2;
+  transform: rotate(-3deg);
+}
+
+/* Scroll Effects */
+.card-stack-section:hover .bottom-card {
+  transform: translateY(-40px) rotate(0deg);
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .card {
+    width: 180px;
+    height: 240px;
+  }
+  
+  .top-card {
+    position: relative;
+    top: auto !important;
+  }
+}
+/* Add to your existing CSS */
+.project-info::after {
+  content: "→";
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  margin: 20px auto 0;
+  line-height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  transform: translateY(20px) scale(0.8);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+  box-shadow: 0 0 15px rgba(179, 136, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.carousel-item:hover .project-info::after {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.project-info::after:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(0) scale(1.1) !important;
+}
+
+.project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  width: 90%;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.carousel-item:hover .project-info {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.project-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: white;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.project-info p {
+  font-size: 1rem;
+  color: #e0d6ff;
+  margin-bottom: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.carousel-item:hover .project-info h3,
+.carousel-item:hover .project-info p {
+  transform: translateY(0);
+}
+.project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 100%;
+}
+.carousel-item:hover .project-info {
+  opacity: 1;
+}
+.project-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.project-info p {
+  font-size: 1rem;
+  color: #e0d6ff;
+  margin-bottom: 0;
+}
