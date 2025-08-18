@@ -12,6 +12,34 @@ mobileMenuBtn.addEventListener('click', () => {
   }
 });
 
+ function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if(section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Attach scrollToSection to all nav links
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
+    link.addEventListener('click', function(e){
+      e.preventDefault(); // Prevent default anchor jump
+      const targetId = this.getAttribute('href').replace('#',''); // Get target section ID
+      scrollToSection(targetId);
+      
+      // Close mobile menu if open
+      const mobileMenu = document.querySelector('.mobile-menu');
+      if(mobileMenu.classList.contains('active')){
+        mobileMenu.classList.remove('active');
+      }
+    });
+  });
+
+  // Optional: toggle mobile menu button
+  const mobileBtn = document.querySelector('.mobile-menu-btn');
+  mobileBtn.addEventListener('click', () => {
+    document.querySelector('.mobile-menu').classList.toggle('active');
+  });
+
 document.querySelectorAll('.mobile-menu a').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('active');
@@ -39,3 +67,43 @@ window.addEventListener('scroll', () => {
     heroBg.style.opacity = opacity;
   }
 });
+
+function scrollToSection(id) {
+  const section = document.getElementById(id);
+  if(section){
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+//  function splitLetters(selector) {
+//       const element = document.querySelector(selector);
+//       if (!element) return;
+
+//       const text = element.innerText;
+//       element.innerHTML = text
+//         .split("")
+//         .map((char) =>
+//           char.trim()
+//             ? `<span class="char">${char}</span>`
+//             : `<span class="char">&nbsp;</span>`  
+//         )
+//         .join("");
+
+//       // Assign index for staggered delay
+//       element.querySelectorAll(".char").forEach((span, i) => {
+//         span.style.setProperty("--char-index", i);
+//       });
+//     }
+
+//     // Apply split to title and subtitle
+//     splitLetters(".hero-title");
+//     splitLetters(".hero-subtitle");
+// // After all text animations, show button
+// const heroBtn = document.querySelector(".hero-btn");
+// setTimeout(() => {
+//   heroBtn.classList.add("show");
+// }, 3000); // adjust timing (ms) to match your text animation duration
+//     // Example scroll function
+//     function scrollToSection(id) {
+//       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+//     }

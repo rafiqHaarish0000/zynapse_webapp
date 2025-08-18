@@ -3,13 +3,47 @@
 html {scroll-behavior:smooth;}
 body {overflow-x:hidden;color:#000;}
 nav {position:fixed;top:0;left:0;right:0;padding:24px;display:flex;justify-content:space-between;align-items:center;z-index:100;mix-blend-mode:difference;color:white;}
-.logo {font-size:1.25rem;font-weight:700;}
+.logo {font-size:1.50rem;font-weight:900;}
+.logo img {
+  height: 80px;     /* adjust size as needed */
+  width: auto;
+  display: block;
+
+  /* Rotation animation */
+  animation: rotateLogo 10s linear infinite;
+}
+
+/* Pause rotation on hover */
+.logo img:hover {
+  animation-play-state: paused;
+}
+
 .nav-links {display:flex;gap:32px;}
-.nav-links a {color:inherit;text-decoration:none;font-size:.875rem;text-transform:uppercase;letter-spacing:.1em;position:relative;}
-.nav-links a::after {content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background-color:currentColor;transition:width .3s ease;}
-.nav-links a:hover::after {width:100%;}
+.nav-links a {color:inherit;text-decoration:none;font-size:1rem; font-weight: 700; text-transform:uppercase;letter-spacing:.1em;position:relative;}
+.nav-links a {
+  color: inherit; /* initial text color */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  position: relative;
+  transition: color 0.3s ease; /* smooth text color change */
+}
+
+.nav-links a:hover {
+  color: #ff0; /* change text color on hover */
+}
 .mobile-menu-btn {display:none;background:none;border:none;color:inherit;cursor:pointer;}
 .mobile-menu {position:fixed;top:0;left:0;right:0;bottom:0;background:black;z-index:90;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .3s ease;}
 .mobile-menu.active {opacity:1;pointer-events:all;}
 .mobile-menu a {color:white;text-decoration:none;font-size:1.5rem;text-transform:uppercase;letter-spacing:.1em;}
 @media (max-width:768px){.nav-links{display:none;}.mobile-menu-btn{display:block;}}
+@keyframes rotateLogo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

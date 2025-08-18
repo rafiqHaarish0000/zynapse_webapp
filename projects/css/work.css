@@ -1,30 +1,53 @@
 .work {
   background-color: black;
-  color: #fff; /* Light violet text color */
-  position: sticky;
+  color: #fff; 
+  position: relative;/* Light violet text color */ /* allow scrolling */
   z-index: 3;
-  padding: 80px 20px;
   font-family: 'Poppins', sans-serif;
   text-align: center;
 }
 
+
+.work-image img {
+    position: sticky;
+  top: 0;       /* sticks to top while scrolling inside section */
+  z-index: 10;
+  padding: 40px;
+  text-align: center;
+  width: 100vw;      /* full viewport width */
+  height: auto;
+  display: block;    /* removes small gaps below image */
+  margin: 0;         /* remove margin */
+  border-radius: 0;  /* remove rounded corners for full width */
+  box-shadow: none;  /* optional: remove shadow */
+  transition: transform 0.3s ease;
+}
+.work-image.visible img {
+  transform: translateY(0);
+  opacity: 1;
+}
+.work-image img:hover {
+  transform: scale(1.05); /* subtle zoom on hover */
+}
+
 .work-content h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 1.2;
-  color: #fff;
+font-size: 5rem;
   margin-bottom: 20px;
+  margin-top: 10px;
+  color: #9b5de5;
+  font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
 }
 
 .work-description {
-  font-size: 1.2rem;
-  font-weight: 400;
+  max-width: 700px;
+  margin: 0 auto 10px auto;
+  font-size: 1.5rem;
   color: #fff;
-  max-width: 800px;
-  margin: 0 auto 40px; /* center + spacing */
   line-height: 1.6;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease, transform 1s ease;
+  transition-delay: 1.5s;
 }
 
 /* Video background */
@@ -48,35 +71,64 @@
   opacity: 1;
   transform: scale(1);
 }
-.work h2 {
-  font-size: 2.8rem;
-  font-weight: 900;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  .styled-heading {
+  background-color: black;
+  padding: 10px 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
+  }
+
+  .styled-heading h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
+  }
+
+  .styled-heading .work-description {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
+  }
+  .product-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  margin-top: 60px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
 }
-.work p {
-  font-size: 1.3rem;
-  color: #fff;
-  max-width: 700px;
-  margin: 0 auto 48px;
-  font-weight: 600;
+
+.product-btn:hover {
+  transform:translateY(-2px);opacity:.9; background-color: #9b5de5; color: white;
 }
+
+  @media (max-width: 768px) {
+    .styled-heading h2 {
+      font-size: 1.8rem;
+    }
+    .styled-heading .work-description {
+      font-size: 1rem;
+    }
+  }
+
 /* Updated CSS */
 .carousel {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  perspective: 1000px;
-  margin-top: 60px;
-  max-width: 1200px;
+  perspective: 100px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .carousel-item {
   position: relative;
-  width: 100%;
+  width: 80%;
   height: 200px;
   overflow: hidden;
   border-radius: 12px;
@@ -106,7 +158,7 @@
 }
 
 .carousel-item:hover img {
-  filter: blur(4px) brightness(0.7);
+  filter: blur(14px) brightness(0.7);
   transform: scale(1.1);
 }
 
@@ -134,6 +186,7 @@
   text-align: center;
   z-index: 20;
   opacity: 0;
+  color: #9b5de5;
   transform: translateY(20px);
   animation: fadeInUp 0.6s 0.2s forwards;
 }
@@ -206,7 +259,7 @@
 /* Bottom Cards */
 .bottom-card {
   grid-row-start: 3;
-  margin-top: 40px;
+  margin-top: 10px;
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
