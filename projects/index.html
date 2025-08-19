@@ -10,23 +10,27 @@
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/work.css">
-    <link rel="stylesheet" href="css/services.css">
-   <link rel="stylesheet" href="css/research.css">
-     <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/research.css">
+  <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
   <!-- Navigation -->
   <nav>
     <div class="logo">
-  <img src="assets/logo.png" alt="Zynapse Logo">
+      <div class="logo">
+  <a href="index.html">
+    <img src="assets/logo.png" alt="Zynapse Logo">
+  </a>
 </div>
-<div class="nav-links">
-  <a href="#aboutContainer">About</a>
-  <a href="#work">Products</a>
-  <a href="#service">Services</a>
-  <a href="#reseach">Research</a>
- <a href="contact.html">Contact Us</a>
-</div>
+    </div>
+    <div class="nav-links">
+      <a href="#" onclick="scrollToSection('aboutContainer'); return false;">About</a>
+      <a href="#" onclick="scrollToSection('work'); return false;">Products</a>
+      <a href="#" onclick="scrollToSection('service'); return false;">Services</a>
+      <a href="#" onclick="scrollToSection('reseach'); return false;">Research</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
     <button class="mobile-menu-btn">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M3 12h18M3 6h18M3 18h18"></path>
@@ -35,232 +39,219 @@
   </nav>
 
   <!-- Mobile Menu -->
-<div class="mobile-menu">
-  <a href="#aboutContainer">About</a>
-  <a href="#work">Products</a>
-  <a href="#service">Services</a>
-  <a href="#reseach">Research</a>
-<a href="contact.html">Contact Us</a>
-</div>
+  <div class="mobile-menu">
+    <a href="#" onclick="scrollToSection('aboutContainer'); return false;">About</a>
+    <a href="#" onclick="scrollToSection('work'); return false;">Products</a>
+    <a href="#" onclick="scrollToSection('service'); return false;">Services</a>
+    <a href="#" onclick="scrollToSection('reseach'); return false;">Research</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-<video autoplay muted loop playsinline class="hero-bg">
-  <source src="assets/bgvideo.mp4" type="video/mp4">
-  <!-- Optional fallback image -->
-  <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-       alt="Background">
-</video>
-<div class="hero-content">
-  <h1 class="hero-title">Welcome to <span class="highlight">Zynapse</span></h1>
-  <div class="hero-subtitle">
-    <p>Innovative Digital Experiences</p>
-  </div>
-  <button class="hero-btn" onclick="scrollToSection('about')">Explore Our Work</button>
-</div>
+    <video autoplay muted loop playsinline class="hero-bg">
+      <source src="assets/bgvideo.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <h1 class="hero-h1">Welcome to Zynapse</h1>
+      <div class="hero-subtitle">
+        <p>Innovative Digital Experiences</p>
+      </div>
+      <button class="hero-btn" onclick="scrollToSection('aboutContainer')">Explore Our Work</button>
+    </div>
   </section>
 
   <!-- About Section -->
-<section id="aboutContainer" class="about-container">
-  <div class="slide-container" id="slideContainer">
-    <!-- 4 sliding panels -->
-    <div class="slide-panel"></div>
-    <div class="slide-panel"></div>
-    <div class="slide-panel"></div>
-    <div class="slide-panel"></div>
+  <section id="aboutContainer" class="about-container">
+    <div class="slide-container" id="slideContainer">
+      <!-- 4 sliding panels -->
+      <div class="slide-panel"></div>
+      <div class="slide-panel"></div>
+      <div class="slide-panel"></div>
+      <div class="slide-panel"></div>
 
-    <!-- About Content (hidden until panels slide) -->
-    <div class="about-content">
-      <h2>Your Goal, Our Priority</h2>
-      <p class="about-description">
-        We're a creative studio focused on innovative digital experiences. Our team combines design thinking with technical excellence to create meaningful connections between brands and their audiences.
-      </p>
+      <!-- About Content -->
+      <div class="about-content">
+        <h2>Your Goal, Our Priority</h2>
+        <p class="about-description">
+          We're a creative studio focused on innovative digital experiences. Our team combines design thinking with technical excellence to create meaningful connections between brands and their audiences.
+        </p>
 
-      <!-- Static Horizontal Smileys -->
-      <div class="smiley-container">
-        <div class="stack-header">STACK</div>
-        <div class="smiley-row">
-          <div class="smiley-col">
-            <img src="assets/design.png" alt="UI Designs" class="smiley-img floating">
-            <p class="fade-in-text">UI Designs</p>
-          </div>
-          <div class="smiley-col">
-            <img src="assets/robot.png" alt="AI Technology" class="smiley-img floating delay-1">
-            <p class="fade-in-text delay-1">AI Technology</p>
-          </div>
-          <div class="smiley-col">
-            <img src="assets/design.png" alt="Cloud Technology" class="smiley-img floating delay-2">
-            <p class="fade-in-text delay-2">Cloud Technology</p>
-          </div>
-          <div class="smiley-col">
-            <img src="assets/robot.png" alt="Motions" class="smiley-img floating delay-3">
-            <p class="fade-in-text delay-3">Motions</p>
-          </div>
-          <div class="smiley-col">
-            <img src="assets/design.png" alt="Visual Effects" class="smiley-img floating delay-4">
-            <p class="fade-in-text delay-4">Visual Effects</p>
-          </div>
-          <div class="smiley-col">
-            <img src="assets/robot.png" alt="Development" class="smiley-img floating delay-5">
-            <p class="fade-in-text delay-5">Development</p>
+        <!-- Static Horizontal Smileys -->
+        <div class="smiley-container">
+          <div class="stack-header">STACK</div>
+          <div class="smiley-row">
+            <div class="smiley-col">
+              <img src="assets/design.png" alt="UI Designs" class="smiley-img floating">
+              <p class="fade-in-text">UI Designs</p>
+            </div>
+            <div class="smiley-col">
+              <img src="assets/robot.png" alt="AI Technology" class="smiley-img floating delay-1">
+              <p class="fade-in-text delay-1">AI Technology</p>
+            </div>
+            <div class="smiley-col">
+              <img src="assets/design.png" alt="Cloud Technology" class="smiley-img floating delay-2">
+              <p class="fade-in-text delay-2">Cloud Technology</p>
+            </div>
+            <div class="smiley-col">
+              <img src="assets/robot.png" alt="Motions" class="smiley-img floating delay-3">
+              <p class="fade-in-text delay-3">Motions</p>
+            </div>
+            <div class="smiley-col">
+              <img src="assets/design.png" alt="Visual Effects" class="smiley-img floating delay-4">
+              <p class="fade-in-text delay-4">Visual Effects</p>
+            </div>
+            <div class="smiley-col">
+              <img src="assets/robot.png" alt="Development" class="smiley-img floating delay-5">
+              <p class="fade-in-text delay-5">Development</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- Work Section -->
-<section id="work" class="section work">
-    <!-- <img src="assets/bgproduct.jpg" alt="productbg"> -->
-  <div class="work-content">
-  <div class="styled-heading">
-  <h2>Empowering You With Innovation</h2>
-  <p class="work-description">
-    Designed to empower businesses with intelligent solutions that accelerate growth and create lasting impact.
-  </p>
-</div>
+  </section>
+
+  <!-- Work Section -->
+  <section id="work" class="section work">
+    <div class="work-content">
+      <div class="styled-heading">
+        <h2>Empowering You With Innovation</h2>
+        <p class="work-description">
+          Designed to empower businesses with intelligent solutions that accelerate growth and create lasting impact.
+        </p>
+      </div>
       <!-- Carousel -->
-    <div class="carousel">
-      <!-- Item 1 -->
-      <div class="carousel-item">
-        <img src="assets/cspro_mini.png" alt="Project 1"> 
-        <div class="project-info">
-          <h3>Project Aurora</h3>
-          <p>Web Design</p>
+      <div class="carousel">
+        <!-- Item 1 -->
+        <div class="carousel-item">
+          <img src="assets/cspro_mini.png" alt="Project 1">
+          <div class="project-info">
+            <h3>Project Aurora</h3>
+            <p>Web Design</p>
+          </div>
         </div>
-      </div>
-
-      <!-- Item 2 -->
-      <div class="carousel-item">
-        <img src="assets/image.png" alt="Project 2">
-        <div class="project-info">
-          <h3>Nexus Platform</h3>
-          <p>Development</p>
+        <!-- Item 2 -->
+        <div class="carousel-item">
+          <img src="assets/image.png" alt="Project 2">
+          <div class="project-info">
+            <h3>Nexus Platform</h3>
+            <p>Development</p>
+          </div>
         </div>
-      </div>
-
-      <!-- Item 3 -->
-      <div class="carousel-item">
-        <img src="assets/image copy.png" alt="Project 3">
-        <div class="project-info">
-          <h3>Brand Identity</h3>
-          <p>Branding</p>
+        <!-- Item 3 -->
+        <div class="carousel-item">
+          <img src="assets/image copy.png" alt="Project 3">
+          <div class="project-info">
+            <h3>Brand Identity</h3>
+            <p>Branding</p>
+          </div>
         </div>
-      </div>
-
-      <!-- Item 4 -->
-      <div class="carousel-item">
-        <img src="assets/image copy 2.png" alt="Project 4">
-        <div class="project-info">
-          <h3>Cyber Pulse</h3>
-          <p>UI/UX</p>
+        <!-- Item 4 -->
+        <div class="carousel-item">
+          <img src="assets/image copy 2.png" alt="Project 4">
+          <div class="project-info">
+            <h3>Cyber Pulse</h3>
+            <p>UI/UX</p>
+          </div>
         </div>
-      </div>
-
-      <!-- Item 5 -->
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1603969072881-b0fc7f3d77d7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 5">
-        <div class="project-info">
-          <h3>Quantum Labs</h3>
-          <p>App Design</p>
+        <!-- Item 5 -->
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1603969072881-b0fc7f3d77d7?q=80&w=1170&auto=format&fit=crop" alt="Project 5">
+          <div class="project-info">
+            <h3>Quantum Labs</h3>
+            <p>App Design</p>
+          </div>
         </div>
-      </div>
-
-      <!-- Item 6 -->
-      <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 6">
-        <div class="project-info">
-          <h3>Neon Vision</h3>
-          <p>Marketing</p>
+        <!-- Item 6 -->
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?fm=jpg&q=60&w=3000" alt="Project 6">
+          <div class="project-info">
+            <h3>Neon Vision</h3>
+            <p>Marketing</p>
+          </div>
         </div>
       </div>
     </div>
-    <!-- End Carousel -->
-<button class="product-btn" onclick="scrollToSection('about')">
-Check Out Products
-</button>
-  </div>
-</section>
-    <!-- Services Section -->
-   <section id="service" class="section service">
-        <div class="main-container">
-            <!-- Floating Cards -->
-            <div class="floating-card card-1 parallax-element scroll-element" data-speed="0.5">
-                <video class="profile-image" autoplay muted loop playsinline>
-    <source src="assets/card1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-            </div>
-            <div class="floating-card card-2 parallax-element scroll-element" data-speed="0.3">
-                                <video class="profile-image" autoplay muted loop playsinline>
-    <source src="assets/card2.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-            </div>
-            <div class="floating-card card-3 parallax-element scroll-element" data-speed="0.7">
-                               <video class="profile-image" autoplay muted loop playsinline>
-    <source src="assets/card3.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-            </div>
-            <div class="floating-card card-6 parallax-element scroll-element" data-speed="0.9">
-                                <video class="profile-image" autoplay muted loop playsinline>
-    <source src="assets/card4.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-            </div>
+  </section>
 
-            <!-- Main Title Section -->
-            <section class="main-title">
-                <h1 class="title-text">Our<br>Services</h1>
-                <p class="subtitle">startups can count on!</p>
-               <button class="product-btn" onclick="scrollToSection('about')">
-Explore Services
-</button>
-            </section>
-        </div>
-    </section>
+  <!-- Services Section -->
+  <section id="service" class="section service">
+    <div class="main-container">
+      <!-- Floating Cards -->
+      <div class="floating-card card-1 parallax-element scroll-element" data-speed="0.5">
+        <video class="profile-image" autoplay muted loop playsinline>
+          <source src="assets/card1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="floating-card card-2 parallax-element scroll-element" data-speed="0.3">
+        <video class="profile-image" autoplay muted loop playsinline>
+          <source src="assets/card2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="floating-card card-3 parallax-element scroll-element" data-speed="0.7">
+        <video class="profile-image" autoplay muted loop playsinline>
+          <source src="assets/card3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="floating-card card-6 parallax-element scroll-element" data-speed="0.9">
+        <video class="profile-image" autoplay muted loop playsinline>
+          <source src="assets/card4.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Main Title Section -->
+      <section class="main-title">
+        <h1 class="title-text">Driving Innovation<br>Together</h1>
+        <p class="subtitle">startups can count on!</p>
+      </section>
+    </div>
+  </section>
 
   <!-- Research Section -->
- <div class="background-layer"></div>
-  <section   id="reseach"  class="research-section">
+  <div class="background-layer"></div>
+  <section id="reseach" class="research-section">
     <div class="research-card">
-
-      <!-- Top Section -->
       <div class="content-container">
         <!-- Left Text -->
         <div class="text-content">
           <h1>The Future Of <span class="highlight">Research</span> Starts Here.</h1>
           <a href="contact.html" class="contact-button">Reach Us</a>
         </div>
-
         <!-- Right Image -->
         <div class="image-container">
           <img src="assets/lookleft.jpg" alt="Business Education" class="image-card">
         </div>
       </div>
-
-      <!-- Gradient Line -->
       <div class="gradient-line"></div>
-
-      <!-- Horizontal Auto Scroll Cards -->
       <div class="cards-wrapper">
         <div class="cards-container" id="cards-container">
-          <!-- Cards will be injected via JS -->
+          <!-- Cards via JS -->
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- JS -->
+  <script>
+    // Reset scroll to top on refresh
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+
+    // Smooth scroll handler
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  </script>
+
   <script src="js/hero.js"></script>
-<!-- Lottie library and About section JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.11.2/lottie.min.js"></script>
-<script src="js/about.js"></script>
+  <script src="js/about.js"></script>
   <script src="js/work.js"></script>
-    <script src="js/services.js"></script>
-      <script src="js/reseach.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/reseach.js"></script>
   <script src="js/contact.js"></script>
 </body>
 </html>

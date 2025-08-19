@@ -40,3 +40,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
   workContents.forEach(content => workContentObserver.observe(content));
 });
+// Fade out work section when scrolling past it
+window.addEventListener("scroll", () => {
+  const workSection = document.querySelector(".work");
+
+  if (!workSection) return;
+
+  const sectionTop = workSection.offsetTop;
+  const sectionHeight = workSection.offsetHeight;
+  const scrollY = window.scrollY;
+
+  // Progress inside the work section
+  const progress = (scrollY - sectionTop) / sectionHeight;
+
+  if (progress >= 0 && progress <= 1) {
+    workSection.style.opacity = 1 - progress;   // fade out
+    workSection.style.transform = `translateY(${progress * 50}px)`; // smooth drift
+  } else if (progress < 0) {
+    workSection.style.opacity = 1;
+    workSection.style.transform = "translateY(0px)";
+  } else {
+    workSection.style.opacity = 0;
+  }
+});
+

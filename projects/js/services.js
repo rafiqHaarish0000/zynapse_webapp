@@ -8,14 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Title elements appear immediately
                 if (entry.target.classList.contains('title-text') || 
                     entry.target.classList.contains('subtitle') || 
                     entry.target.classList.contains('cta-button')) {
                     entry.target.classList.add('active');
-                } 
-                // Cards appear after delay
-                else if (entry.target.classList.contains('floating-card')) {
+                } else if (entry.target.classList.contains('floating-card')) {
                     const delay = parseInt(entry.target.style.transitionDelay || '0') * 1000;
                     setTimeout(() => {
                         entry.target.classList.add('active');
@@ -28,17 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '100px'
     });
 
-    // Observe all elements
     animatableElements.forEach(el => {
         observer.observe(el);
-        
-        // Pause float animation initially for cards
         if (el.classList.contains('floating-card')) {
             el.style.animationPlayState = 'paused';
         }
     });
 
-    // Button effects
+    // Ripple Button effects
     const ctaButton = document.querySelector('.cta-button');
     if (ctaButton) {
         ctaButton.addEventListener('click', function(e) {
@@ -64,30 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.position = 'relative';
             this.style.overflow = 'hidden';
             this.appendChild(ripple);
-
             setTimeout(() => ripple.remove(), 600);
-            
-            // Show booking modal
             showBookingModal();
         });
     }
-
-    // Floating cards interactive effects
-    document.querySelectorAll('.floating-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.zIndex = '100';
-            if (card.querySelector('img')) {
-                card.querySelector('img').style.transform = 'scale(1.1)';
-            }
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.zIndex = '1';
-            if (card.querySelector('img')) {
-                card.querySelector('img').style.transform = 'scale(1)';
-            }
-        });
-    });
 
     // Performance optimization
     document.addEventListener('visibilitychange', () => {
@@ -142,47 +116,59 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add required CSS animations
+    // Add animations
     const style = document.createElement('style');
     style.textContent = `
         @keyframes ripple {
-            from {
-                transform: scale(0);
-                opacity: 1;
-            }
-            to {
-                transform: scale(1);
-                opacity: 0;
-            }
+            from { transform: scale(0); opacity: 1; }
+            to { transform: scale(1); opacity: 0; }
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     `;
     document.head.appendChild(style);
-});
-// Floating cards interactive effects
-document.querySelectorAll('.floating-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.zIndex = '1000';
-        card.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        if (card.querySelector('img')) {
-            card.querySelector('img').style.transform = 'scale(1.05)';
+
+    // === SCROLL EFFECTS ===
+    let lastScrollPosition = 0;
+    const mainTitle = document.querySelector('.main-title');
+
+    window.addEventListener('scroll', function() {
+        const currentScrollPosition = window.scrollY;
+
+        if (mainTitle) {
+            // Only zoom IN when scrolling UP
+            if (currentScrollPosition < lastScrollPosition) {
+                // Scrolling UP
+                mainTitle.style.transform = "scale(1.1)";
+                mainTitle.style.transition = "transform 0.3s ease-out";
+            } else {
+                // Reset when scrolling DOWN
+                mainTitle.style.transform = "scale(1)";
+                mainTitle.style.transition = "transform 0.3s ease-out";
+            }
         }
+
+        lastScrollPosition = currentScrollPosition;
     });
 
-    card.addEventListener('mouseleave', () => {
-        card.style.zIndex = '1';
-        card.style.transition = 'all 0.5s ease';
-        if (card.querySelector('img')) {
-            card.querySelector('img').style.transform = 'scale(1)';
-        }
-    });
+    // Fade out service section smoothly
+    const serviceSection = document.querySelector(".service");
+    if (serviceSection) {
+        window.addEventListener("scroll", () => {
+            const sectionTop = serviceSection.offsetTop;
+            const sectionHeight = serviceSection.offsetHeight;
+            const scrollY = window.scrollY;
+
+            const progress = (scrollY - sectionTop) / sectionHeight;
+            if (progress >= 0 && progress <= 1) {
+                serviceSection.style.opacity = 1 - progress;   
+                serviceSection.style.transform = `translateY(${progress * 50}px)`;
+            } else if (progress < 0) {
+                serviceSection.style.opacity = 1;
+                serviceSection.style.transform = "translateY(0px)";
+            } else {
+                serviceSection.style.opacity = 0;
+            }
+        });
+    }
 });

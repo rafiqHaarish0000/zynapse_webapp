@@ -1,15 +1,12 @@
 .about {
   height: auto;
   width: 100%;
-position: sticky; /* remove sticky */
-  top: 0;
   z-index: 2;
   font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
   display: flex;
   background-color: #000;
   align-items: center;
   justify-content: center;
-
 }
 
 /* Panels (sliding cover) */
@@ -18,6 +15,8 @@ position: sticky; /* remove sticky */
   position: relative;
   overflow: hidden;
   background: #2c3e50;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
 }
 
 .slide-container {
@@ -31,10 +30,8 @@ position: sticky; /* remove sticky */
   position: absolute;
   width: 100%;
   height: 25%;
-    overflow: hidden;
-background: linear-gradient(45deg, #7b2ff7, #9c27b0);
-
-
+  overflow: hidden;
+  background: linear-gradient(45deg, #7b2ff7, #9c27b0);
   transition: transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 10;
 }
@@ -45,16 +42,14 @@ background: linear-gradient(45deg, #7b2ff7, #9c27b0);
 .slide-panel:nth-child(4) { top: 75%; transition-delay: 0.3s; }
 
 .slide-container.open .slide-panel:nth-child(odd) {
-    overflow: hidden;
   transform: translateX(-100%);
 }
 
 .slide-container.open .slide-panel:nth-child(even) {
-    overflow: hidden;
   transform: translateX(100%);
 }
 
-/* Content wrapper behind panels */
+/* Content wrapper */
 .about-content {
   position: absolute;
   top: 0;
@@ -63,7 +58,6 @@ background: linear-gradient(45deg, #7b2ff7, #9c27b0);
   height: 100%;
   z-index: 10;
   display: flex;
-    overflow: hidden;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -75,18 +69,15 @@ background: linear-gradient(45deg, #7b2ff7, #9c27b0);
   transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Reveal content only after panels slide */
 .slide-container.open .about-content {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0s; /* wait until panels finish */
 }
 
 /* About heading */
 .about-content h2 {
-  font-size: 5rem;
+  font-size: 4rem;
   margin-bottom: 20px;
-  margin-top: 140px;
   color: #9b5de5;
   font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
 }
@@ -95,7 +86,7 @@ background: linear-gradient(45deg, #7b2ff7, #9c27b0);
 .about-description {
   max-width: 700px;
   margin: 0 auto 50px auto;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #fff;
   line-height: 1.6;
   opacity: 0;
@@ -103,6 +94,7 @@ background: linear-gradient(45deg, #7b2ff7, #9c27b0);
   transition: opacity 1s ease, transform 1s ease;
   transition-delay: 1.5s;
 }
+
 .slide-container.open .about-description {
   opacity: 1;
   transform: translateY(0);
@@ -117,8 +109,9 @@ background: linear-gradient(45deg, #7b2ff7, #9c27b0);
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease, transform 1s ease;
-  transition-delay: 2.5s; /* appears last */
+  transition-delay: 2.5s;
 }
+
 .slide-container.open .smiley-container {
   opacity: 1;
   transform: translateY(0);
@@ -149,10 +142,7 @@ background: linear-gradient(45deg, #7b2ff7, #9c27b0);
   justify-content: center;
   gap: 60px;
   padding: 80px;
-  background: #000;
   flex-wrap: wrap;
-  border: 2px solid #6B4285;
-  border-radius: 30px 30px 0 0;
   position: relative;
   padding-top: 60px;
 }
@@ -166,25 +156,41 @@ background: linear-gradient(45deg, #7b2ff7, #9c27b0);
   transform: translateY(40px);
   transition: opacity 1s ease, transform 1s ease;
 }
+
 .slide-container.open .smiley-col {
   opacity: 1;
   transform: translateY(0);
 }
-.smiley-col:nth-child(1) { transition-delay: 3s; }
-.smiley-col:nth-child(2) { transition-delay: 3.4s; }
-.smiley-col:nth-child(3) { transition-delay: 3.8s; }
-.smiley-col:nth-child(4) { transition-delay: 4.2s; }
-.smiley-col:nth-child(5) { transition-delay: 4.6s; }
-.smiley-col:nth-child(6) { transition-delay: 5s; }
-.smiley-col:nth-child(7) { transition-delay: 5.4s; }
 
+/* Smiley Image with Continuous Animation */
 .smiley-img {
   width: 100px;
   height: 100px;
   object-fit: contain;
   filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
-  transition: all 0.5s ease;
+  animation: none; /* Initially no animation */
 }
+
+.slide-container.open .smiley-img {
+  animation: subtleJiggle 4s ease-in-out infinite;
+}
+
+/* Stagger animations */
+.slide-container.open .smiley-col:nth-child(1) .smiley-img { animation-delay: 3.2s; }
+.slide-container.open .smiley-col:nth-child(2) .smiley-img { animation-delay: 3.6s; }
+.slide-container.open .smiley-col:nth-child(3) .smiley-img { animation-delay: 4s; }
+.slide-container.open .smiley-col:nth-child(4) .smiley-img { animation-delay: 4.4s; }
+.slide-container.open .smiley-col:nth-child(5) .smiley-img { animation-delay: 4.8s; }
+.slide-container.open .smiley-col:nth-child(6) .smiley-img { animation-delay: 5.2s; }
+.slide-container.open .smiley-col:nth-child(7) .smiley-img { animation-delay: 5.6s; }
+
+/* Hover effect */
+.smiley-img:hover {
+  animation: subtleJiggle 1.5s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 20px rgba(155, 93, 229, 0.8)) !important;
+  transform: scale(1.1) !important;
+}
+
 .smiley-col p {
   margin-top: 15px;
   font-size: 1rem;
@@ -195,17 +201,35 @@ background: linear-gradient(45deg, #7b2ff7, #9c27b0);
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .slide-container.open .smiley-col p {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 /* Keyframes */
 @keyframes pulse {
   0% { transform: translateX(-50%) scale(1); }
   50% { transform: translateX(-50%) scale(1.05); }
   100% { transform: translateX(-50%) scale(1); }
+}
+
+@keyframes subtleJiggle {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg) scale(1);
+    filter: drop-shadow(0 5px 10px rgba(155, 93, 229, 0.4));
+  }
+  25% { 
+    transform: translateY(-3px) rotate(-1deg) scale(1.02);
+    filter: drop-shadow(0 8px 15px rgba(155, 93, 229, 0.6));
+  }
+  50% { 
+    transform: translateY(0) rotate(0.5deg) scale(1);
+  }
+  75% { 
+    transform: translateY(3px) rotate(1deg) scale(1.02);
+    filter: drop-shadow(0 8px 15px rgba(155, 93, 229, 0.6));
+  }
 }
 
 /* Responsive */
@@ -215,4 +239,11 @@ background: linear-gradient(45deg, #7b2ff7, #9c27b0);
   .smiley-row { gap: 30px; padding: 50px 20px; padding-top: 50px; }
   .smiley-img { width: 60px; height: 60px; }
   .stack-header { font-size: 1.2rem; padding: 6px 20px; }
+  
+  /* Adjust animation for mobile */
+  @keyframes subtleJiggle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-2px) rotate(-0.5deg); }
+    75% { transform: translateY(2px) rotate(0.5deg); }
+  }
 }

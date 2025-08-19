@@ -11,14 +11,16 @@
   <!-- Navigation -->
   <nav>
     <div class="logo">
-      <img src="assets/logo.png" alt="Zynapse Logo">
+        <a href="index.html">
+    <img src="assets/logo.png" alt="Zynapse Logo">
+  </a>
     </div>
     <div class="nav-links">
       <a href="index.html#aboutContainer">About</a>
       <a href="index.html#work">Products</a>
       <a href="index.html#service">Services</a>
       <a href="index.html#research">Research</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="contact.html" class="active">Contact Us</a>
     </div>
   </nav>
 
@@ -30,54 +32,7 @@
                 <div class="particles" id="particles"></div>
                 
                 <div class="content-container">
-                    <!-- Hero Section -->
-                    <div class="hero-section">
-                        <h1 class="hero-title">
-                            Let's Create <br>
-                            Something <span style="text-decoration: underline; text-decoration-color: #7375fe;">Extraordinary</span>
-                        </h1>
-                        <p class="hero-subtitle">
-                            We're not just building products—we're crafting experiences.
-                            Share your vision with us and let's make magic happen.
-                        </p>
-                    </div>
-                    
-                    <!-- Contact Form + Globe Section -->
-                    <div class="contact-globe-container">
-                        <!-- Glass Morphism Form -->
-                        <div class="contact-form">
-                            <div class="form-decoration"></div>
-                            <h2 class="form-title">Send Us Your Vision</h2>
-                            <form id="contactForm">
-                                <div class="form-fields">
-                                    <div class="form-field">
-                                        <span class="field-icon">👤</span>
-                                        <input type="text" class="form-input" placeholder="Your Name" required>
-                                    </div>
-                                    <div class="form-field">
-                                        <span class="field-icon">✉️</span>
-                                        <input type="email" class="form-input" placeholder="Email Address" required>
-                                    </div>
-                                    <div class="form-field">
-                                        <span class="field-icon">🏢</span>
-                                        <input type="text" class="form-input" placeholder="Company (Optional)">
-                                    </div>
-                                    <div class="form-field">
-                                        <textarea class="form-textarea" placeholder="Tell us about your project..." required></textarea>
-                                    </div>
-                                    <button type="submit" class="submit-btn">
-                                        <span class="btn-text">Launch Project</span>
-                                        <div class="btn-bg" id="btnBg"></div>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        
-                        <!-- Interactive Globe Section -->
-        
-                    </div>
-                    
-                    <!-- Contact Cards Section -->
+                                        <!-- Contact Cards Section -->
                     <div class="offices-section">
                         <h2 class="section-title">Our Global Offices</h2>
                         <div class="offices-grid">
@@ -181,9 +136,7 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- CTA Section -->
-                    <div class="cta-section">
+                                        <div class="cta-section">
                         <div class="cta-decoration-top"></div>
                         <div class="cta-decoration-bottom"></div>
                         <h2 class="cta-title">Ready to Transform Your Vision?</h2>
@@ -192,17 +145,51 @@
                             revolutionize your industry, our team is ready to collaborate
                             with you.
                         </p>
-                        <button class="cta-btn">
-                            <span class="btn-text">Start Your Project Today</span>
-                            <div class="btn-bg" id="ctaBtnBg"></div>
-                        </button>
+                   <button class="cta-btn" id="projectBtn">
+    <span class="btn-text">Start Your Project Today</span>
+    <div class="btn-bg" id="ctaBtnBg"></div>
+</button>
                     </div>
                 </div>
             </main>
         </section>
     </div>
   </section>
-
   <script src="js/contact.js"></script>
 </body>
+<!-- The dialog container -->
+<div class="dialog-overlay" id="dialogOverlay">
+    <div class="dialog-container" id="dialogContainer">
+        <div class="dialog-content contact-form">
+            <div class="form-decoration"></div>
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <h2 class="form-title">Send Us Your Vision</h2>
+            <form id="projectForm">
+                <div class="form-fields">
+                    <div class="form-field">
+                        <span class="field-icon">👤</span>
+                        <input type="text" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-field">
+                        <span class="field-icon">✉️</span>
+                        <input type="email" id="email" class="form-input" placeholder="Email Address" name="email" required>
+                    </div>
+                    <div class="form-field">
+                        <span class="field-icon">📱</span>
+                        <input type="tel" id="phone" class="form-input" placeholder="Phone Number" name="phone" required>
+                    </div>
+                    <div class="form-field">
+                        <span class="field-icon">🏢</span>
+                        <textarea id="address" class="form-textarea" placeholder="Tell us about your project..." name="address" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Launch Project</span>
+                        <div class="btn-bg" id="formBtnBg"></div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 </html>

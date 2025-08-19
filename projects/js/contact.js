@@ -1,48 +1,49 @@
 // Create particles
 const particlesContainer = document.getElementById('particles');
-for (let i = 0; i < 50; i++) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    
-    const size = Math.random() * 5 + 2;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    particle.style.background = `rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1})`;
-    particle.style.borderRadius = '50%';
-    particle.style.left = `${Math.random() * 100}%`;
-    particle.style.top = `${Math.random() * 100}%`;
-    
-    // Animation
-    const keyframes = [
-        { 
-            opacity: 0.1,
-            transform: 'translate(0, 0)'
-        },
-        { 
-            opacity: 0.8,
-            transform: `translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px)`
-        },
-        { 
-            opacity: 0.1,
-            transform: `translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px)`
-        }
-    ];
-    
-    const options = {
-        duration: Math.random() * 10000 + 10000,
-        iterations: Infinity,
-        easing: 'linear'
-    };
-    
-    particle.animate(keyframes, options);
-    particlesContainer.appendChild(particle);
+if (particlesContainer) {
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 5 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.background = `rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1})`;
+        particle.style.borderRadius = '50%';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Animation
+        const keyframes = [
+            { 
+                opacity: 0.1,
+                transform: 'translate(0, 0)'
+            },
+            { 
+                opacity: 0.8,
+                transform: `translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px)`
+            },
+            { 
+                opacity: 0.1,
+                transform: `translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px)`
+            }
+        ];
+        
+        const options = {
+            duration: Math.random() * 10000 + 10000,
+            iterations: Infinity,
+            easing: 'linear'
+        };
+        
+        particle.animate(keyframes, options);
+        particlesContainer.appendChild(particle);
+    }
 }
 
 // Button background animation
-const btnBg = document.getElementById('btnBg');
-const ctaBtnBg = document.getElementById('ctaBtnBg');
-
 function animateButtonBg(element) {
+    if (!element) return;
+    
     const keyframes = [
         { opacity: 0 },
         { opacity: 1 },
@@ -57,8 +58,8 @@ function animateButtonBg(element) {
     element.animate(keyframes, options);
 }
 
-if (btnBg) animateButtonBg(btnBg);
-if (ctaBtnBg) animateButtonBg(ctaBtnBg);
+animateButtonBg(document.getElementById('btnBg'));
+animateButtonBg(document.getElementById('ctaBtnBg'));
 
 // Form submission
 const contactForm = document.getElementById('contactForm');
@@ -70,13 +71,73 @@ if (contactForm) {
     });
 }
 
-// Globe implementation
+// Main DOM ready handler
 document.addEventListener('DOMContentLoaded', function() {
-    // Wait for the DOM to be fully loaded before initializing the globe
+    // Initialize globe after a short delay
     setTimeout(initGlobe, 100);
+    
+    // Dialog functionality
+    const projectBtn = document.querySelector('.cta-btn');
+    const dialogOverlay = document.getElementById('dialogOverlay');
+    const dialogContainer = document.getElementById('dialogContainer');
+    const closeBtn = document.getElementById('closeBtn');
+    const projectForm = document.getElementById('projectForm');
+    const mainHeader = document.querySelector('nav'); // Get the nav header
+    
+    if (projectBtn && dialogOverlay) {
+        // Open dialog
+        projectBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            dialogOverlay.style.display = 'flex';
+            if (mainHeader) mainHeader.classList.add('hidden');
+            
+            setTimeout(() => {
+                dialogOverlay.classList.add('show');
+                dialogContainer.classList.add('show');
+            }, 10);
+        });
+        
+        // Close dialog
+        function closeDialog() {
+            dialogContainer.classList.remove('show');
+            setTimeout(() => {
+                dialogOverlay.classList.remove('show');
+                setTimeout(() => {
+                    dialogOverlay.style.display = 'none';
+                    if (mainHeader) mainHeader.classList.remove('hidden');
+                }, 500);
+            }, 500);
+        }
+        
+        closeBtn.addEventListener('click', closeDialog);
+        dialogOverlay.addEventListener('click', function(e) {
+            if (e.target === dialogOverlay) closeDialog();
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && dialogOverlay.classList.contains('show')) {
+                closeDialog();
+            }
+        });
+        
+        if (projectForm) {
+            projectForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Form submitted successfully!');
+                closeDialog();
+            });
+        }
+    }
 });
 
+// Globe implementation - NOTE: Requires Three.js and ThreeGlobe to be loaded first
 function initGlobe() {
+    // Check if required libraries are available
+    if (typeof THREE === 'undefined' || typeof ThreeGlobe === 'undefined') {
+        console.warn('Three.js or ThreeGlobe not loaded - skipping globe initialization');
+        return;
+    }
+
     const markers = [
         {
             lat: 37.0902,
@@ -104,39 +165,13 @@ function initGlobe() {
         }
     ];
     
-    // Calculate center of all markers
-    const lats = markers.map(m => m.lat);
-    const lngs = markers.map(m => m.lng);
-    const centerLat = lats.reduce((a, b) => a + b, 0) / lats.length;
-    const centerLng = lngs.reduce((a, b) => a + b, 0) / lngs.length;
-    
-    // Create the Globe
     const globe = new ThreeGlobe()
         .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
         .htmlElementsData(markers)
         .htmlElement(d => {
             const el = document.createElement('div');
-            el.innerHTML = `
-                <div style="
-                    width: 30px;
-                    height: 30px;
-                    background: #7375fe;
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    font-size: 12px;
-                    cursor: pointer;
-                    transform: scale(1);
-                    transition: transform 0.2s ease;
-                ">
-                    📍
-                </div>
-            `;
+            el.innerHTML = `<div class="globe-marker">📍</div>`;
             el.style.position = 'absolute';
-            el.style.transformOrigin = 'center center';
             
             el.addEventListener('mouseover', () => {
                 el.style.transform = 'scale(1.5)';
@@ -153,84 +188,113 @@ function initGlobe() {
         .htmlLat(d => d.lat)
         .htmlLng(d => d.lng);
     
-    // Setup renderer
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(1200, 600);
     renderer.setClearColor(0xffffff, 0);
-    document.getElementById('globe').appendChild(renderer.domElement);
     
-    // Setup scene
-    const scene = new THREE.Scene();
-    scene.add(globe);
-    scene.add(new THREE.AmbientLight(0xcccccc));
-    scene.add(new THREE.DirectionalLight(0xffffff, 0.8));
-    
-    // Setup camera
-    const camera = new THREE.PerspectiveCamera();
-    camera.aspect = 1200/600;
-    camera.updateProjectionMatrix();
-    
-    // Set initial camera position
-    globe.pointOfView({ lat: centerLat, lng: centerLng, altitude: 2.5 });
-    
-    // Add auto-rotation
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.3;
-    controls.enableZoom = false;
-    controls.enablePan = false;
-    
-    // Animation loop
-    (function animate() {
-        controls.update();
-        renderer.render(scene, camera);
-        requestAnimationFrame(animate);
-    })();
-    
-    // Tooltip functions
-    function showTooltip(data) {
-        const tooltip = document.getElementById('markerTooltip');
-        const title = document.getElementById('tooltipTitle');
-        const address = document.getElementById('tooltipAddress');
-        const phone = document.getElementById('tooltipPhone');
-        const email = document.getElementById('tooltipEmail');
+    const globeContainer = document.getElementById('globe');
+    if (globeContainer) {
+        globeContainer.appendChild(renderer.domElement);
         
-        title.textContent = data.label;
-        address.textContent = data.address || `${data.lat.toFixed(4)}, ${data.lng.toFixed(4)}`;
-        phone.textContent = data.phone || "+1 (555) 123-4567";
-        email.textContent = data.email || "contact@example.com";
+        const scene = new THREE.Scene();
+        scene.add(globe);
+        scene.add(new THREE.AmbientLight(0xcccccc));
+        scene.add(new THREE.DirectionalLight(0xffffff, 0.8));
         
-        tooltip.style.display = 'block';
-        
-        // Animate tooltip appearance
-        tooltip.animate([
-            { opacity: 0, transform: 'translateY(10px)' },
-            { opacity: 1, transform: 'translateY(0)' }
-        ], {
-            duration: 300,
-            easing: 'ease-out'
-        });
-    }
-    
-    function hideTooltip() {
-        const tooltip = document.getElementById('markerTooltip');
-        
-        // Animate tooltip disappearance
-        tooltip.animate([
-            { opacity: 1, transform: 'translateY(0)' },
-            { opacity: 0, transform: 'translateY(10px)' }
-        ], {
-            duration: 200,
-            easing: 'ease-in'
-        }).onfinish = () => {
-            tooltip.style.display = 'none';
-        };
-    }
-    
-    // Handle window resize
-    window.addEventListener('resize', function() {
+        const camera = new THREE.PerspectiveCamera();
         camera.aspect = 1200/600;
         camera.updateProjectionMatrix();
-        renderer.setSize(1200, 600);
-    });
+        
+        // Calculate center of all markers
+        const centerLat = markers.reduce((sum, m) => sum + m.lat, 0) / markers.length;
+        const centerLng = markers.reduce((sum, m) => sum + m.lng, 0) / markers.length;
+        globe.pointOfView({ lat: centerLat, lng: centerLng, altitude: 2.5 });
+        
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.3;
+        controls.enableZoom = false;
+        controls.enablePan = false;
+        
+        (function animate() {
+            controls.update();
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        })();
+    }
 }
+
+// Helper functions for tooltip (make sure you have these elements in your HTML)
+function showTooltip(data) {
+    const tooltip = document.getElementById('markerTooltip');
+    if (!tooltip) return;
+    
+    // Update tooltip content here
+    tooltip.style.display = 'block';
+    tooltip.animate([
+        { opacity: 0, transform: 'translateY(10px)' },
+        { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 300, easing: 'ease-out' });
+}
+
+function hideTooltip() {
+    const tooltip = document.getElementById('markerTooltip');
+    if (!tooltip) return;
+    
+    tooltip.animate([
+        { opacity: 1, transform: 'translateY(0)' },
+        { opacity: 0, transform: 'translateY(10px)' }
+    ], { 
+        duration: 200, 
+        easing: 'ease-in' 
+    }).onfinish = () => {
+        tooltip.style.display = 'none';
+    };
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const nav = document.querySelector('nav');
+    const dialog = document.getElementById('dialogContainer');
+    let lastScrollTop = 0;
+    const delta = 5;
+    let ticking = false;
+
+    function updateNavVisibility() {
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Hide nav if dialog is visible
+        if (dialog && dialogOverlay.classList.contains('show')) {
+            nav.style.transform = 'translateY(-100%)';
+            nav.style.transition = 'transform 0.3s ease';
+            lastScrollTop = st;
+            return;
+        }
+
+        if (Math.abs(st - lastScrollTop) > delta) {
+            if (st > lastScrollTop) {
+                // Scroll Down → hide nav
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                // Scroll Up → show nav
+                nav.style.transform = 'translateY(0)';
+            }
+            nav.style.transition = 'transform 0.3s ease';
+            lastScrollTop = st <= 0 ? 0 : st;
+        }
+    }
+
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            window.requestAnimationFrame(function () {
+                updateNavVisibility();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Also watch dialog open/close to hide/show nav immediately
+    const observer = new MutationObserver(updateNavVisibility);
+    if (dialog) {
+        observer.observe(dialog, { attributes: true, attributeFilter: ['style', 'class'] });
+    }
+});
