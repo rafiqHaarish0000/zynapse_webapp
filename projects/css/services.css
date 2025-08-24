@@ -216,6 +216,8 @@ body {
     transform: scale(0.95);
 }
 
+
+
 .title-text {
     font-size: clamp(2.5rem, 8vw, 4rem);
     font-style: italic;

@@ -6,6 +6,41 @@
   font-family: 'Poppins', sans-serif;
   text-align: center;
 }
+.btn-container {
+  display: flex;
+  justify-content: flex-end;  /* push button to right */
+  margin-top: 20px;
+  margin-right: 160px;           /* spacing from above */
+}
+
+.view-btn {
+  background: #000;              /* black background */
+  color: #fff;                   /* white text */
+  padding: 4px 4px;            /* padding */
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;          /* align text + arrow */
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+  background: #9b5de5;            /* purple bg on hover */
+  color: #fff;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.view-btn:hover .arrow {
+  transform: translateX(4px);    /* arrow slides on hover */
+}
 
 
 .work-image img {

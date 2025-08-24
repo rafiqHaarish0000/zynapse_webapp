@@ -6,6 +6,7 @@
   <title>Zynapse</title>
 
   <!-- CSS -->
+
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/about.css">
@@ -13,6 +14,11 @@
   <link rel="stylesheet" href="css/services.css">
   <link rel="stylesheet" href="css/research.css">
   <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/footer.css">
+   <link rel="stylesheet" href="AllProducts/css/project.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation -->
@@ -26,7 +32,8 @@
     </div>
     <div class="nav-links">
       <a href="#" onclick="scrollToSection('aboutContainer'); return false;">About</a>
-      <a href="#" onclick="scrollToSection('work'); return false;">Products</a>
+<a href="../projects/AllProducts/project.html" id="products-link" class="nav-link">Products</a>
+
       <a href="#" onclick="scrollToSection('service'); return false;">Services</a>
       <a href="#" onclick="scrollToSection('reseach'); return false;">Research</a>
       <a href="contact.html">Contact Us</a>
@@ -53,7 +60,7 @@
       <source src="assets/bgvideo.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-      <h1 class="hero-h1">Welcome to Zynapse</h1>
+      <h1 class="hero-h1">Zynapse</h1>
       <div class="hero-subtitle">
         <p>Innovative Digital Experiences</p>
       </div>
@@ -74,7 +81,7 @@
       <div class="about-content">
         <h2>Your Goal, Our Priority</h2>
         <p class="about-description">
-          We're a creative studio focused on innovative digital experiences. Our team combines design thinking with technical excellence to create meaningful connections between brands and their audiences.
+          We are a leading software education platform helping learners master coding, design, and emerging tech skills with hands-on projects.
         </p>
 
         <!-- Static Horizontal Smileys -->
@@ -119,17 +126,25 @@
         <p class="work-description">
           Designed to empower businesses with intelligent solutions that accelerate growth and create lasting impact.
         </p>
+       <div class="btn-container">
+  <button class="view-btn">
+   <a href="AllProducts/project.html" class="view-btn">
+    View All Products <span class="arrow">→</span>
+  </a>
+  </button>
+</div>
+
       </div>
       <!-- Carousel -->
       <div class="carousel">
         <!-- Item 1 -->
-        <div class="carousel-item">
-          <img src="assets/cspro_mini.png" alt="Project 1">
-          <div class="project-info">
-            <h3>Project Aurora</h3>
-            <p>Web Design</p>
-          </div>
-        </div>
+ <div class="carousel-item">
+    <img src="assets/cspro_mini.png" alt="Project 1">
+    <div class="project-info">
+      <h3>Project Aurora</h3>
+      <p>Web Design</p>
+    </div>
+  </div>
         <!-- Item 2 -->
         <div class="carousel-item">
           <img src="assets/image.png" alt="Project 2">
@@ -231,14 +246,116 @@
     </div>
   </section>
 
+    <!-- Newsletter block -->
+  <section class="newsletter-section">
+    <div class="newsletter-frame">
+      <div class="newsletter reveal">
+        <h1>So You Can Make It</h1>
+        <p>Subscribe to our newsletter for updates on new courses, free resources, and tech events.</p>
+
+        <form class="nl-form" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="Enter your email address" aria-label="Email" required>
+          <button type="submit">Get started</button>
+        </form>
+
+        <div class="helpers">
+          <span>Our experts are ready to help</span>
+          <div class="stacked-avatars" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=120&auto=format&fit=crop" alt="" />
+            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=120&auto=format&fit=crop" alt="" />
+            <img src="https://images.unsplash.com/photo-1542206395-9feb3edaa68e?q=80&w=120&auto=format&fit=crop" alt="" />
+            <img src="https://images.unsplash.com/photo-1546525848-3ce03ca516f6?q=80&w=120&auto=format&fit=crop" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero with glow + globe -->
+      <div class="hero-wrap">
+        <div class="hero-newsletter reveal rounded-card">
+          <div class="hero-content">
+            <h2>Explore to<br>Smarter research</h2>
+            <p class="sub">150+ data points per search.</p>
+            <a class="cta" href="#">Move In</a>
+          </div>
+
+          <!-- Decorative globe (SVG) with animated arc stroke -->
+          <svg class="globe" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+                <stop offset="40%" stop-color="#c8c8cf" stop-opacity="0.28"/>
+                <stop offset="100%" stop-color="#9aa" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="arc" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="var(--nl-acc1)"/>
+                <stop offset="35%" stop-color="var(--nl-acc2)"/>
+                <stop offset="70%" stop-color="var(--nl-acc3)"/>
+                <stop offset="100%" stop-color="var(--nl-acc4)"/>
+              </linearGradient>
+              <clipPath id="hemisphere">
+                <path d="M40,210a200,200 0 1,0 560,0a200,200 0 1,0 -560,0Z"/>
+              </clipPath>
+              <pattern id="dots" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="2" fill="#fff"/>
+              </pattern>
+            </defs>
+
+            <!-- soft glow behind -->
+            <ellipse cx="430" cy="170" rx="260" ry="210" fill="url(#glow)" opacity="0.28"/>
+
+            <!-- dotted hemisphere clipped -->
+            <g clip-path="url(#hemisphere)" opacity="0.9">
+              <rect x="0" y="-40" width="640" height="480" fill="url(#dots)"/>
+            </g>
+
+            <!-- colored arc stroke (slow drawing loop) -->
+            <path id="arcPath" d="M120,360 C230,80 530,80 560,220" fill="none" stroke="url(#arc)" stroke-width="4" stroke-linecap="round"/>
+            <style>
+              #arcPath {
+                stroke-dasharray: 680; stroke-dashoffset: 680;
+                animation: draw 12s ease-in-out infinite;
+              }
+              @keyframes draw {
+                0% { stroke-dashoffset: 680; opacity:.6 }
+                40% { stroke-dashoffset: 0; opacity:1 }
+                60% { stroke-dashoffset: 0; opacity:1 }
+                100% { stroke-dashoffset: -680; opacity:.6 }
+              }
+            </style>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="custom-footer hidden" style="margin-top: 100px;max-height: 100%;">
+  <div class="footer-left">
+    <span class="red-dot"></span>
+    <span>© Zynapse 2025</span>
+  </div>
+  <div class="footer-center">
+    <p><span class="author">[Mark Weiser]</span> “The most profound technologies are those that disappear.”</p>
+  </div>
+  <div class="footer-right">
+    <a href="#" class="social-link">X</a>
+    <a href="#" class="social-link">in</a>
+  </div>
+</footer>
+
+
   <!-- JS -->
-  <script>
-    // Reset scroll to top on refresh
-    window.onbeforeunload = function () {
+ <script>
+    // Prevent browser from restoring previous scroll position
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Always scroll to top (Home) on refresh/load
+    window.onload = function () {
       window.scrollTo(0, 0);
     };
 
-    // Smooth scroll handler
+    // Smooth scroll handler for navigation
     function scrollToSection(id) {
       const section = document.getElementById(id);
       if (section) {
@@ -252,6 +369,8 @@
   <script src="js/work.js"></script>
   <script src="js/services.js"></script>
   <script src="js/reseach.js"></script>
+   <script src="js/footer.js"></script>
   <script src="js/contact.js"></script>
+  <script src="AllProducts/project.js"></script>
 </body>
 </html>

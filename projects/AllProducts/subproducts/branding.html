@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Product Branding</title>
+    <link href="css/branding.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  </head>
+  <body style="background:#ffe834">
+    <nav class="navbar navbar-light custom-navbar lv1 dark inside-nav">
+      <div class="container">
+        <div class="back-wrap">
+          <a class="navbar-brand o70 back-btn" onclick="history.back()">
+            <img src="img/icn-back-black.svg">
+          </a>
+        </div>
+        <a href="#" class="burger" data-toggle="collapse" data-target="#main-navbar">
+          <span></span>
+        </a>
+      </div>
+    </nav>
+    <main id="main">
+      <div class="site-section pt3">
+        <div class="container-fluid">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-sm-12 col-md-12 col-lg-10 data-aos=" fade-up">
+                <h2 class="text-header">Zero Keyframe Animation</h2>
+                <div class="row justify-content-center story-details dark">
+                  <div class="story-type">
+                    <p>Animation</p>
+                    <p>•</p>
+                    <p>Motion script</p>
+                  </div>
+                  <div class="story-year">
+                    <p>2017</p>
+                  </div>
+                </div>
+                <p class="text-subheader mw700 center-block" style="color:#776e01">Creating an infinitely looped animation in After Effects without any keyframes, using Expression Scripts. <br />
+                  <b>"No keyframes were harmed during the making of this film!"</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fluid-banner" style="background: #ffe834">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <video width="100%" class="img-fluid" width="100%" autoplay muted loop>
+                  <source src="img/articles/zerokf/all-compiled-gif.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="site-section pb10" style="background: white;">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-12 col-lg-10" data-aos="fade-up">
+              <div class="section" data-aos="fade-up">
+                <h2 class="section-title">The original idea - Oscillations</h2>
+                <div class="row align-items-center data-aos=" fade-up">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <img class="w90" src="img/articles/zerokf/oscillations.png" />
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <p> The whole idea of this animation is around oscillations. If looked at each individual parts of the face, they all are moving or rotating from one state, reach another state and comes back to the original state. Means they are all oscillating in terms of rotation or position. For this animation to be looped infinitely, these movements have to be repeated at regular intervals and have to reach back to the original state at the end of every interval. Oscillations generate wave functions. <b>On the contrary, why not use a wave function to drive oscillations?</b>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="section" data-aos="fade-up">
+                <h2 class="section-title">To start with, let's build a simple sine function</h2>
+                <div class="row align-items-center data-aos=" fade-up">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <video width="100%" class="img-fluid" width="100%" autoplay muted loop>
+                      <source src="img/articles/zerokf/sine.mp4" type="video/mp4">
+                    </video>
+                    <img class="w90" src="img/articles/zerokf/sinescript.png" />
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <p> After effects expressions gives us the power to generate values according to mathematical functions. Here in this case a sine function will be the perfect one. It alternates between negative and positive values and repeats at regular time intervals. A sine function that continuously returns values from -10 to 10 at intervals of 60 frames (2 secs). Another sine function which is 2x faster is also made from the original function; for faster moving parts of the face such as the eye. The sine functions are also multiplied by an easing function for smooth movements of the oscillations. </p>
+                  </div>
+                </div>
+              </div>
+              <div class="section" data-aos="fade-up">
+                <h2 class="section-title">Constructing the face</h2>
+                <div class="row align-items-center data-aos=" fade-up">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <img class="w100" src="img/articles/zerokf/layering.png" />
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <p> The face is constructed as different layers arranged in the 3D space, slightly tilted (on x axis) and spaced a little apart from one another. This is to create an illusion of depth at the time of motion. Anchor points are placed for each element according to the required movement in the final output. </p>
+                  </div>
+                </div>
+              </div>
+              <div class="section" data-aos="fade-up">
+                <h2 class="section-title">Now, let's plug in the functions to the face layers.</h2>
+                <div class="row align-items-center data-aos=" fade-up">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <video width="100%" class="img-fluid" width="100%" autoplay muted loop>
+                      <source src="img/articles/zerokf/non-parented-raw.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <p> Now all the parts are taking values from the sine function and oscillate with those values in terms of rotation or translation. But every part is moving independently on their own. There needs to be a parent-child relation between the parts of the face.
+                  </div>
+                </div>
+              </div>
+              <div class="section" data-aos="fade-up">
+                <h2 class="section-title">Rigging the parts</h2>
+                <div class="row align-items-center data-aos=" fade-up">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <video width="100%" class="img-fluid" width="100%" autoplay muted loop>
+                      <source src="img/articles/zerokf/parented-raw.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <p> We have connected all the parts together. Now movement of each part is also dependent on it's parent's movement. Though the rigging part is done here, still all the movements happen at the same scale at the same point in time; because values from the sine function is directly mapped to every part without any change. The values from the sine function need to be modified differently for each part.
+                  </div>
+                </div>
+              </div>
+              <div class="section" data-aos="fade-up">
+                <h2 class="section-title">Let's fix the values</h2>
+                <div class="row align-items-center data-aos=" fade-up">
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <img src="img/articles/zerokf/fixvalues.png" />
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <p> The values for movement of each part are either multiplied, divided or inversed with different numbers according the required movement. And to achieve follow throughs and anticipations, the movements are slightly offset in time backward and forward. Now the sine function drives different parts at different scales, asynchronously.
+                  </div>
+                </div>
+              </div>
+              <div class="section" data-aos="fade-up">
+                <h2 class="section-title">Done! One sine wave to drive 'em all.</h2>
+                <div class="row align-items-center data-aos=" fade-up">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <video width="100%" class="img-fluid" width="100%" autoplay muted loop>
+                      <source src="img/articles/zerokf/parented-valued-final.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+              <div class="section" data-aos="fade-up">
+                <h2 class="section-title">Adding some controls for fun</h2>
+                <div class="row justify-content-center align-items-center data-aos=" fade-up">
+                  <p class="align-center col-sm-12 col-md-10 col-lg-8 mb5">Since everything here is driven by the sine wave, giving control over the wave parameters (frequency and amplitude) adds scalability to the speed and amplitude of the animation. Slider Controls in After Effects comes as a handy way to do this.</p>
+                </div>
+                <div class="row justify-content-center align-items-center data-aos=" fade-up">
+                  <video class="mb10" style="width:100%;" width="100%" class="img-fluid" width="100%" autoplay muted loop>
+                    <source src="img/articles/zerokf/dynamic.mp4" type="video/mp4">
+                  </video>
+                  <video class="mb3 mt5" style="width:100%;" width="100%" class="img-fluid" width="100%" autoplay muted loop>
+                    <source src="img/articles/zerokf/all-in-a-row.mp4" type="video/mp4">
+                  </video>
+                  <p class="align-center mb2">No Keyframes Were Harmed During The Making Of This Film!</p>
+                  <img class="mb2" style="width:70px;" src="img/articles/zerokf/happykeyframe.png" />
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MORE WORKS SECTION -->
+      <div class="site-section p0">
+        <div class="container-fluid more-works-cont twhite pt3 pb0" style="background: #181a26;">
+          <div class="container ">
+            <div class="row justify-content-center text-center mb-4">
+              <div class="col-5">
+                <h3 class="mb2">More works</h3>
+              </div>
+            </div>
+            <div class="row">
+              <!-- FR Motion -->
+              <div class="morework-item item col-sm-6 col-md-4 col-lg-3 mb-4">
+                <a href="work-frmotion.html" class="item-wrap fancybox">
+                  <div class="mw-img-wrap">
+                    <video class="img-fluid center-block" style="transform:scale(1.7);" autoplay muted loop>
+                      <source src="img/covers/frmotion.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <P>FrontRow • Motion</P>
+                  <p1>Motion design</p1>
+                </a>
+              </div>
+              <!-- Matchmove -->
+              <div class="morework-item item col-sm-6 col-md-4 col-lg-3 mb-4">
+                <a href="work-matchmove.html" class="item-wrap fancybox">
+                  <div class="mw-img-wrap">
+                    <video class="img-fluid center-block" autoplay muted loop>
+                      <source src="img/covers/matchmove_cover2.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <P>Matchmove Visuals</P>
+                  <p1>Visual language</p1>
+                </a>
+              </div>
+              <!-- E2O -->
+              <div class="morework-item item col-sm-6 col-md-4 col-lg-3 mb-4">
+                <a href="work-e2o.html" class="item-wrap fancybox">
+                  <div class="mw-img-wrap">
+                    <video class="img-fluid center-block" style="transform:scale(1.4);" autoplay muted loop>
+       <source src="img/covers/e2o.mp4" type="video/mp4">
+</video>
+                  </div>
+                  <P>OLA electric • E2O</P>
+                  <p1>Product visualization</p1>
+                </a>
+              </div>
+              <!-- FR Tools -->
+              <div class="morework-item item col-sm-6 col-md-4 col-lg-3 mb-4">
+                <a href="work-frtools.html" class="item-wrap fancybox">
+                  <div class="mw-img-wrap">
+  <video class="img-fluid center-block" style="transform:scale(1.55);margin-top: 20px;margin-left: 50px;" autoplay muted loop>
+                      <source src="img/covers/frtools.mp4" type="video/mp4">
+</video>
+                  </div>
+                  <P>FrontRow • Learning tools</P>
+                  <p1>UI UX</p1>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- contactsection -->
+    <div class="site-section final-footer" style="background:black;">
+      <div class="container">
+        <div class="row" style="justify-content: space-between;">
+          <div class="col-sm-12 col-md-4 col-lg-4 align-items-center" style="display: flex;">
+            <a href="home.html" style="border:none;padding:0;">
+              <img src="img/stipple-logo-white.svg" style="width:80px;opacity:1">
+            </a>
+          </div>
+          <div class="col-sm-12 col-md-8 col-lg-8 align-items-center" style="display: flex;
+              flex-basis: content;">
+            <a href="https://www.linkedin.com/in/hemanthravindran/" target="blank">
+              <img style="width:24px;float: left;" src="img/btn-icn-li.png" alt="">
+            </a>
+            <a href="mailto:hemanth.615@gmail.com">
+              <img style="width:24px;float: left;" src="img/btn-icn-gm.png" alt="">
+            </a>
+            <a href="https://dribbble.com/hemanthravindran" target="blank">
+              <img style="width:24px;float: left;" src="img/btn-icn-dbl.png" alt="">
+            </a>
+            <a href="about.html"> About & contact </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+    <footer class="footer" role="contentinfo"></footer>
+    <script src="js/branding.js"></script>
+    <script>
+      // close overlay on click btn
+      $('#mboverlay').on('click', '#warningbtnprim', function () {
+        document.getElementById("mboverlay").style.display = "none";
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,388 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background:black;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hero section */
+.hero-section {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 8%;
+  background: #000; /* White bg */
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 5.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.hero-content h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.hero-content h2 .highlight {
+  color: #9b5de5; /* orange highlight like screenshot */
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  color: #777;
+  line-height: 1.6;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image video {
+  width: 400px;        /* fixed width */
+  height: 400px;       /* same height */
+  object-fit: cover;   /* crops inside circle nicely */
+  border-radius: 50%;  /* makes it a circle */
+  display: block;
+}
+
+/* Sticky wrapper */
+.sticky-wrapper {
+  position: relative;
+  padding-top: 80%;
+  padding: 100px;
+  overflow: visible;
+ height: 200vh; /* increased scrollable area */
+  margin-top: 200px; /* add margin to push it down */
+}
+
+/* Sticky image container */
+.images-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 50; /* lower than card */
+}
+
+.image-wrapper {
+  position: absolute;
+  border-radius: 20px;
+
+  overflow: hidden;
+  transform: translate(0, 0);
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+/* Title (always visible now or you want it hidden?) */
+.image-title {
+  position: absolute;
+  top: 20%;                    /* vertically center */
+  left: 50%;                   /* horizontally center */
+  transform: translate(-50%, -50%); /* center both directions */
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  opacity: 0.9;
+  pointer-events: none;  
+}
+
+/* Section & Sticky Title */
+.sticky-section {
+  position: relative;
+    width: 100%;           /* full width */
+  padding: 2rem 1rem;
+  max-width: 1200px;   /* Maximum width of the section */
+  margin: 0 auto;      /* Center it horizontally */
+}
+
+.sticky-title {
+  position: sticky;
+  top: 0;                /* sticks at top */
+  width: 100%;           /* full width */
+  background-color: black; /* prevent overlap */
+  z-index: 10;
+  color: #9b5de5;
+  padding: 1rem 0 1rem 8rem; /* top right bottom left padding */
+  margin: 0;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-align: left;     /* optional: center text */
+}
+.card-image {
+  margin-top: 60px;
+  width: 100%;           /* Full width of the parent container or viewport */
+  max-width: 100%;       /* Prevent exceeding viewport */
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  background-color: #000;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.container {
+    max-width: 100%;
+    margin: 100px auto;
+  }
+
+  .hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 2s ease;
+  }
+
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+p {
+  font-size: 1.2rem;       /* adjusts the font size */
+  line-height: 1.8;        /* controls line spacing */
+  color: #333;             /* optional: text color */
+  margin-bottom: 1.5rem;   /* optional: spacing below paragraph */
+}
+
+  video {
+   width: 100vw;          /* full viewport width */
+  height: auto;           /* maintain aspect ratio */
+  max-height: 100vh;      /* prevent overflow vertically */
+  display: block;         /* remove inline spacing */
+  margin: 0 0 20px 0;     /* bottom margin only */
+  border-radius: 10px;    /* optional rounded corners */
+  object-fit: cover;
+  }
+
+.card-image h1 {
+font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: left;
+}
+
+.card-image p {
+  font-size: 16px;
+  color: #a8a8a8;
+   text-align: left;
+  margin-bottom: 15px;
+}
+
+.card-image img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;  /* Center the image horizontally */
+  overflow: hidden;         /* Prevent scrollbars during animation */
+}
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  z-index: 2; /* make sure text stays on top */
+}
+
+.blur-active {
+  filter: blur(4px);
+}
+
+.image-text.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.animate-image {
+  transform: translateX(100%);  /* Start off-screen to the right */
+  animation: slideIn 8s forwards; /* Slide in animation */
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0); /* End at center */
+  }
+}
+/* Center Text Box */
+.center-text {
+  position: absolute;               
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  width: 80%;                  
+  max-width: 600px;         
+  border-radius: 20px;       
+  padding: 40px 60px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Show animation */
+.center-text.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Title */
+.center-text h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #9b5de5;
+  margin-bottom: 15px;
+}
+
+/* Paragraph */
+.center-text p {
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.glow-glass {
+  font-size: 1.2rem;
+  background: linear-gradient(90deg, #9b5de5, #f15bb5, #fee440);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  color: transparent;
+  
+  background-color: rgba(255, 255, 255, 0.1); /* glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin-top: 100px;
+  text-align: center;
+  display: inline-block;
+  transition: text-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+/* Next section */
+.content-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-top: 150px;
+}
+
+/* Footer Styles */
+.custom-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  height: 150px; /* fixed height */
+  background: rgba(255, 255, 255, 0.1); /* glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  font-family: sans-serif;
+  position: relative;
+}
+
+.footer-left, .footer-center, .footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-left .red-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #9b5de5;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.footer-center {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  align-items: flex-start; /* slightly higher alignment */
+  padding-top: 5px; /* adjust to move text upward */
+}
+
+.footer-center p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.footer-center .author {
+  font-weight: bold;
+  color: #f5f5f5;
+}
+
+.footer-right .social-link {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.footer-right .social-link:hover {
+  color: #9b5de5; /* hover glow effect */
+}
+
+
+
+@media (max-width: 768px) {
+  .sticky-section {
+    padding: 2rem 0.5rem; /* smaller padding on mobile */
+  }
+}

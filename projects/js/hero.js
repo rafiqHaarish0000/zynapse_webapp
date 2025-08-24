@@ -110,3 +110,39 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", activateMenu);
   activateMenu(); // run on load
 });
+
+function handleProductClick(event) {
+  const isLandingPage = window.location.pathname.endsWith("index.html") || window.location.pathname === "/" ;
+
+  if (isLandingPage) {
+    event.preventDefault(); // prevent navigation
+    const section = document.getElementById('work');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}
+
+// Highlight active link
+document.addEventListener("DOMContentLoaded", function() {
+  const desktopLink = document.getElementById('products-link');
+  const mobileLink = document.getElementById('products-link-mobile');
+
+  const links = [desktopLink, mobileLink];
+
+  // On products page, mark active
+  if (window.location.pathname.includes("products/project.html")) {
+    links.forEach(link => link.classList.add('active-link'));
+  } else {
+    // On landing page, highlight when scrolling to #work
+    const section = document.getElementById('work');
+    window.addEventListener('scroll', () => {
+      const rect = section.getBoundingClientRect();
+      const active = rect.top <= 150 && rect.bottom >= 150;
+      links.forEach(link => {
+        if (active) link.classList.add('active-link');
+        else link.classList.remove('active-link');
+      });
+    });
+  }
+});

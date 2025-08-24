@@ -1,0 +1,466 @@
+/* Motion Design Portfolio - Styles */
+
+/* Hero Section */
+#anm-herobg {
+  position: absolute;
+  top: -5%;
+  width: 30%;
+  left: 35%;
+  right: 35%;
+  transform: rotate(-90deg);
+  z-index: -200;
+  animation: heroFloat 8s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { 
+    transform: rotate(-90deg) translateY(0px); 
+  }
+  50% { 
+    transform: rotate(-90deg) translateY(-15px); 
+  }
+}
+
+/* Typography */
+.text-header {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.text-subheader {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Story Details */
+.story-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+}
+
+.story-type {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.story-type p {
+  margin: 0;
+}
+
+/* Animation Containers */
+.anim-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.anim-wrap:hover {
+  transform: scale(1.05);
+}
+
+/* Course Grid */
+.course-grid-item {
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.course-grid-item:hover {
+  transform: translateY(-5px);
+}
+
+.course-grid-item .anim-wrap {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.course-grid-item .anim-wrap:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* UI Mockups */
+.FRM-UImock {
+  width: 100%;
+  height: 320px;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.FRM-UImock:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.FRM-UImock-w {
+  width: 100%;
+  height: 280px;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.FRM-UImock-w:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific mockup backgrounds */
+#frm-s-52 {
+  background-image: url('img/articles/frmotion/s-52.png') !important;
+}
+
+#frm-s-53 {
+  background-image: url('img/articles/frmotion/s-53.png') !important;
+}
+
+#frm-s-53 > div {
+  margin-bottom: -330px;
+}
+
+#frm-s-54 {
+  background-image: url('img/articles/frmotion/s-54.png') !important;
+}
+
+#frm-s-54 > div {
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 40%;
+}
+
+#frm-s-55 {
+  background-image: url('img/articles/frmotion/s-55.png') !important;
+}
+
+#frm-s-55 > div {
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 50%;
+}
+
+#frm-s-56 {
+  background-image: url('img/articles/frmotion/s-56.png') !important;
+}
+
+#frm-s-56 > div {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 10%;
+}
+
+#frm-s-58 {
+  background-image: url('img/articles/frmotion/s-58.png') !important;
+}
+
+#frm-s-58 > div {
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 70%;
+}
+
+#frm-s-59 {
+  background-image: url('img/articles/frmotion/s-59.png') !important;
+}
+
+#frm-s-59 > div {
+  width: 20%;
+  margin-left: 28%;
+  margin-bottom: 0%;
+}
+
+#frm-s-511 {
+  background-image: url('img/articles/frmotion/s-511.png') !important;
+}
+
+#frm-s-511 > div {
+  width: 100%;
+  margin-left: 0%;
+  margin-top: 0%;
+}
+
+/* Video Styling */
+.vdo-fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+video {
+  transition: transform 0.3s ease;
+}
+
+video:hover {
+  transform: scale(1.02);
+}
+
+/* Animation Graphs Grid */
+.animation-graphs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.graph-item {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.graph-item:hover {
+  transform: translateY(-5px);
+}
+
+.graph-item img {
+  width: 70%;
+  margin: 0 auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.graph-item:hover img {
+  opacity: 1;
+}
+
+/* Video Samples Grid */
+#IVLsamples {
+  margin-top: 3rem;
+}
+
+#IVLsamples video {
+  border: 1px solid #222222;
+  border-radius: 8px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+#IVLsamples video:hover {
+  border-color: #444444;
+  transform: scale(1.02);
+}
+
+/* More Works Section */
+.more-works-cont {
+  background: linear-gradient(135deg, #181a26 0%, #1e1f2e 100%);
+}
+
+.morework-item {
+  transition: transform 0.3s ease;
+}
+
+.morework-item:hover {
+  transform: translateY(-10px);
+}
+
+.mw-img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  height: 200px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.mw-img-wrap:hover {
+  background: #111;
+}
+
+.mw-img-wrap video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Footer */
+.final-footer {
+  border-top: 1px solid #333;
+}
+
+.final-footer a {
+  transition: all 0.3s ease;
+}
+
+.final-footer a:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.final-footer img {
+  transition: all 0.3s ease;
+}
+
+/* Loading States */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.loading-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #333;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .text-header {
+    font-size: 3rem;
+  }
+  
+  #anm-herobg {
+    width: 40%;
+    left: 30%;
+    right: 30%;
+  }
+}
+
+@media (max-width: 992px) {
+  .text-header {
+    font-size: 2.5rem;
+  }
+  
+  .story-details {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .FRM-UImock,
+  .FRM-UImock-w {
+    height: 280px;
+  }
+  
+  #anm-herobg {
+    width: 50%;
+    left: 25%;
+    right: 25%;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-header {
+    font-size: 2rem;
+  }
+  
+  .text-subheader {
+    font-size: 1.1rem;
+  }
+  
+  .FRM-UImock,
+  .FRM-UImock-w {
+    height: 240px;
+  }
+  
+  .mw-img-wrap {
+    height: 160px;
+  }
+  
+  .animation-graphs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  #anm-herobg {
+    width: 60%;
+    left: 20%;
+    right: 20%;
+  }
+}
+
+@media (max-width: 576px) {
+  .text-header {
+    font-size: 1.8rem;
+  }
+  
+  .FRM-UImock,
+  .FRM-UImock-w {
+    height: 200px;
+  }
+  
+  .mw-img-wrap {
+    height: 140px;
+  }
+  
+  .animation-graphs {
+    grid-template-columns: 1fr;
+  }
+  
+  #anm-herobg {
+    width: 80%;
+    left: 10%;
+    right: 10%;
+  }
+  
+  .story-details {
+    font-size: 0.8rem;
+  }
+}
+
+/* Utilities */
+.error {
+  display: none !important;
+}
+
+/* Smooth Transitions */
+* {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Focus States */
+.anim-wrap:focus,
+.morework-item:focus,
+video:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
