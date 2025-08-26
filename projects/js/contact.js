@@ -1,5 +1,36 @@
-// Create particles
+import { db } from "./firebase.js";
+import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 const particlesContainer = document.getElementById('particles');
+
+const form = document.getElementById("projectForm");
+const nameEl   = document.getElementById("name");    
+const emailEl  = document.getElementById("email");
+const phoneEl  = document.getElementById("phone");
+const addrEl   = document.getElementById("address");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const payload = {
+    name:   nameEl?.value?.trim()   || "",
+    email:  emailEl?.value?.trim()  || "",
+    phone:  phoneEl?.value?.trim()  || "",
+    address:addrEl?.value?.trim()   || "",
+    createdAt: serverTimestamp()
+  };
+
+  try {
+    await addDoc(collection(db, "contacts"), payload);
+    alert("✅ Your message has been sent!");
+    form.reset();
+  } catch (err) {
+    // show the real reason
+    console.error("[Firestore write error]", err);
+    alert(`❌ Failed: ${err.code || ""} ${err.message || err}`);
+  }
+});
+
+
 if (particlesContainer) {
     for (let i = 0; i < 50; i++) {
         const particle = document.createElement('div');
