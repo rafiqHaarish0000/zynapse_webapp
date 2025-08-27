@@ -22,28 +22,41 @@ function scrollToSection(id) {
   }
 }
 
-// Attach smooth scroll to nav + mobile menu links
-// Attach smooth scroll to nav + mobile menu links
-document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-
-    // If it's an in-page anchor (starts with #), do smooth scroll
-    if (href.startsWith('#') || this.getAttribute('onclick')) {
+// =========================
+// Navigation Handler
+// =========================
+function handleNavigation(e, link) {
+  const href = link.getAttribute('href');
+  
+  // Only handle About link for smooth scrolling to aboutContainer on index page
+  if (href === 'index.html' && link.getAttribute('data-section') === 'aboutContainer') {
+    const currentPage = window.location.pathname;
+    const isIndexPage = currentPage.endsWith('index.html') || currentPage === '/' || currentPage.endsWith('/');
+    
+    if (isIndexPage) {
       e.preventDefault();
-      const targetId = href.replace('#','');
-      scrollToSection(targetId);
-    } 
-    // else (like contact.html), allow normal navigation (no preventDefault)
-
-    // Close mobile menu if open
-    if (mobileMenu.classList.contains('active')) {
-      mobileMenu.classList.remove('active');
-      mobileMenuBtn.querySelector('svg').innerHTML = '<path d="M3 12h18M3 6h18M3 18h18"></path>';
+      scrollToSection('aboutContainer');
     }
+  }
+  // For all other links (Products, Services, Research, Contact), allow normal navigation
+  
+  // Close mobile menu if open
+  if (mobileMenu.classList.contains('active')) {
+    mobileMenu.classList.remove('active');
+    mobileMenuBtn.querySelector('svg').innerHTML = '<path d="M3 12h18M3 6h18M3 18h18"></path>';
+  }
+}
+
+// Attach navigation handlers to all nav links
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      handleNavigation(e, link);
+    });
   });
 });
-
 
 // =========================
 // Hero parallax effect
@@ -53,9 +66,9 @@ const heroSection = document.querySelector('.hero');
 
 window.addEventListener('scroll', () => {
   const scrollPosition = window.pageYOffset;
-  const heroHeight = heroSection.offsetHeight;
+  const heroHeight = heroSection?.offsetHeight || 0;
 
-  if (scrollPosition < heroHeight) {
+  if (heroSection && scrollPosition < heroHeight) {
     const scale = 1 + scrollPosition * 0.0005;
     const opacity = 1 - scrollPosition * 0.002;
     heroBg.style.transform = `scale(${scale})`;
@@ -84,25 +97,41 @@ window.addEventListener('scroll', () => {
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
 
+// =========================
+// Scroll-based Navigation Highlighting
+// =========================
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section[id], div[id].research-section"); 
-  const navLinks = document.querySelectorAll(".nav-links a, .mobile-menu a");
+  const currentPage = window.location.pathname;
+  const isIndexPage = currentPage.endsWith('index.html') || currentPage === '/' || currentPage.endsWith('/');
+  
+  // Only run scroll highlighting on index page
+  if (!isIndexPage) return;
+  
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-links a[data-section], .mobile-menu a[data-section]");
 
   function activateMenu() {
-    let scrollPos = window.scrollY + window.innerHeight / 2;
+    let scrollPos = window.scrollY + 100; // Offset for better triggering
+    let activeSection = null;
 
-    sections.forEach(sec => {
-      const top = sec.offsetTop;
-      const height = sec.offsetHeight;
-      const id = sec.getAttribute("id");
+    // Find which section is currently in view
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute("id");
 
       if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.forEach(link => {
-          link.classList.remove("active");
-          if (link.getAttribute("onclick")?.includes(id) || link.getAttribute("href")?.includes(id)) {
-            link.classList.add("active");
-          }
-        });
+        activeSection = id;
+      }
+    });
+
+    // Update active nav links
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      const linkSection = link.getAttribute("data-section");
+      
+      if (linkSection === activeSection) {
+        link.classList.add("active");
       }
     });
   }
@@ -111,6 +140,37 @@ document.addEventListener("DOMContentLoaded", () => {
   activateMenu(); // run on load
 });
 
+// =========================
+// Page-specific Navigation Highlighting
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname;
+  const navLinks = document.querySelectorAll(".nav-links a, .mobile-menu a");
+  
+  // Remove active class from all links first
+  navLinks.forEach(link => link.classList.remove("active"));
+  
+  // Add active class to current page links
+  navLinks.forEach(link => {
+    const href = link.getAttribute("href");
+    
+    if (currentPage.includes("project.html") && href.includes("project.html")) {
+      link.classList.add("active");
+    } else if (currentPage.includes("service.html") && href.includes("service.html")) {
+      link.classList.add("active");
+    } else if (currentPage.includes("research.html") && href.includes("research.html")) {
+      link.classList.add("active");
+    } else if (currentPage.includes("contact.html") && href.includes("contact.html")) {
+      link.classList.add("active");
+    } else if ((currentPage.endsWith("index.html") || currentPage === "/" || currentPage.endsWith("/")) && href.includes("index.html")) {
+      link.classList.add("active");
+    }
+  });
+});
+
+// =========================
+// Legacy function handlers (keeping for compatibility)
+// =========================
 function handleProductClick(event) {
   const isLandingPage = window.location.pathname.endsWith("index.html") || window.location.pathname === "/" ;
 
@@ -122,36 +182,3 @@ function handleProductClick(event) {
     }
   }
 }
-
-// Highlight active link
-document.addEventListener("DOMContentLoaded", function() {
-  const desktopLink = document.getElementById('products-link');
-  const mobileLink = document.getElementById('products-link-mobile');
-
-  const links = [desktopLink, mobileLink];
-
-  // On products page, mark active
-  if (window.location.pathname.includes("products/project.html")) {
-    links.forEach(link => link.classList.add('active-link'));
-  } else {
-    // On landing page, highlight when scrolling to #work
-    const section = document.getElementById('work');
-    window.addEventListener('scroll', () => {
-      const rect = section.getBoundingClientRect();
-      const active = rect.top <= 150 && rect.bottom >= 150;
-      links.forEach(link => {
-        if (active) link.classList.add('active-link');
-        else link.classList.remove('active-link');
-      });
-    });
-  }
-});
-  document.addEventListener("DOMContentLoaded", () => {
-    const aboutLink = document.getElementById("about-link");
-
-    // Check if we are on index.html or root "/"
-    const currentPage = window.location.pathname.split("/").pop();
-    if (aboutLink && (currentPage === "" || currentPage === "index.html")) {
-      aboutLink.classList.add("active");
-    }
-  });

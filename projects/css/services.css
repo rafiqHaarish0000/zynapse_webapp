@@ -23,7 +23,8 @@ body {
 
 /* Main Container */
 .main-container {
-    min-height: 120vh;
+    margin-top: 40px;
+    min-height: 100vh;
     padding: 2rem;
     transform-origin: top center;
     overflow: hidden;
@@ -219,7 +220,7 @@ body {
 
 
 .title-text {
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(2.5rem, 8vw, 2rem);
     font-style: italic;
     color: #9b5de5;
     font-weight: 600;

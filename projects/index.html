@@ -31,11 +31,11 @@
 </div>
     </div>
     <div class="nav-links">
-      <a href="index.html" id="about-link" class="nav-link">About</a>
-<a href="project.html">Products</a>
-  <a href="service.html">Services</a>
-  <a href="research.html">Research</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="index.html" id="about-link" class="nav-link" data-section="aboutContainer">About</a>
+      <a href="project.html" id="products-link" class="nav-link" data-section="work">Products</a>
+      <a href="service.html" id="services-link" class="nav-link" data-section="service">Services</a>
+      <a href="research.html" id="research-link" class="nav-link" data-section="reseach">Research</a>
+      <a href="contact.html" id="contact-link" class="nav-link">Contact Us</a>
     </div>
     <button class="mobile-menu-btn">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -46,11 +46,11 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu">
-    <a href="#" onclick="scrollToSection('aboutContainer'); return false;">About</a>
-    <a href="#" onclick="scrollToSection('work'); return false;">Products</a>
-    <a href="#" onclick="scrollToSection('service'); return false;">Services</a>
-    <a href="#" onclick="scrollToSection('reseach'); return false;">Research</a>
-    <a href="contact.html">Contact Us</a>
+    <a href="index.html" id="about-link-mobile" class="nav-link" data-section="aboutContainer">About</a>
+    <a href="project.html" id="products-link-mobile" class="nav-link" data-section="work">Products</a>
+    <a href="service.html" id="services-link-mobile" class="nav-link" data-section="service">Services</a>
+    <a href="research.html" id="research-link-mobile" class="nav-link" data-section="reseach">Research</a>
+    <a href="contact.html" id="contact-link-mobile" class="nav-link">Contact Us</a>
   </div>
 
   <!-- Hero Section -->
@@ -61,7 +61,7 @@
     <div class="hero-content">
       <h1 class="hero-h1">Zynapse</h1>
       <div class="hero-subtitle">
-        <p>Innovative Digital Experiences</p>
+        <p style="font-size: 1.3rem;">Think Beyond. Build Smarter.</p>
       </div>
       <a href="service.html">
   <button class="hero-btn">Explore Our Work</button>
@@ -81,9 +81,9 @@
 
       <!-- About Content -->
       <div class="about-content">
-        <h2>Your Goal, Our Priority</h2>
+        <h2>Connect Compute Evolve</h2>
         <p class="about-description">
-          We are a leading software education platform helping learners master coding, design, and emerging tech skills with hands-on projects.
+          Zynapse is an AI-first software company crafting intelligent products that transform how businesses think, decide, and evolve. We specialize in building adaptive, neural-inspired systems that learn, reason, and deliver real-world impact.
         </p>
 
         <!-- Static Horizontal Smileys -->
@@ -121,7 +121,7 @@
   </section>
 
   <!-- Work Section -->
-  <section id="work" class="section work">
+  <section id="work" class="section work" style="margin-top: 40px;">
     <div class="work-content">
       <div class="styled-heading">
         <h2>Empowering You With Innovation</h2>
@@ -339,7 +339,7 @@
     <span>© Zynapse 2025</span>
   </div>
   <div class="footer-center">
-    <p><span class="author">[Mark Weiser]</span> “The most profound technologies are those that disappear.”</p>
+    <p><span class="author">[Mark Weiser]</span> "The most profound technologies are those that disappear."</p>
   </div>
   <div class="footer-right">
     <a href="#" class="social-link">X</a>

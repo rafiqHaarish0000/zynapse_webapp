@@ -42,7 +42,6 @@
   transform: translateX(4px);    /* arrow slides on hover */
 }
 
-
 .work-image img {
     position: sticky;
   top: 0;       /* sticks to top while scrolling inside section */
