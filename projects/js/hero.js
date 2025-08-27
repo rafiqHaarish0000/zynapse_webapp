@@ -146,3 +146,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+  document.addEventListener("DOMContentLoaded", () => {
+    const aboutLink = document.getElementById("about-link");
+
+    // Check if we are on index.html or root "/"
+    const currentPage = window.location.pathname.split("/").pop();
+    if (aboutLink && (currentPage === "" || currentPage === "index.html")) {
+      aboutLink.classList.add("active");
+    }
+  });

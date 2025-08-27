@@ -8,6 +8,13 @@ const emailEl  = document.getElementById("email");
 const phoneEl  = document.getElementById("phone");
 const addrEl   = document.getElementById("address");
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const contactLink = document.getElementById("contact-link");
+    if (contactLink) {
+      contactLink.classList.add("active");
+    }
+  });
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 

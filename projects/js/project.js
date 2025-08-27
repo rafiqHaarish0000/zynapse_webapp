@@ -121,4 +121,14 @@ const hiddenElements = document.querySelectorAll('.hidden');
   document.getElementById('img6').addEventListener('click', function() {
     window.location.href = 'target-page.html'; // Replace with your page
   });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPage = window.location.pathname.split("/").pop(); 
+    const productsLink = document.getElementById("products-link");
+
+    if (currentPage === "project.html") {
+      productsLink.classList.add("active");
+    }
+  });
+
 new ScrollImageMerger();

@@ -140,7 +140,7 @@
 .smiley-row {
   display: flex;
   justify-content: center;
-  gap: 60px;
+  gap: 40px;
   padding: 80px;
   flex-wrap: wrap;
   position: relative;

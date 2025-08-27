@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Innovative IT Services to Forward-thinking Businesses</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .tech-logos {
+            margin-top: 50px;
+        }
+
+        .tech-logos img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Trusted Brands Section */
+        .trusted-brands {
+            padding: 80px 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .brand-logo {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .brand-logo:hover {
+            transform: translateY(-5px);
+        }
+
+        .brand-logo img {
+            width: 100%;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            object-fit: contain;
+        }
+
+        .review-rating {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        /* Solutions Section */
+        .solutions-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .solution-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            text-decoration: none;
+        }
+
+        .solution-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Success Stories Section */
+        .success-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .story-card {
+            background: #f8f9fa;
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .story-logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .testimonial {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #667eea;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin-top: 30px;
+        }
+
+        /* Employee Feedback Section */
+        .feedback-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .feedback-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .platform-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .employees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .employee-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .employee-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .employee-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .employee-role {
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-card {
+                padding: 30px;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Button Styles */
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title fade-in">Innovative IT Services to Forward-thinking Businesses</h1>
+            <p class="hero-subtitle fade-in">Cutting-Edge Solutions with Advanced Tech</p>
+            <div class="tech-logos fade-in">
+                <img src="https://via.placeholder.com/600x200/667eea/ffffff?text=Advanced+Tech+Stack" alt="Tech Stack" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Brands Section -->
+    <section class="trusted-brands">
+        <div class="container">
+            <h2 class="section-title">Trusted by Big Brands</h2>
+            <div class="brands-grid">
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/f0f0f0/333?text=Brand+1" alt="Brand 1" />
+                </div>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/f0f0f0/333?text=Brand+2" alt="Brand 2" />
+                </div>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/f0f0f0/333?text=Brand+3" alt="Brand 3" />
+                </div>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/f0f0f0/333?text=Brand+4" alt="Brand 4" />
+                </div>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/f0f0f0/333?text=Brand+5" alt="Brand 5" />
+                </div>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/f0f0f0/333?text=Brand+6" alt="Brand 6" />
+                </div>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/f0f0f0/333?text=Brand+7" alt="Brand 7" />
+                </div>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/f0f0f0/333?text=Brand+8" alt="Brand 8" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="section-title">Collective Reviews from Trusted Platforms</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/60x60/4285f4/ffffff?text=G" alt="Google" class="review-logo" />
+                    <div class="review-rating">4.8 of 5</div>
+                </div>
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/60x60/00b67a/ffffff?text=T" alt="Trustpilot" class="review-logo" />
+                    <div class="review-rating">4 of 5</div>
+                </div>
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/60x60/ff6d2f/ffffff?text=C" alt="Clutch" class="review-logo" />
+                    <div class="review-rating">4.2 of 5</div>
+                </div>
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/60x60/667eea/ffffff?text=A" alt="AppFutura" class="review-logo" />
+                    <div class="review-rating">3.9 of 5</div>
+                </div>
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/60x60/f39c12/ffffff?text=G" alt="GoodFirms" class="review-logo" />
+                    <div class="review-rating">4 of 5</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions-section">
+        <div class="container">
+            <h2 class="section-title">Solutions We Offer</h2>
+            <div class="solutions-grid">
+                <a href="#" class="solution-card">
+                    <h3 class="solution-title">IT Support Services</h3>
+                    <p class="solution-description">Reliable IT support ensuring seamless and secure tech operations, empowering your focus on core priorities in a dynamic business landscape.</p>
+                </a>
+                <a href="#" class="solution-card">
+                    <h3 class="solution-title">Tech Solutioning</h3>
+                    <p class="solution-description">Integrating expertise, streamlined processes, and cutting-edge technology to collaboratively innovate and deliver standout solutions that elevate and propel your business forward.</p>
+                </a>
+                <a href="#" class="solution-card">
+                    <h3 class="solution-title">Web Development</h3>
+                    <p class="solution-description">Tailored web solutions, crafting responsive sites and dynamic applications, meeting diverse business needs through innovative tech and industry best practices for a compelling online presence.</p>
+                </a>
+                <a href="#" class="solution-card">
+                    <h3 class="solution-title">Mobile Development</h3>
+                    <p class="solution-description">Delivering innovative and customized mobile application development solutions, harnessing the latest technologies to transform ideas into impactful mobile experiences.</p>
+                </a>
+                <a href="#" class="solution-card">
+                    <h3 class="solution-title">DevOps Setup & Management</h3>
+                    <p class="solution-description">Optimizing workflows, enhancing collaboration, and automating processes for seamless software development and delivery.</p>
+                </a>
+                <a href="#" class="solution-card">
+                    <h3 class="solution-title">Quality Assurance</h3>
+                    <p class="solution-description">Comprehensive Quality Assurance services ensuring seamless functionality, reliability, and performance of products through meticulous testing and validation methodologies.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success-section">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="story-card">
+                <p class="story-text">A prominent online travel agency (OTA) is renowned for its exceptional user-centered design and prioritizing product engineering to retain customers over traditional marketing techniques. Its significant fan following stems from its emphasis on clarity and unwavering focus.</p>
+                <img src="https://via.placeholder.com/150x50/667eea/ffffff?text=ClearTrip" alt="ClearTrip" class="story-logo" />
+                <div class="testimonial">
+                    "As a leading online travel agency, our commitment lies in user-centered design and utilizing product engineering to retain customer loyalty. Your partnership has been invaluable in achieving this goal. Your contributions have significantly enhanced our platform's clarity and focused approach, further solidifying our position in the market."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Employee Feedback Section -->
+    <section class="feedback-section">
+        <div class="container">
+            <div class="feedback-header">
+                <h2 class="section-title">Positive Feedback from Contented Employees from Trusted Platforms</h2>
+                <img src="https://via.placeholder.com/200x80/667eea/ffffff?text=Employee+Platform" alt="Employee Platform" class="platform-logo" />
+            </div>
+            <div class="employees-grid">
+                <div class="employee-card">
+                    <img src="https://via.placeholder.com/80x80/667eea/ffffff?text=P" alt="Prithivee" class="employee-avatar" />
+                    <div class="employee-name">Prithivee</div>
+                    <div class="employee-role">Product Engineer</div>
+                </div>
+                <div class="employee-card">
+                    <img src="https://via.placeholder.com/80x80/764ba2/ffffff?text=S" alt="Soorya" class="employee-avatar" />
+                    <div class="employee-name">Soorya</div>
+                    <div class="employee-role">HR Executive</div>
+                </div>
+                <div class="employee-card">
+                    <img src="https://via.placeholder.com/80x80/667eea/ffffff?text=S" alt="Sethupathi" class="employee-avatar" />
+                    <div class="employee-name">Sethupathi</div>
+                    <div class="employee-role">Product Engineer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Do you think your business needs a Revamp of IT Systems?</h2>
+            <p class="cta-subtitle">We Bring Cutting-Edge Solutions with Advanced Tech</p>
+            <a href="#" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections for animation
+        document.querySelectorAll('.solution-card, .review-card, .employee-card, .brand-logo, .story-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Add hover effects for solution cards
+        document.querySelectorAll('.solution-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 15px 30px rgba(102, 126, 234, 0.3)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add staggered animation to hero elements
+            const heroElements = document.querySelectorAll('.fade-in');
+            heroElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -36,6 +36,8 @@
   animation-delay: 1s;   /* Title first */
 }
 
+
+
 .hero-subtitle {
   font-size: 1.2rem;
   color: #ddd;
@@ -125,6 +127,42 @@
   opacity: 0;               /* hidden initially */
   transform: translateY(20px); /* move slightly down */
 }
+
+.service-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;   /* bigger circle */
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  text-decoration: none; /* removes underline */
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+.service-btn .arrow {
+  font-size: 28px;
+  text-decoration: none; /* removes underline */
+  color: white;
+  animation: arrowBlink 2.5s infinite ease-in-out;
+}
+
+/* circle glowing animation */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 5px #7b2ff7, 0 0 10px #f107a3; }
+  50% { box-shadow: 0 0 25px #7b2ff7, 0 0 40px #f107a3; }
+  100% { box-shadow: 0 0 5px #7b2ff7, 0 0 10px #f107a3; }
+}
+
+/* arrow blinking */
+@keyframes arrowBlink {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
 
 /* when active, show */
 .hero-btn.show {
