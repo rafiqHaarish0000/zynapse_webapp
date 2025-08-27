@@ -153,7 +153,7 @@ body {
 }
 
 .card-3 {
-    bottom: 15%;
+    bottom: 5%;
     left: 18%;
     transform: rotate(-40deg) translateY(-80px);
     transition-delay: 1.9s;
@@ -165,7 +165,7 @@ body {
 
 .card-6 {
     top: 60%;
-    right: 20%;
+    right: 10%;
     transform: scale(1.05) rotate(-40deg) translateY(-40px);
     transition-delay: 2.1s;
 }
