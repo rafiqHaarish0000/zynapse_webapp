@@ -453,3 +453,79 @@ if (typeof $ !== 'undefined') {
         console.log('🔗 jQuery integration loaded');
     });
 }
+ document.addEventListener("DOMContentLoaded", () => {
+    const footer = document.querySelector('.custom-footer');
+    footer.classList.add('show'); // this will trigger the fade-in
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const pillars = document.querySelectorAll('.pillars-section .pillar');
+    const connectors = document.querySelectorAll('.pillars-section .connector');
+    
+    // Enhanced interaction for pillars
+    pillars.forEach((pillar, index) => {
+        pillar.addEventListener('click', function() {
+            // Create ripple effect
+            const ripple = document.createElement('div');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${rect.width / 2 - size / 2}px;
+                top: ${rect.height / 2 - size / 2}px;
+                border-radius: 50%;
+                background: rgba(13, 110, 253, 0.3);
+                transform: scale(0);
+                pointer-events: none;
+                z-index: 2;
+                animation: ripple 0.6s ease-out forwards;
+            `;
+            
+            this.style.position = 'relative';
+            this.appendChild(ripple);
+            
+            // Remove ripple after animation
+            setTimeout(() => {
+                if (ripple.parentNode) {
+                    ripple.remove();
+                }
+            }, 600);
+        });
+        
+        // Connector highlighting on hover
+        pillar.addEventListener('mouseenter', function() {
+            if (index < connectors.length) {
+                connectors[index].style.backgroundColor = '#0d6efd';
+                connectors[index].style.height = '3px';
+            }
+            if (index > 0 && connectors[index - 1]) {
+                connectors[index - 1].style.backgroundColor = '#0d6efd';
+                connectors[index - 1].style.height = '3px';
+            }
+        });
+        
+        pillar.addEventListener('mouseleave', function() {
+            connectors.forEach(connector => {
+                connector.style.backgroundColor = '#6c757d';
+                connector.style.height = '2px';
+            });
+        });
+    });
+});
+
+// Add ripple animation keyframes
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(1);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
+  
+

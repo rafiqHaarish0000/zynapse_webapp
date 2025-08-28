@@ -8,302 +8,312 @@
 
     <!-- Template Main CSS File -->
     <link href="css/uiux.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
   </head>
-  <body style="background:#FB5256">
+<body>
+  <nav class="service-nav">
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/logo.png" alt="Zynapse Logo">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">About</a>
+    <a href="project.html" id="products-link" class="nav-link">Products</a>
+    <a href="service.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+  <button class="mobile-menu-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 12h18M3 6h18M3 18h18"></path>
+    </svg>
+  </button>
+</nav>
+  <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-background" style="background-image: url('https://www.payoda.com/wp-content/uploads/2023/08/Solution-Page-_-Analytics-Platform-scaled.jpg')"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="hero-text">
+                            <h1 class="animate__animated animate__fadeIn">
+                                A unified solution that <br>
+                                combines business intelligence <br>
+                                and market insights
+                            </h1>
+                            <a href="contact.html" class="btn btn-primary hero-btn animate__animated animate__fadeIn">
+                                Meet our solutions expert
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <nav class="navbar navbar-light custom-navbar lv1 light inside-nav">
-      <div class="container">
-        <div class="back-wrap">
-          <a class="navbar-brand o70 back-btn" onclick="history.back()">
-            <img src="img/icn-back-white.svg">
-          </a>
-        </div>
-        <a href="#" class="burger" data-toggle="collapse" data-target="#main-navbar">
-          <span></span>
-        </a>
-      </div>
-    </nav>
-    <main id="main">
-      <div class="site-section pt3" style="background:#FB5256">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-12 col-lg-10" data-aos="fade-up">
-              <h2 class="text-header text-white">OLA Play CXC</h2>
-              <div class="row justify-content-center story-details light">
-                <div class="story-type">
-                  <p>UI</p>
-                  <p>•</p>
-                  <p>Interactions</p>
+<!-- Overview Section -->
+<section class="overview-section" id="overview">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title animate__animated animate__fadeInUp">
+                    <div class="subtitle">OVERVIEW</div>
+                    <h2>Scale fast and smart</h2>
+                    <p>Your eCommerce platform is now built to scale with our B2B Product catalog Management built for retailers and brands. Get to the market faster by personalizing B2B catalogs, collaborating in real-time with your suppliers, creating new products, and updating prices to stay competitive in this ever-changing B2B Industry.</p>
                 </div>
-                <div class="story-year">
-                  <p>2018</p>
+            </div>
+        </div>
+        
+        <div class="overview-grid">
+            <div class="overview-card">
+                <h3>Digital product catalog</h3>
+                <p>Whether you're just taking your business online or expanding globally, it is important to ensure customers are given as much detail as possible so they feel comfortable making their purchases. Our solution is designed to organize your online store and sell your products across multiple sales channels by improving catalog management.</p>
+                <div class="interface-mockup">
+                    <img src="https://www.payoda.com/wp-content/uploads/2023/09/Catalog-management-in-eCommerce.jpg" alt="Digital product catalog interface" class="img-fluid rounded">
                 </div>
-              </div>
-              <p class="text-subheader text-white mb5">The Consumer Experience Console (CXC) is a touchscreen interface that delivers entertainment and personalized experiences to passengers in OLA PrimePlay cabs. This project aims to elevate the in-cab experience by redesigning the console interface, adding new features, and improving personalization. </p>
             </div>
-          </div>
-        </div>
-        <div class=" fluid-banner" style="float:none">
-          <div class="container">
-            <video width="100%" autoplay controls muted loop style="border-radius:10px;">
-              <source src="img/articles/cxc3/cxc-v3-presentation-final.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
-      </div>
-      <div class="site-section lgraybg">
-        <div class="container" data-aos="fade-up">
-          <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-12 col-lg-10">
-              <h2 class="section-title">Designing for a 2 feet-away interface</h2>
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                <p class="tgray mw700 center-block mb5"> The CXC module is placed on the back side of the front seat, and the user will be interacting with it at a distance of 1.5ft to 2ft. Not many devices in our day today life are built around such a use case, so the problem statement is fresh and interesting. Moreover since the interactions happen inside a moving cab, there are challenges like instability of the hand and the lack of touch precision (Thanks to the Indian roads!). </p>
-              </div>
-              <img class="br10 w100 mb2" src="img/articles/cxc3/2ftexp.png" />
-              <div class="row mt3 justify-content-center">
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                  <img class="center-block mw100" src="img/articles/cxc3/ic-far.png" />
-                  <p class="text-center tgray">
-                    <b>Distant Operation</b>
-                    <br>
-                    <br>Conventional scale of UI elements won't work
-                  </p>
+            
+            <div class="overview-card">
+                <h3>Catalog management in eCommerce</h3>
+                <p>The involvement of multiple stakeholders from inside and outside your organization leaves you with a massive amount of Product data. Our B2B Catalog management solution helps you organize, coordinate and streamline e-commerce product data into a single digital point of reference for your B2B partners.</p>
+                <div class="interface-mockup">
+                    <img src="https://www.payoda.com/wp-content/uploads/2023/09/Digital-1.1.png" alt="Catalog management interface" class="img-fluid rounded">
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                  <img class="center-block mw100" src="img/articles/cxc3/ic-shaky.png" />
-                  <p class="text-center tgray">
-                    <b>Shaky Hands</b>
-                    <br>
-                    <br>Lack of touch precision leads to faulty interactions
-                  </p>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                  <img class="center-block mw100" src="img/articles/cxc3/ic-glare.png" />
-                  <p class="text-center tgray">
-                    <b>Screen Glare</b>
-                    <br>
-                    <br>Color schemes with less contrast hampers legibility
-                  </p>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="site-section whitebg pb0">
-        <div class="container" data-aos="fade-up">
-          <h2 class="section-title mb3">Improved Interface</h2>
-          <p class="mw700 center-block mb3 text-center tgray">The new UI is completely designed around the "2 feet experience". <br>
-            <b>Larger tap areas, bigger typography, higher contrast ratio, and scaled up UI elements</b>
-          </p>
-        </div>
-        <img class="w100 mt3" data-aos="fade-up" data-aos-delay="100" src="img/articles/cxc3/uiscreens.png" />
-      </div>
-      <div class="site-section" style="background:#0A141E;">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-12 col-lg-10">
-              <h2 class="section-title text-white">Visual Language</h2>
-              <p class="text-center center-block text-white mw700">PALETTE <br>
-                <br>
-                <p1 class="o50 align-center">A dark-themed palette with complementary accent colours. Tinted grays for vibrancy. <br>Brand Red as secondary colour used for call to actions and critical indications. </p1>
-              </p>
-              <img class="mw700 center-block mt3 mb5" src="img/articles/cxc3/palette.svg" />
-              <p class="text-center center-block text-white mw700 mt10 mb3">ICON SET <br>
-                <br>
-                <p1 class="align-center o50">Clean, minimal and fill-style icons for improved legibility.</p1>
-              </p>
-              <img class="mw600 center-block mt3 mb5" src="img/articles/cxc3/uiicons.svg" />
-              <p class="text-center center-block text-white mw700 mt10 mb3">TYPOGRAPHY <br>
-                <br>
-                <p1 class="align-center o50">Akkurat sans is highly legible in both small and large sizes. All use cases are categorized under just 7 text styles to maintain hygeine.</p1>
-              </p>
-              <img class="mw700 center-block m3" src="img/articles/cxc3/typography.svg" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="site-section" style="background:#FB5256">
-        <div class="container">
-          <h2 class="section-title text-white">Interactions and Motion</h2>
-          <div class="row justify-content-center" style="color:#ffffff">
-            <div class="col-sm-12 col-md-6 col-lg-6 m2">
-              <video autoplay muted loop style="border-radius:10px;width:95%">
-                <source src="img/articles/cxc3/loadingtransition.mp4" type="video/mp4" />
-              </video>
-              <p class="text-center o70 mt1">Loading Transition</p>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 m2">
-              <video autoplay muted loop style="border-radius:10px;width:95%">
-                <source src="img/articles/cxc3/albumdisc.mp4" type="video/mp4" />
-              </video>
-              <p class="text-center o70 mt1">Vinyl record animation for now-playing album cover</p>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 m2">
-              <video autoplay muted loop style="border-radius:10px;width:95%">
-                <source src="img/articles/cxc3/voicesearch.mp4" type="video/mp4" />
-              </video>
-              <p class="text-center o70 mt1">Voice Search</p>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 m2">
-              <video autoplay muted loop style="border-radius:10px;width:95%">
-                <source src="img/articles/cxc3/bvcontrols.mp4" type="video/mp4" />
-              </video>
-              <p class="text-center o70 mt1">Volume and Brightness controls</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="site-section whitebg pb10">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-12 col-lg-10">
-              <h2 class="section-title">Features & Enhancements</h2>
-              <div class="section mb5 mt0">
-                <div class=" row align-items-center">
-                  <div class="col-sm-6 col-md-8 col-lg-8">
-                    <video autoplay muted loop style="border-radius:10px;width:95%">
-                      <source src="img/articles/cxc3/welcomeuislider.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                  <div class="col-sm-6 col-md-4 col-lg-4">
-                    <h3 class="align-left tlight">A more personal welcoming</h3>
-                    <p class="mb2">A welcome screen that adapts to different contexts of the user</p>
-                  </div>
-                </div>
-              </div>
-              <div class="section m5">
-                <div class=" row align-items-center">
-                  <div class="col-sm-6 col-md-4 col-lg-4">
-                    <h3 class="align-left tlight">Instant Brand Recognition</h3>
-                    <p>New album artwork template helps in easy differentiation between playlists by OLA Play and Apple music</p>
-                  </div>
-                  <div class="col-sm-6 col-md-8 col-lg-8">
-                    <img class="" src="img/articles/cxc3/opvsam.png" />
-                  </div>
-                </div>
-              </div>
-              <div class="section m5">
-                <div class=" row align-items-center">
-                  <div class="col-sm-6 col-md-8 col-lg-8">
-                    <img style="width:95%" src="img/articles/cxc3/ftf.png" />
-                  </div>
-                  <div class="col-sm-6 col-md-4 col-lg-4">
-                    <h3 class="align-left tlight">First Things First</h3>
-                    <p>Safety, Voice Search and Media controls - The new IA places important things always on top across all screens .</p>
-                  </div>
-                </div>
-              </div>
-              <div class="section mt10 mb0">
-                <p class="text-center w100">
-                  <b>TEAM</b>
-                  <br>
-                  <br> Parth Suthar - Direction, Manas Vaze - UX & UI, Hemanth - Visual, Interaction
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      
-      <!-- MORE WORKS SECTION -->
-      <div class="site-section p0">
-        <div class="container-fluid more-works-cont twhite pv0" style="background: #181a26;">
-          <div class="seperator-lgray-center mb3"></div>
-          <div class="container ">
-            <div class="row justify-content-center text-center mb-4">
-              <div class="col-5">
-                <h3 class="mb2">More works</h3>
-              </div>
-            </div>
-            <div class="row">
-              <!-- FR Features -->
-              <div class="morework-item item col-sm-6 col-md-4 col-lg-3 mb-4">
-                <a href="work-frfeatures.html" class="item-wrap fancybox">
-                  <div class="mw-img-wrap">
-                    <video class="img-fluid center-block" style="transform:scale(1.8);" autoplay muted loop>
-   <source src="img/covers/frfeatures.mp4" type="video/mp4">
-</video>
-                  </div>
-                  <P>FrontRow • Features</P>
-                  <p1>UI UX</p1>
-                </a>
-              </div>
-              <!-- FR Tools -->
-              <div class="morework-item item col-sm-6 col-md-4 col-lg-3 mb-4">
-                <a href="work-frtools.html" class="item-wrap fancybox">
-                  <div class="mw-img-wrap">
-                    <video class="img-fluid center-block" style="transform:scale(1.55);margin-top: 20px;margin-left: 50px;" autoplay muted loop>
-                      <source src="img/covers/frtools.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <P>FrontRow • Learning tools</P>
-                  <p1>UI UX</p1>
-                </a>
-              </div>
-              <!-- E2O -->
-              <div class="morework-item item col-sm-6 col-md-4 col-lg-3 mb-4">
-                <a href="work-e2o.html" class="item-wrap fancybox">
-                  <div class="mw-img-wrap">
-                    <video class="img-fluid center-block" style="transform:scale(1.4);" autoplay muted loop>
-                      <source src="img/covers/e2o.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <P>OLA electric • E2O</P>
-                  <p1>Product visualization</p1>
-                </a>
-              </div>
-              <!-- Album art -->
-              <div class="morework-item item col-sm-6 col-md-4 col-lg-3 mb-4">
-                <a href="work-albumart.html" class="item-wrap fancybox">
-                  <div class="mw-img-wrap" id="mwitem1"></div>
-                  <P>OLA Play • Album artworks</P>
-                  <p1>Visual design system</p1>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!-- contactsection -->
-    <div class="site-section final-footer" style="background:black;">
-      <div class="container">
-        <div class="row" style="justify-content: space-between;">
-          <div class="col-sm-12 col-md-4 col-lg-4 align-items-center" style="display: flex;">
-            <a href="home.html" style="border:none;padding:0;">
-              <img src="img/stipple-logo-white.svg" style="width:80px;opacity:1">
-            </a>
-          </div>
-          <div class="col-sm-12 col-md-8 col-lg-8 align-items-center" style="display: flex;
-              flex-basis: content;">
-            <a href="https://www.linkedin.com/in/hemanthravindran/" target="blank">
-              <img style="width:24px;float: left;" src="img/btn-icn-li.png" alt="">
-            </a>
-            <a href="mailto:hemanth.615@gmail.com">
-              <img style="width:24px;float: left;" src="img/btn-icn-gm.png" alt="">
-            </a>
-            <a href="https://dribbble.com/hemanthravindran" target="blank">
-              <img style="width:24px;float: left;" src="img/btn-icn-dbl.png" alt="">
-            </a>
-            <a href="about.html"> About & contact </a>
-          </div>
-        </div>
-      </div>
     </div>
-    </main>
-    <footer class="footer" role="contentinfo"></footer>
-    <!-- Template Main JS File -->
-    <script src="js/uiux.js"></script>
-    <script>
-      // close overlay on click btn
-      $('#mboverlay').on('click', '#warningbtnprim', function () {
-        document.getElementById("mboverlay").style.display = "none";
-        });
-    </script>
-  </body>
+</section>
+
+<!-- Ease Section -->
+<section class="ease-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2>Custom-developed B2B Catalog is easier than you may realize.</h2>
+            </div>
+        </div>
+        
+        <div class="ease-grid">
+            <div class="ease-card">
+                <div class="ease-border"></div>
+                <h3>Catalog management</h3>
+                <p>Our solution is designed to organize your online store, sell your products across multiple sales channels by improving catalog management.</p>
+            </div>
+            
+            <div class="ease-card">
+                <div class="ease-border"></div>
+                <h3>Build stunning digital catalogs</h3>
+                <p>Your product will be brought to life with all the tools you need to buy, sell, collaborate online, and help your retailers visualize buy.</p>
+            </div>
+            
+            <div class="ease-card">
+                <div class="ease-border"></div>
+                <h3>API-first architecture</h3>
+                <p>Organize, coordinate and streamline e-commerce product data into a single digital point of reference for your B2B partners.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Key Solutions Section -->
+<section class="key-solutions-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <div class="subtitle">KEY SOLUTIONS</div>
+                    <h2>Our Expertise in B2B product catalog management application</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="key-solutions-grid">
+            <div class="solution-card">
+                <h4>Centralized Management</h4>
+                <p>centralized platform for managing product catalogs across multiple channels and platforms.</p>
+                <div class="solution-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="solution-card">
+                <h4>Automated Data Management</h4>
+                <p>Automated data validation, enrichment, and normalization processes to ensure accurate and consistent product information.</p>
+                <div class="solution-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="solution-card">
+                <h4>Personalized Product Experiences</h4>
+                <p>Product recommendations, search results, and content based on customer preferences and behavior.</p>
+                <div class="solution-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="solution-card">
+                <h4>Analytics and Insights</h4>
+                <p>Advanced analytics and reporting capabilities to track product performance and customer behavior and identify opportunities for improvement.</p>
+                <div class="solution-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Custom Solutions Section -->
+<section class="custom-solutions-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2>Custom solutions to manage and promote your products across multiple channels and platforms.</h2>
+                <p class="lead">Launching an online product B2B catalog can increase customer engagement, and customizing it per your business needs is one of the first steps you can take for the digital transformation of your business.</p>
+            </div>
+        </div>
+        
+        <div class="custom-solutions-grid">
+            <div class="custom-solution-item">
+                <div class="solution-check">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="solution-content">
+                    <h4>Catalog management</h4>
+                    <p>Our solution is designed to organize your online store, sell your products across multiple sales channels by improving catalog management.</p>
+                </div>
+            </div>
+            
+            <div class="custom-solution-item">
+                <div class="solution-check">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="solution-content">
+                    <h4>Build stunning digital catalogs</h4>
+                    <p>Your product will be brought to life with all the tools you need to buy, sell, collaborate online, and help your retailers visualize buy.</p>
+                </div>
+            </div>
+            
+            <div class="custom-solution-item">
+                <div class="solution-check">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="solution-content">
+                    <h4>API-first architecture</h4>
+                    <p>Organize, coordinate and streamline e-commerce product data into a single digital point of reference for your B2B partners.</p>
+                </div>
+            </div>
+            
+            <div class="custom-solution-item">
+                <div class="solution-check">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="solution-content">
+                    <h4>Integration with Existing Systems</h4>
+                    <p>Integrate with your existing systems and tools, allowing for seamless data exchange and reducing the need for manual data entry and maintenance.</p>
+                </div>
+            </div>
+            
+            <div class="custom-solution-item">
+                <div class="solution-check">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="solution-content">
+                    <h4>Improved Data Quality</h4>
+                    <p>Ensure the accuracy and completeness of product information. This can help reduce errors and inconsistencies, improving data quality across all channels.</p>
+                </div>
+            </div>
+            
+            <div class="custom-solution-item">
+                <div class="solution-check">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="solution-content">
+                    <h4>Better User Experience</h4>
+                    <p>Provide a better user experience for both internal teams and customers. This can include features such as personalized recommendations, advanced search capabilities, and easy-to-use interfaces.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="process-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2>Our process methodologies are tried and true and ensure that you create an effective B2B product catalog management solution.</h2>
+            </div>
+        </div>
+        
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div class="process-flow">
+            <div class="process-step">
+                <div class="process-box">
+                    <h4>Gain valuable insights into customer needs and preferences</h4>
+                </div>
+                <div class="process-connector"></div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-box">
+                    <h4>Define Business Goals and KPIs</h4>
+                </div>
+                <div class="process-connector"></div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-box">
+                    <h4>Develop a Comprehensive Implementation Plan</h4>
+                </div>
+                <div class="process-connector"></div>
+            </div>
+            
+            <div class="process-step">
+                <div class="process-box">
+                    <h4>Test and Iterate</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</section>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="cta-content animate__animated animate__fadeInUp">
+                        <h2>Ready to shape the future?</h2>
+                        <p>Our clients turn to us to help them reimagine ways of working with technology.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="cta-button">
+                        <a href="contact.html" class="btn btn-outline-primary">Let's Talk</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer class="custom-footer">
+  <div class="footer-left">
+    <span class="red-dot"></span>
+    <span>© Zynapse 2025</span>
+  </div>
+  <div class="footer-center">
+    <p><span class="author">[Mark Weiser]</span> “The most profound technologies are those that disappear.”</p>
+  </div>
+  <div class="footer-right">
+    <a href="#" class="social-link">X</a>
+    <a href="#" class="social-link">in</a>
+  </div>
+</footer>
+
+ <script src="js/uiux.js"></script>
+</body>
 </html>

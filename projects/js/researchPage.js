@@ -46,16 +46,14 @@ const steps = document.querySelectorAll('.process-step');
             });
         });
 
-        document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll(".nav-link");
-  const currentPage = window.location.pathname.split("/").pop(); // e.g. research.html
-
-  navLinks.forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active");
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const researchLink = document.getElementById("research-link");
+  if (researchLink) {
+    researchLink.classList.add("active");
+  }
 });
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const reveals = document.querySelectorAll(".reveal");
@@ -75,28 +73,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const statsSection = document.querySelector(".methodology-stats");
+  const numbers = statsSection.querySelectorAll(".stat-number");
+
+  function animateNumber(element, target) {
+    let start = 0;
+    let end = parseFloat(target.replace(/[^0-9.]/g, "")); // handle %, M, etc.
+    let suffix = target.replace(/[0-9.]/g, ""); // get % or M suffix
+    let duration = 2000; // 2 seconds
+    let stepTime = Math.abs(Math.floor(duration / end));
+    
+    let current = start;
+    let timer = setInterval(() => {
+      current++;
+      if (current >= end) {
+        clearInterval(timer);
+        element.textContent = target; // final with suffix
+      } else {
+        element.textContent = current + suffix;
+      }
+    }, stepTime);
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        statsSection.classList.add("active");
+        numbers.forEach(num => {
+          animateNumber(num, num.textContent);
+        });
         observer.unobserve(statsSection); // Run only once
       }
     });
-  }, { threshold: 0.3 }); // 20% visible triggers animation
+  }, { threshold: 0.3 });
 
   observer.observe(statsSection);
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const progressContainer = document.querySelector(".progress-container");
   const circles = progressContainer.querySelectorAll(".progress-circle");
 
-  const animateCounter = (circle) => {
+  function animateCounter(circle) {
     const valueElem = circle.querySelector(".progress-value");
     const finalValue = parseInt(circle.getAttribute("data-final"), 10);
     let current = 0;
-    const increment = Math.ceil(finalValue / 60); // smooth steps (~1s)
+    const duration = 1500; // total animation time (ms)
+    const stepTime = 20; // update interval (ms)
+    const steps = duration / stepTime;
+    const increment = finalValue / steps;
 
     const interval = setInterval(() => {
       current += increment;
@@ -104,26 +128,22 @@ document.addEventListener("DOMContentLoaded", () => {
         current = finalValue;
         clearInterval(interval);
       }
-      valueElem.textContent = current + "%";
-    }, 20);
-  };
+      valueElem.textContent = Math.round(current) + "%";
+    }, stepTime);
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        progressContainer.classList.add("active");
-
-        circles.forEach(circle => {
-          animateCounter(circle);
-        });
-
-        observer.unobserve(progressContainer); // trigger once
+        circles.forEach(circle => animateCounter(circle));
+        observer.unobserve(progressContainer); // run only once
       }
     });
-  }, { threshold: 0.9 }); // when 30% visible
+  }, { threshold: 0.3 }); // triggers when 30% visible
 
   observer.observe(progressContainer);
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const groups = document.querySelectorAll(".papers-grid .paper-group");

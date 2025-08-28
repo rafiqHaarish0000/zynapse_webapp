@@ -22,6 +22,14 @@ function scrollToSection(id) {
   }
 }
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const contactLink = document.getElementById("about-link");
+    if (contactLink) {
+      contactLink.classList.add("active");
+    }
+  });
+
+
 // =========================
 // Navigation Handler
 // =========================

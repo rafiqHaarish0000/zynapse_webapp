@@ -1,4 +1,5 @@
 .work {
+   margin-top: 200px;
   background-color: black;
   color: #fff; 
   position: relative;/* Light violet text color */ /* allow scrolling */
@@ -43,17 +44,16 @@
 }
 
 .work-image img {
-    position: sticky;
-  top: 0;       /* sticks to top while scrolling inside section */
+  position: sticky;
+  top: 0;
   z-index: 10;
-  padding: 40px;
-  text-align: center;
-  width: 100vw;      /* full viewport width */
+  width: 100%;       /* instead of 100vw */
   height: auto;
-  display: block;    /* removes small gaps below image */
-  margin: 0;         /* remove margin */
-  border-radius: 0;  /* remove rounded corners for full width */
-  box-shadow: none;  /* optional: remove shadow */
+  display: block;
+  margin: 0 auto;    /* centers image */
+  padding: 0;        /* remove padding from image */
+  border-radius: 0;
+  box-shadow: none;
   transition: transform 0.3s ease;
 }
 .work-image.visible img {
@@ -73,7 +73,7 @@ font-size: 5rem;
 }
 
 .work-description {
-  max-width: 700px;
+  max-width: 100%;
   margin: 0 auto 1px auto;
   font-size: 1rem;
   color: #fff;
@@ -114,9 +114,7 @@ font-size: 5rem;
   font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
   }
 
-  .styled-heading .work-description {
- 
-  }
+
   .product-btn {
   background: white;
   color: black;
@@ -146,17 +144,16 @@ font-size: 5rem;
 .carousel {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 40px 0px;
-  perspective: 100px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 40px;
+  width: 100%;        /* full width */
+  max-width: 1200px;  /* optional: keep it neat */
+  margin: 0 auto;     /* center align */
+  padding: 0 20px;    /* even spacing left/right */
 }
 
 .carousel-item {
   position: relative;
-  width: 80%;
+  width: 100%;       /* take full grid width */
   height: 200px;
   overflow: hidden;
   border-radius: 12px;
@@ -406,7 +403,7 @@ font-size: 5rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .project-info p {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #e0d6ff;
   margin-bottom: 0;
 }

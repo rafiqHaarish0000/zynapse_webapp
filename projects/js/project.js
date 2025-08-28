@@ -2,12 +2,10 @@ class ScrollImageMerger {
   constructor() {
     this.stickyWrapper = document.getElementById("stickyWrapper");
     this.images = [
-      document.getElementById("img1"),
-      document.getElementById("img2"),
       document.getElementById("img3"),
       document.getElementById("img4"),
       document.getElementById("img5"),
-      document.getElementById("img6"),
+      document.getElementById("img6")
     ];
     this.centerText = document.getElementById("centerText");
 
@@ -18,69 +16,60 @@ class ScrollImageMerger {
     window.addEventListener("scroll", () => this.updateAnimation());
   }
 
-updateAnimation() {
-  const rect = this.stickyWrapper.getBoundingClientRect();
-  const sectionHeight = this.stickyWrapper.offsetHeight - window.innerHeight;
+  updateAnimation() {
+    const rect = this.stickyWrapper.getBoundingClientRect();
+    const sectionHeight = this.stickyWrapper.offsetHeight - window.innerHeight;
 
-  let scrollProgress = 0;
+    let scrollProgress = 0;
 
-  if (rect.top <= 0 && Math.abs(rect.top) <= sectionHeight) {
-    scrollProgress = Math.min(Math.abs(rect.top) / sectionHeight, 1);
-  } else if (rect.top > 0) {
-    scrollProgress = 0;
-  } else if (Math.abs(rect.top) > sectionHeight) {
-    scrollProgress = 1;
+    if (rect.top <= 0 && Math.abs(rect.top) <= sectionHeight) {
+      scrollProgress = Math.min(Math.abs(rect.top) / sectionHeight, 1);
+    } else if (rect.top > 0) {
+      scrollProgress = 0;
+    } else if (Math.abs(rect.top) > sectionHeight) {
+      scrollProgress = 1;
+    }
+
+    // Define when center text should appear
+    const centerTextThreshold = 0.6;
+
+    // Stop expansion once threshold is reached
+    const effectiveProgress = Math.min(scrollProgress, centerTextThreshold);
+
+    const offsetX = (window.innerWidth / 2) * effectiveProgress;
+    const offsetY = (window.innerHeight / 2) * effectiveProgress;
+
+    const sizes = [
+      { w: 350, h: 150 },
+      { w: 350, h: 150 },
+      { w: 550, h: 150 },
+      { w: 550, h: 150 }
+    ];
+
+    this.images.forEach((img, i) => {
+      const baseW = 200;
+      const baseH = 300;
+
+      const newW = baseW + (sizes[i].w - baseW) * effectiveProgress;
+      const newH = baseH + (sizes[i].h - baseH) * effectiveProgress;
+
+      img.style.width = `${newW}px`;
+      img.style.height = `${newH}px`;
+    });
+
+    // Position the 4 cards (2 on top, 2 on bottom)
+    this.images[0].style.transform = `translate(${-offsetX}px, ${-offsetY}px)`; // Top-left
+    this.images[1].style.transform = `translate(${offsetX}px, ${-offsetY}px)`;  // Top-right
+    this.images[2].style.transform = `translate(${-offsetX}px, ${offsetY}px)`;  // Bottom-left
+    this.images[3].style.transform = `translate(${offsetX}px, ${offsetY}px)`;   // Bottom-right
+
+    // Show center text
+    if (scrollProgress >= centerTextThreshold) {
+      this.centerText.classList.add("show");
+    } else {
+      this.centerText.classList.remove("show");
+    }
   }
-
-  // Define when center text should appear
-  const centerTextThreshold = 0.6;
-
-  // Stop expansion once threshold is reached
-  const effectiveProgress = Math.min(scrollProgress, centerTextThreshold);
-
-  const offsetX = (window.innerWidth / 2) * effectiveProgress;
-  const offsetY = (window.innerHeight / 2) * effectiveProgress;
-
-  const sizes = [
-    { w: 350, h: 150 },
-  { w: 350, h: 150 },
-  { w: 350, h: 150 },
-  { w: 350, h: 150 },
-  { w: 550, h: 150 },
-  { w: 550, h: 150 },
-  ];
-
-  this.images.forEach((img, i) => {
-    const baseW = 200;
-    const baseH = 300;
-
-    const newW = baseW + (sizes[i].w - baseW) * effectiveProgress;
-    const newH = baseH + (sizes[i].h - baseH) * effectiveProgress;
-
-    img.style.width = `${newW}px`;
-    img.style.height = `${newH}px`;
-  });
-
-  this.images[0].style.transform = `translate(${-offsetX}px, ${-offsetY}px)`;
-  this.images[1].style.transform = `translate(${offsetX}px, ${-offsetY}px)`;
-  this.images[2].style.transform = `translate(${-offsetX}px, ${offsetY}px)`;
-  this.images[3].style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-  this.images[4].style.transform = `translate(${-offsetX}px, 0)`;
-  this.images[5].style.transform = `translate(${offsetX}px, 0)`;
-
-  // Show center text
-  if (scrollProgress >= centerTextThreshold) {
-    this.centerText.classList.add("show");
-  } else {
-    this.centerText.classList.remove("show");
-  }
-  
-}
-
-
-
-
-
 }
 // Tilt effect for each image card
 document.querySelectorAll('.image-wrapper').forEach(wrapper => {

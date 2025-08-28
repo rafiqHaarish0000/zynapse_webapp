@@ -1,17 +1,20 @@
 /* Reset and Base Styles */
 * {
+    
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+        margin-top: 140px;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     background-color: #f5f1eb;
 }
 
 .service {
+    margin-top: 200px;
     height: auto;
     background-color: #000;
     color: #fff;
@@ -23,7 +26,7 @@ body {
 
 /* Main Container */
 .main-container {
-    margin-top: 40px;
+    margin-top: 140px;
     min-height: 100vh;
     padding: 2rem;
     transform-origin: top center;
@@ -208,7 +211,7 @@ body {
     text-align: center;
     margin: 3rem 0;
     z-index: 10;
-    margin-top: 360px;
+    margin-top: 320px;
     position: relative;
     transition: all 0.5s ease;
 }

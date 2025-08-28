@@ -18,6 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .forEach((el) => animationObserver.observe(el));
 });
 
+ document.addEventListener("DOMContentLoaded", () => {
+    const contactLink = document.getElementById("about-link");
+    if (contactLink) {
+      contactLink.classList.add("active");
+    }
+  });
+
 // =============================
 // Sliding Panels (About Section)
 // =============================

@@ -353,6 +353,11 @@
   padding-top: 8px;
 }
 
+.nav-link.active {
+  color: #9b5de5;   /* purple highlight */
+  font-weight: bold;
+}
+
 .nav-hidden {
     display: none !important;
 }
