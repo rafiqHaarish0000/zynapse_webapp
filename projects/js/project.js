@@ -120,4 +120,26 @@ const hiddenElements = document.querySelectorAll('.hidden');
     }
   });
 
+  document.addEventListener("DOMContentLoaded", () => {
+  const image = document.querySelector(".animate-image");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        image.classList.add("show"); // trigger animation
+        observer.unobserve(entry.target); // remove if you want only once
+      }
+    });
+  }, { threshold: 0.3 }); // trigger when 30% of image is visible
+
+  observer.observe(image);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const researchLink = document.getElementById("products-link");
+  if (researchLink) {
+    researchLink.classList.add("active");
+  }
+});
+
 new ScrollImageMerger();

@@ -5,48 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zynapse Services</title>
 
-
+  <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/servicePage.css">
 </head>
 <body>
   <!-- Navigation -->
-<nav class="service-nav">
-  <div class="logo">
-    <a href="index.html">
-      <img src="assets/logo.png" alt="Zynapse Logo">
-    </a>
-  </div>
-  <div class="nav-links">
-    <a href="index.html">About</a>
-    <a href="project.html" id="products-link" class="nav-link">Products</a>
-    <a href="service.html">Services</a>
+  <nav>
+    <div class="logo">
+      <div class="logo">
+  <a href="index.html">
+    <img src="assets/logo.png" alt="Zynapse Logo">
+  </a>
+</div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">About</a>
+<a href="project.html">Products</a>
+
+      <a href="service.html" id="service-link" class="nav-link">Services</a>
     <a href="research.html">Research</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <button class="mobile-menu-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="#" onclick="scrollToSection('aboutContainer'); return false;">About</a>
+    <a href="#" onclick="scrollToSection('work'); return false;">Products</a>
+    <a href="#" onclick="scrollToSection('service'); return false;">Services</a>
+    <a href="#" onclick="scrollToSection('reseach'); return false;">Research</a>
     <a href="contact.html">Contact Us</a>
   </div>
-  <button class="mobile-menu-btn">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M3 12h18M3 6h18M3 18h18"></path>
-    </svg>
-  </button>
-</nav>
 
     <!-- Section 1: Hero -->
-    <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-content">
+    <section class="hero-section ">
+        <div class="hero-container ">
+            <div class="hero-content fade-in-up">
                 <h1>Innovative IT Services to Forward-thinking Businesses.</h1>
                 <p>Cutting-Edge Solutions with Advanced Tech</p>
    <a href="contact.html" class="cta-button">Let's Collaborate</a>
 
             </div>
-            <div class="tech-icons">
+            <div class="tech-icons fade-in-up">
                 <img src="assets/codingimage.png" alt="Technology Stack" class="tech-stack-image">
             </div>
         </div>
     </section>
 
     <!-- Section 2: Trusted Brands Auto Scroll -->
-    <section class="brands-section">
+    <section class="brands-section fade-in-up">
 		<h2 class="brands-title">TRUSTED BY BIG BRANDS</h2>
         <div class="brands-scroll-container">
             <div class="brands-track">
@@ -116,7 +128,7 @@
     </section>
 
     <!-- Section 3: Solutions -->
-    <section class="solutions-section">
+    <section class="solutions-section fade-in-up">
         <div class="solutions-container">
             <h2 class="section-title">Solutions We Offer</h2>
             <div class="solutions-grid">
@@ -155,7 +167,7 @@
     </section>
 
     <!-- Section 4: Domains -->
-    <section class="domains-section">
+    <section class="domains-section fade-in-up">
         <div class="domains-container">
             <h2 class="section-title">Domains of Expertise</h2>
             <div class="domains-grid">
@@ -182,7 +194,7 @@
     </section>
 
     <!-- Section 5: Success Story -->
-    <section class="success-section">
+    <section class="success-section fade-in-up">
         <div class="success-container">
             <div class="success-header">Success Stories</div>
             <h2 class="success-title">Where User-Centered Design Meets Customer Retention: Clarity in Travel Excellence</h2>
@@ -199,10 +211,10 @@
             </div>
         </div>
 		  <!-- Testimonial as hanging bottom center -->
-  <div class="testimonial-section">
+  <div class="testimonial-section ">
     <div class="testimonial-container">
       <div class="testimonial-image"> </div>
-      <div class="testimonial-content">
+      <div class="testimonial-content fade-in-up">
         <h2>Empowering Travel Experiences, Engineered by Zynapse!</h2>
         <p class="testimonial-text">
           "As a leading online travel agency, our commitment lies in user-centered design and utilizing product engineering to retain customer loyalty. Your partnership has been invaluable in achieving this goal. Your contributions have significantly enhanced our platform's clarity and focused approach, further solidifying our position in the market."
@@ -213,7 +225,7 @@
     </section>
 
 	<!-- Employee Feedback Section -->
-<section class="feedback-section">
+<section class="feedback-section fade-in-up">
     <div class="feedback-container">
         <h2 class="feedback-title">Positive Feedback from Contented Employees from Trusted Platforms</h2>
         
@@ -260,7 +272,7 @@
                 </div>
             </div>
 
-            <div class="feedback-card">
+            <div class="feedback-card fade-in-up">
                 <div class="quote-icon">"</div>
                 <div class="star-rating">
                     <span class="star">★</span>
@@ -281,7 +293,7 @@
         </div>
     </div>
 </section>
-<footer class="custom-footer hidden" style="background-color: black;">
+<footer class="custom-footer fade-in-up" style="background-color: black;">
   <div class="footer-left">
     <span class="red-dot"></span>
     <span>© Zynapse 2025</span>
@@ -314,13 +326,7 @@
 	
 
 
-  <script src="js/about.js"></script>
-  <script src="js/work.js"></script>
-  <script src="js/services.js"></script>
-
-  <script src="js/footer.js"></script>
-  <script src="js/contact.js"></script>
-  <script src="js/project.js"></script>
+   <script src="js/hero.js"></script>
     <script src="js/servicePage.js"></script>
 </body>
 </html>

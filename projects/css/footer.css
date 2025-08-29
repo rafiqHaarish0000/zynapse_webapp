@@ -17,17 +17,19 @@
 
 .newsletter-section {
   padding: 60px 0;
-  background: #000;
+  background: #fff;
 }
 
 .newsletter-frame {
-  max-width: 100%;
-  margin: 0 auto;
-  background: #000;
-
-  border-radius: 28px;
-  padding: 6px 6px 60px;
-  box-shadow: 0 2px 0 rgba(0,0,0,.02) inset;
+  max-width: 100%;                 /* shrink width for card look */
+  width: 90%;                       /* responsive on small screens */
+  margin: 2rem auto;                /* center horizontally with spacing */
+  background: #fff;
+  border: 2px solid #e0e0e0;        /* subtle border color */
+  border-radius: 28px;              /* rounded corners */
+  padding: 40px 30px;               /* nice inner spacing */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* soft shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .rounded-card { border-radius: 18px; }
@@ -151,6 +153,7 @@
 .hero-newsletter h2 { font-size: clamp(22px, 3vw, 32px); margin: 0 0 6px; font-weight: 800; letter-spacing: -0.02em; }
 .hero-newsletter .sub { color: #c8c8cf; font-size: 14px; margin-bottom: 16px; }
 .hero-newsletter .cta {
+  text-decoration: none;
   display: inline-block; background: #fff; color: #111; padding: 10px 16px; border-radius: 12px; font-weight: 700; font-size: 14px;
   box-shadow: 0 10px 22px rgba(255,255,255,.12), 0 8px 20px rgba(0,0,0,.35);
   transition: transform .2s ease; will-change: transform;

@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
  document.addEventListener("DOMContentLoaded", () => {
-    const contactLink = document.getElementById("about-link");
-    if (contactLink) {
-      contactLink.classList.add("active");
-    }
-  });
+  const researchLink = document.getElementById("about-link");
+  if (researchLink) {
+    researchLink.classList.add("active");
+  }
+});
 
 // =============================
 // Sliding Panels (About Section)

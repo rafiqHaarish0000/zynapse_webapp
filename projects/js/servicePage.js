@@ -86,3 +86,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
   statNumbers.forEach(num => observer.observe(num));
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const faders = document.querySelectorAll('.fade-in-up');
+
+  const appearOptions = {
+    threshold: 0.2, // trigger when 20% is visible
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target); // animate only once
+      }
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const researchLink = document.getElementById("service-link");
+  if (researchLink) {
+    researchLink.classList.add("active");
+  }
+});

@@ -1,240 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="css/researchPage.css">
-        <link rel="stylesheet" href="css/base.css">
-        <link rel="stylesheet" href="css/project.css">
-         <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="stylesheet" href="css/footer.css">
     
     <title>AI Research Institute - Researchers</title>
-    <body>
-          <!-- Navigation -->
-  <nav>
-    <div class="logo">
-      <div class="logo">
-  <a href="index.html">
-    <img src="assets/logo.png" alt="Zynapse Logo">
-  </a>
-</div>
-    </div>
-    <div class="nav-links">
-      <a href="index.html">About</a>
-<a href="project.html">Products</a>
-
-      <a href="service.html">Services</a>
-    <a href="research.html" id="research-link" class="nav-link">Research</a>
-      <a href="contact.html">Contact Us</a>
-    </div>
-    <button class="mobile-menu-btn">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M3 12h18M3 6h18M3 18h18"></path>
-      </svg>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <a href="#" onclick="scrollToSection('aboutContainer'); return false;">About</a>
-    <a href="#" onclick="scrollToSection('work'); return false;">Products</a>
-    <a href="#" onclick="scrollToSection('service'); return false;">Services</a>
-    <a href="#" onclick="scrollToSection('reseach'); return false;">Research</a>
-    <a href="contact.html">Contact Us</a>
-  </div>
-
-     <!-- Banner Section -->
-<section class="banner reveal">
-  <div class="banner-content">
-    <!-- Left -->
-    <div class="banner-left reveal">
-      <h1 class="banner-title reveal">Innovating the Future</h1>
-      <p class="banner-para reveal">
-        Zynapse research lab that seeks to solve complex machine learning problems. We support fundamental research that explores the unknown, and are focused on creating more points of entry into machine learning research
-      </p>
-      <a href="#" class="banner-btn">Discover More</a>
-    </div>
-
-    <!-- Right -->
-    <div class="banner-right reveal">
-      <h2 id="animatedText" class="banner-big reveal"></h2>
-    </div>
-  </div>
-</section>
-<div class="scroll-indicator">
-  <span></span>
-</div>
-<section class="about-container reveal">
-            <!-- About Section -->
-              <div class="container-about reveal">
-        <h1 class="main-title reveal">How We Work</h1>
-        
-        <div class="process-timeline reveal">
-            <div class="timeline-connector reveal"></div>
-            
-            <!-- IDENTIFY -->
-            <div class="process-step " data-description="We identify market opportunities and validate business ideas through comprehensive research and analysis.">
-                <div class="step-icon-circle inactive">
-                    <svg class="process-icon" viewBox="0 0 24 24">
-                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
-                        <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <div class="step-dot inactive"></div>
-                <div class="step-name inactive">IDENTIFY</div>
-            </div>
-            
-            <!-- FORM -->
-            <div class="process-step" data-description="A streamlined team of co-founders is brought together to create and lead the company, empowering a new generation of entrepreneurs.">
-                <div class="step-icon-circle active">
-                    <svg class="process-icon" viewBox="0 0 24 24">
-                        <path d="M3 3h8v8H3z"/>
-                        <path d="M13 13h8v8h-8z"/>
-                        <path d="M3 13h8v8H3z"/>
-                        <path d="M13 3h8v8h-8z"/>
-                        <circle cx="7" cy="7" r="2"/>
-                        <circle cx="17" cy="7" r="2"/>
-                        <circle cx="7" cy="17" r="2"/>
-                        <circle cx="17" cy="17" r="2"/>
-                    </svg>
-                </div>
-                <div class="step-dot active"></div>
-                <div class="step-name active">FORM</div>
-            </div>
-            
-            <!-- DEVELOP -->
-            <div class="process-step" data-description="We build robust technology solutions and develop innovative products through agile methodologies and iterative design.">
-                <div class="step-icon-circle inactive">
-                    <svg class="process-icon" viewBox="0 0 24 24" >
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M12 1v6"/>
-                        <path d="M12 17v6"/>
-                        <path d="M23 12h-6"/>
-                        <path d="M7 12H1"/>
-                        <path d="M18.364 5.636l-4.243 4.243"/>
-                        <path d="M9.879 14.121l-4.243 4.243"/>
-                        <path d="M18.364 18.364l-4.243-4.243"/>
-                        <path d="M9.879 9.879L5.636 5.636"/>
-                    </svg>
-                </div>
-                <div class="step-dot inactive"></div>
-                <div class="step-name inactive">DEVELOP</div>
-            </div>
-            
-            <!-- LAUNCH -->
-            <div class="process-step" data-description="We execute strategic go-to-market plans and launch products with precision timing and maximum impact.">
-                <div class="step-icon-circle inactive">
-                    <svg class="process-icon" viewBox="0 0 24 24">
-                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
-                        <path d="M12 15 9 12l2-7 13-5-5 13-7 2Z"/>
-                        <path d="M9 12H4s.55-3.03 2-4"/>
-                        <path d="M12 15v5s3.03-.55 4-2"/>
-                    </svg>
-                </div>
-                <div class="step-dot inactive"></div>
-                <div class="step-name inactive">LAUNCH</div>
-            </div>
-            
-            <!-- GROW -->
-            <div class="process-step" data-description="We scale operations, expand market reach, and foster sustainable growth through strategic partnerships and innovation.">
-                <div class="step-icon-circle inactive">
-                    <svg class="process-icon" viewBox="0 0 24 24">
-                        <circle cx="5" cy="12" r="2"/>
-                        <circle cx="12" cy="5" r="2"/>
-                        <circle cx="19" cy="12" r="2"/>
-                        <circle cx="12" cy="19" r="2"/>
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M7 12h3"/>
-                        <path d="M12 7v3"/>
-                        <path d="M14 12h3"/>
-                        <path d="M12 14v3"/>
-                    </svg>
-                </div>
-                <div class="step-dot inactive"></div>
-                <div class="step-name inactive">GROW</div>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Zynapse Logo">
+                </a>
             </div>
         </div>
-        
-        <p class="company-description" id="description">
-            A streamlined team of co-founders is brought together to<br>
-            create and lead the company, empowering a new<br>
-            generation of entrepreneurs.
-        </p>
+        <div class="nav-links">
+            <a href="index.html">About</a>
+            <a href="project.html">Products</a>
+            <a href="service.html">Services</a>
+            <a href="research.html" id="research-link" class="nav-link">Research</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <button class="mobile-menu-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12h18M3 6h18M3 18h18"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#" onclick="scrollToSection('aboutContainer'); return false;">About</a>
+        <a href="#" onclick="scrollToSection('work'); return false;">Products</a>
+        <a href="#" onclick="scrollToSection('service'); return false;">Services</a>
+        <a href="#" onclick="scrollToSection('reseach'); return false;">Research</a>
+        <a href="contact.html">Contact Us</a>
     </div>
-               <!-- How We Work Section -->
-          <div class="methodology-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">24</div>
-                        <div class="stat-label">Average Days from Concept to Prototype</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">95%</div>
-                        <div class="stat-label">Peer Review Success Rate</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">180</div>
-                        <div class="stat-label">Research Collaborations Globally</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3.2M</div>
-                        <div class="stat-label">Code Downloads This Year</div>
-                    </div>
-                </div>
-</section>
 
+    <!-- Banner Section -->
+    <section class="banner reveal">
+        <div class="banner-content">
+            <!-- Left -->
+            <div class="banner-left reveal">
+                <h1 class="banner-title reveal">Innovating the Future</h1>
+                <p class="banner-para reveal">
+                    Zynapse research lab that seeks to solve complex machine learning problems. We support fundamental research that explores the unknown, and are focused on creating more points of entry into machine learning research
+                </p>
+                <a href="contact.htmlFaveraf" class="banner-btn">Discover More</a>
+            </div>
 
-<section>
-            <!-- Progress Section -->
-            <div class="section reveal" style="    border-radius: 0px;">
+            <!-- Right -->
+            <div class="banner-right reveal">
+                <h2 id="animatedText" class="banner-big reveal"></h2>
+            </div>
+        </div>
+    </section>
+    <div class="scroll-indicator">
+        <span></span>
+    </div>
+    <section class="about-container reveal">
+        <!-- About Section -->
+        <div class="container-about reveal">
+            <h1 class="main-title reveal">How We Work</h1>
+            
+            <div class="process-timeline reveal">
+                <div class="timeline-connector reveal"></div>
                 
-                <h2>Our Progress</h2>
-<div class="progress-container reveal">
-  <div class="progress-item reveal">
-    <div class="progress-circle" data-final="85">
-      <div class="progress-value">0%</div>
-    </div>
-    <h4>Research Publications</h4>
-    <p>Published in top-tier conferences</p>
-  </div>
-  <div class="progress-item reveal">
-    <div class="progress-circle" data-final="72">
-      <div class="progress-value">0%</div>
-    </div>
-    <h4 >Active Projects</h4>
-    <p >Currently in development</p>
-  </div>
-  <div class="progress-item reveal">
-    <div class="progress-circle" data-final="93">
-      <div class="progress-value">0%</div>
-    </div>
-    <h4 >Collaboration Success</h4>
-    <p >Inter-institutional partnerships</p>
-  </div>
-  <div class="progress-item reveal">
-    <div class="progress-circle" data-final="68">
-      <div class="progress-value">0%</div>
-    </div>
-    <h4 >Patent Applications</h4>
-    <p >Technology transfer rate</p>
-  </div>
-</div>
- </div>
-</section>
+                <!-- IDENTIFY -->
+                <div class="process-step " data-description="We identify market opportunities and validate business ideas through comprehensive research and analysis.">
+                    <div class="step-icon-circle inactive">
+                        <svg class="process-icon" viewBox="11 -5 2 36">
+                            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="step-dot inactive"></div>
+                    <div class="step-name inactive">IDENTIFY</div>
+                </div>
+                
+                <!-- FORM -->
+                <div class="process-step" data-description="A streamlined team of co-founders is brought together to create and lead the company, empowering a new generation of entrepreneurs.">
+                    <div class="step-icon-circle active">
+                        <svg class="process-icon" viewBox="11 -5 2 36">
+                            <path d="M3 3h8v8H3z"/>
+                            <path d="M13 13h8v8h-8z"/>
+                            <path d="M3 13h8v8H3z"/>
+                            <path d="M13 3h8v8h-8z"/>
+                            <circle cx="7" cy="7" r="2"/>
+                            <circle cx="17" cy="7" r="2"/>
+                            <circle cx="7" cy="17" r="2"/>
+                            <circle cx="17" cy="17" r="2"/>
+                        </svg>
+                    </div>
+                    <div class="step-dot active"></div>
+                    <div class="step-name active">FORM</div>
+                </div>
+                
+                <!-- DEVELOP -->
+                <div class="process-step" data-description="We build robust technology solutions and develop innovative products through agile methodologies and iterative design.">
+                    <div class="step-icon-circle inactive">
+                        <svg class="process-icon" viewBox="11 -5 2 36" >
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6"/>
+                            <path d="M12 17v6"/>
+                            <path d="M23 12h-6"/>
+                            <path d="M7 12H1"/>
+                            <path d="M18.364 5.636l-4.243 4.243"/>
+                            <path d="M9.879 14.121l-4.243 4.243"/>
+                            <path d="M18.364 18.364l-4.243-4.243"/>
+                            <path d="M9.879 9.879L5.636 5.636"/>
+                        </svg>
+                    </div>
+                    <div class="step-dot inactive"></div>
+                    <div class="step-name inactive">DEVELOP</div>
+                </div>
+                
+                <!-- LAUNCH -->
+                <div class="process-step" data-description="We execute strategic go-to-market plans and launch products with precision timing and maximum impact.">
+                    <div class="step-icon-circle inactive">
+                        <svg class="process-icon" viewBox="11 -9 3 46">
+                            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                            <path d="M12 15 9 12l2-7 13-5-5 13-7 2Z"/>
+                            <path d="M9 12H4s.55-3.03 2-4"/>
+                            <path d="M12 15v5s3.03-.55 4-2"/>
+                        </svg>
+                    </div>
+                    <div class="step-dot inactive"></div>
+                    <div class="step-name inactive">LAUNCH</div>
+                </div>
+                
+                <!-- GROW -->
+                <div class="process-step" data-description="We scale operations, expand market reach, and foster sustainable growth through strategic partnerships and innovation.">
+                    <div class="step-icon-circle inactive">
+                        <svg class="process-icon" viewBox="11 -5 2 36">
+                            <circle cx="5" cy="12" r="2"/>
+                            <circle cx="12" cy="5" r="2"/>
+                            <circle cx="19" cy="12" r="2"/>
+                            <circle cx="12" cy="19" r="2"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M7 12h3"/>
+                            <path d="M12 7v3"/>
+                            <path d="M14 12h3"/>
+                            <path d="M12 14v3"/>
+                        </svg>
+                    </div>
+                    <div class="step-dot inactive"></div>
+                    <div class="step-name inactive">GROW</div>
+                </div>
+            </div>
+            
+            <p class="company-description" id="description">
+                A streamlined team of co-founders is brought together to<br>
+                create and lead the company, empowering a new<br>
+                generation of entrepreneurs.
+            </p>
+        </div>
+        <!-- How We Work Section -->
+        <div class="methodology-stats">
+            <div class="stat-item">
+                <div class="stat-number">24</div>
+                <div class="stat-label">Average Days from Concept to Prototype</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Peer Review Success Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">180</div>
+                <div class="stat-label">Research Collaborations Globally</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3.2M</div>
+                <div class="stat-label">Code Downloads This Year</div>
+            </div>
+        </div>
+    </section>
 
+    <section style="margin-top: 120px;">
+        <!-- Progress Section -->
+        <div class="section reveal">
+            
+            <h2>Our Progress</h2>
+            <div class="progress-container reveal">
+                <div class="progress-item reveal">
+                    <div class="progress-circle" data-final="85">
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <h4>Research Publications</h4>
+                    <p>Published in top-tier conferences</p>
+                </div>
+                <div class="progress-item reveal">
+                    <div class="progress-circle" data-final="72">
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <h4 >Active Projects</h4>
+                    <p >Currently in development</p>
+                </div>
+                <div class="progress-item reveal">
+                    <div class="progress-circle" data-final="93">
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <h4 >Collaboration Success</h4>
+                    <p >Inter-institutional partnerships</p>
+                </div>
+                <div class="progress-item reveal">
+                    <div class="progress-circle" data-final="68">
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <h4 >Patent Applications</h4>
+                    <p >Technology transfer rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
- <section class="container-latest reveal">
+    <section class="container-latest reveal">
         <div class="section">
             <div class="section-header">
                 <h2>Latest Research Topics</h2>
-               
             </div>
             
             <div class="papers-grid" >
                 <!-- Paper 1: LLM Predictions -->
                 <div class="paper-group">
                     <div class="card image-card neural-bg">
-                          <img src="assets/researchimg4.jpg" alt="Research Image" class="card-img">
+                        <img src="assets/researchimg4.jpg" alt="Research Image" class="card-img">
                         <div class="tech-pattern"></div>
                         <div class="image-overlay"></div>
                     </div>
@@ -250,7 +247,6 @@
 
                 <!-- Paper 2: Mixture of Experts -->
                 <div class="paper-group">
-                
                     <div class="card content-card" style="background-color: #58A0C8;">
                         <div class="card-content">
                             <div class="institution-badge">MIT</div>
@@ -302,420 +298,132 @@
             </div>
         </div>
     </section>
-            <!-- Problem Statements Section -->
-<section>
-    <div class="section" style="    border-radius: 0px;">
-        <h2>Current Research Problems</h2>
-        <p>Explore our open research challenges and problem statements</p>
-        
-        <!-- Floating decorative shapes -->
-        <div class="floating-shape shape1"></div>
-        <div class="floating-shape shape2"></div>
-        <div class="floating-shape shape3"></div>
-        
-        <div class="problems-container">
-            <div class="problem-item">
-                <div class="problem-header" onclick="toggleProblem(this)">
-                    <h3>Scalable Multi-Agent Reinforcement Learning</h3>
-                    <p class="problem-subtitle">Developing efficient algorithms for large-scale agent coordination</p>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="problem-content">
-                    <div class="problem-description">
-                        <strong>Problem Statement:</strong> Current multi-agent reinforcement learning algorithms struggle to scale beyond a few dozen agents due to exponential growth in state-action space complexity. We need novel approaches that can handle thousands of agents while maintaining learning efficiency and coordination quality.
-                        <br><br>
-                        <strong>Key Challenges:</strong>
-                        <br>• Exponential state-space growth with agent count
-                        <br>• Communication bandwidth limitations in distributed settings
-                        <br>• Credit assignment in large-scale collaborative tasks
-                        <br>• Real-time decision making with limited computational resources
-                        <br><br>
-                        <strong>Expected Impact:</strong> Solutions could revolutionize autonomous vehicle fleets, drone swarms, smart grid management, and large-scale logistics optimization.
-                        <div class="btn-wrapper">
-                            <a href="#" onclick="openRegistration()" class="join-btn">Join Us</a>
-                        </div> 
+
+    <!-- Problem Statements Section -->
+    <section>
+        <div class="section">
+            <h2>Current Research Problems</h2>
+            <p>Explore our open research challenges and problem statements</p>
+            
+            <!-- Floating decorative shapes -->
+            <div class="floating-shape shape1"></div>
+            <div class="floating-shape shape2"></div>
+            <div class="floating-shape shape3"></div>
+            
+            <div class="problems-container">
+                <div class="problem-item">
+                    <div class="problem-header" onclick="toggleProblem(this)">
+                        <h3>Scalable Multi-Agent Reinforcement Learning</h3>
+                        <p class="problem-subtitle">Developing efficient algorithms for large-scale agent coordination</p>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="problem-content">
+                        <div class="problem-description">
+                            <strong>Problem Statement:</strong> Current multi-agent reinforcement learning algorithms struggle to scale beyond a few dozen agents due to exponential growth in state-action space complexity. We need novel approaches that can handle thousands of agents while maintaining learning efficiency and coordination quality.
+                            <br><br>
+                            <strong>Key Challenges:</strong>
+                            <br>• Exponential state-space growth with agent count
+                            <br>• Communication bandwidth limitations in distributed settings
+                            <br>• Credit assignment in large-scale collaborative tasks
+                            <br>• Real-time decision making with limited computational resources
+                            <br><br>
+                            <strong>Expected Impact:</strong> Solutions could revolutionize autonomous vehicle fleets, drone swarms, smart grid management, and large-scale logistics optimization.
+                            <div class="btn-wrapper">
+                                <a href="#" onclick="openRegistration()" class="join-btn">Join Us</a>
+                            </div> 
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="problem-item">
-                <div class="problem-header" onclick="toggleProblem(this)">
-                    <h3>Explainable Deep Learning for Healthcare</h3>
-                    <p class="problem-subtitle">Creating interpretable AI models for critical medical decisions</p>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="problem-content">
-                    <div class="problem-description">
-                        <strong>Problem Statement:</strong> While deep learning models achieve high accuracy in medical diagnosis, their black-box nature limits clinical adoption. We need to develop inherently interpretable architectures that maintain high performance while providing clear explanations for medical decisions.
-                        <br><br>
-                        <strong>Key Challenges:</strong>
-                        <br>• Balancing model complexity with interpretability
-                        <br>• Ensuring explanations are meaningful to medical professionals
-                        <br>• Handling multi-modal medical data (images, text, time-series)
-                        <br>• Meeting regulatory requirements for medical AI systems
-                        <br><br>
-                        <strong>Expected Impact:</strong> Trusted AI systems for medical diagnosis, drug discovery, and personalized treatment planning that doctors can understand and rely on.
-                        <div class="btn-wrapper">
-                            <a href="#" onclick="openRegistration()" class="join-btn">Join Us</a>
-                        </div> 
+                <div class="problem-item">
+                    <div class="problem-header" onclick="toggleProblem(this)">
+                        <h3>Explainable Deep Learning for Healthcare</h3>
+                        <p class="problem-subtitle">Creating interpretable AI models for critical medical decisions</p>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="problem-content">
+                        <div class="problem-description">
+                            <strong>Problem Statement:</strong> While deep learning models achieve high accuracy in medical diagnosis, their black-box nature limits clinical adoption. We need to develop inherently interpretable architectures that maintain high performance while providing clear explanations for medical decisions.
+                            <br><br>
+                            <strong>Key Challenges:</strong>
+                            <br>• Balancing model complexity with interpretability
+                            <br>• Ensuring explanations are meaningful to medical professionals
+                            <br>• Handling multi-modal medical data (images, text, time-series)
+                            <br>• Meeting regulatory requirements for medical AI systems
+                            <br><br>
+                            <strong>Expected Impact:</strong> Trusted AI systems for medical diagnosis, drug discovery, and personalized treatment planning that doctors can understand and rely on.
+                            <div class="btn-wrapper">
+                                <a href="#" onclick="openRegistration()" class="join-btn">Join Us</a>
+                            </div> 
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="problem-item">
-                <div class="problem-header" onclick="toggleProblem(this)">
-                    <h3>Energy-Efficient Edge AI Computing</h3>
-                    <p class="problem-subtitle">Optimizing AI models for resource-constrained environments</p>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="problem-content">
-                    <div class="problem-description">
-                        <strong>Problem Statement:</strong> As AI applications move to edge devices, we need models that can deliver high performance while operating under strict power, memory, and computational constraints. Current approaches often sacrifice accuracy for efficiency.
-                        <br><br>
-                        <strong>Key Challenges:</strong>
-                        <br>• Extreme model compression without significant accuracy loss
-                        <br>• Dynamic inference adaptation based on available resources
-                        <br>• Hardware-aware neural architecture design
-                        <br>• Real-time learning and adaptation on edge devices
-                        <br><br>
-                        <strong>Expected Impact:</strong> Enabling powerful AI capabilities in IoT devices, autonomous vehicles, wearables, and remote sensing applications with minimal energy consumption.
-                        <div class="btn-wrapper">
-                            <a href="#" onclick="openRegistration()" class="join-btn">Join Us</a>
-                        </div> 
+                <div class="problem-item">
+                    <div class="problem-header" onclick="toggleProblem(this)">
+                        <h3>Energy-Efficient Edge AI Computing</h3>
+                        <p class="problem-subtitle">Optimizing AI models for resource-constrained environments</p>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="problem-content">
+                        <div class="problem-description">
+                            <strong>Problem Statement:</strong> As AI applications move to edge devices, we need models that can deliver high performance while operating under strict power, memory, and computational constraints. Current approaches often sacrifice accuracy for efficiency.
+                            <br><br>
+                            <strong>Key Challenges:</strong>
+                            <br>• Extreme model compression without significant accuracy loss
+                            <br>• Dynamic inference adaptation based on available resources
+                            <br>• Hardware-aware neural architecture design
+                            <br>• Real-time learning and adaptation on edge devices
+                            <br><br>
+                            <strong>Expected Impact:</strong> Enabling powerful AI capabilities in IoT devices, autonomous vehicles, wearables, and remote sensing applications with minimal energy consumption.
+                            <div class="btn-wrapper">
+                                <a href="#" onclick="openRegistration()" class="join-btn">Join Us</a>
+                            </div> 
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="problem-item">
-                <div class="problem-header" onclick="toggleProblem(this)">
-                    <h3>Robust AI Against Adversarial Attacks</h3>
-                    <p class="problem-subtitle">Building resilient AI systems for security-critical applications</p>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="problem-content">
-                    <div class="problem-description">
-                        <strong>Problem Statement:</strong> Modern AI systems are vulnerable to adversarial attacks that can cause catastrophic failures in safety-critical applications. We need to develop fundamentally robust architectures that maintain performance under adversarial conditions.
-                        <br><br>
-                        <strong>Key Challenges:</strong>
-                        <br>• Defending against unknown attack strategies
-                        <br>• Maintaining robustness without sacrificing clean accuracy
-                        <br>• Scaling defensive mechanisms to large models
-                        <br>• Theoretical guarantees for robustness bounds
-                        <br><br>
-                        <strong>Expected Impact:</strong> Secure AI deployment in autonomous systems, financial services, healthcare, and national security applications where reliability is paramount.
-                        <div class="btn-wrapper">
-                            <a href="#" onclick="openRegistration()" class="join-btn">Join Us</a>
-                        </div> 
+                <div class="problem-item">
+                    <div class="problem-header" onclick="toggleProblem(this)">
+                        <h3>Robust AI Against Adversarial Attacks</h3>
+                        <p class="problem-subtitle">Building resilient AI systems for security-critical applications</p>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="problem-content">
+                        <div class="problem-description">
+                            <strong>Problem Statement:</strong> Modern AI systems are vulnerable to adversarial attacks that can cause catastrophic failures in safety-critical applications. We need to develop fundamentally robust architectures that maintain performance under adversarial conditions.
+                            <br><br>
+                            <strong>Key Challenges:</strong>
+                            <br>• Defending against unknown attack strategies
+                            <br>• Maintaining robustness without sacrificing clean accuracy
+                            <br>• Scaling defensive mechanisms to large models
+                            <br>• Theoretical guarantees for robustness bounds
+                            <br><br>
+                            <strong>Expected Impact:</strong> Secure AI deployment in autonomous systems, financial services, healthcare, and national security applications where reliability is paramount.
+                            <div class="btn-wrapper">
+                                <a href="#" onclick="openRegistration()" class="join-btn">Join Us</a>
+                            </div> 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-   <!-- Registration Form Modal -->
-    <div class="form-modal" id="registrationModal">
-        <div class="form-modal-content">
-            <div class="form-header">
-                <h2>Research Internship Application</h2>
-                <button class="close-btn" onclick="closeRegistration()">&times;</button>
-            </div>
-            <form class="registration-form" id="internshipForm">
-                <!-- Personal Information -->
-                <div class="form-section">
-                    <h3>Personal Information</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="country">Country *</label>
-                            <select id="country" name="country" required>
-                                <option value="">Select Country</option>
-                                <option value="US">United States</option>
-                                <option value="IN">India</option>
-                                <option value="UK">United Kingdom</option>
-                                <option value="CA">Canada</option>
-                                <option value="DE">Germany</option>
-                                <option value="FR">France</option>
-                                <option value="JP">Japan</option>
-                                <option value="CN">China</option>
-                                <option value="AU">Australia</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City *</label>
-                            <input type="text" id="city" name="city" required>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Academic Background -->
-                <div class="form-section">
-                    <h3>Academic Background</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="university">University/Institution *</label>
-                            <input type="text" id="university" name="university" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="degree">Degree Level *</label>
-                            <select id="degree" name="degree" required>
-                                <option value="">Select Degree</option>
-                                <option value="bachelor">Bachelor's</option>
-                                <option value="master">Master's</option>
-                                <option value="phd">PhD</option>
-                                <option value="postdoc">Post-Doc</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="major">Field of Study *</label>
-                            <input type="text" id="major" name="major" placeholder="e.g., Computer Science, Mathematics, Physics" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="gpa">GPA (if applicable)</label>
-                            <input type="number" id="gpa" name="gpa" step="0.01" min="0" max="4.0" placeholder="e.g., 3.85">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="graduationDate">Expected Graduation Date</label>
-                        <input type="month" id="graduationDate" name="graduationDate">
-                    </div>
-                </div>
-
-                <!-- Research Interests -->
-                <div class="form-section">
-                    <h3>Research Interests</h3>
-                    <div class="form-group">
-                        <label for="researchAreas">Primary Research Areas (Select all that apply) *</label>
-                        <div class="checkbox-grid">
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="researchAreas" value="neural-architecture">
-                                <span>Neural Architecture Search</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="researchAreas" value="protein-folding">
-                                <span>Protein Folding Prediction</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="researchAreas" value="climate-ai">
-                                <span>Climate AI Modeling</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="researchAreas" value="quantum-ai">
-                                <span>Quantum-Classical Hybrid AI</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="researchAreas" value="medical-ai">
-                                <span>Federated Medical AI</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="researchAreas" value="autonomous-systems">
-                                <span>Autonomous System Coordination</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="researchAreas" value="drug-discovery">
-                                <span>Drug Discovery AI</span>
-                            </label>
-                            <label class="checkbox-item">
-                                <input type="checkbox" name="researchAreas" value="emotion-ai">
-                                <span>Emotion-Aware AI</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="researchExperience">Previous Research Experience</label>
-                        <textarea id="researchExperience" name="researchExperience" rows="4" placeholder="Describe any previous research projects, publications, or relevant experience..."></textarea>
-                    </div>
-                </div>
-
-                <!-- Technical Skills -->
-                <div class="form-section">
-                    <h3>Technical Skills</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="programmingSkills">Programming Languages *</label>
-                            <div class="skill-tags">
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="programmingSkills" value="python">
-                                    <span>Python</span>
-                                </label>
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="programmingSkills" value="r">
-                                    <span>R</span>
-                                </label>
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="programmingSkills" value="java">
-                                    <span>Java</span>
-                                </label>
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="programmingSkills" value="cpp">
-                                    <span>C++</span>
-                                </label>
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="programmingSkills" value="javascript">
-                                    <span>JavaScript</span>
-                                </label>
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="programmingSkills" value="matlab">
-                                    <span>MATLAB</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="mlFrameworks">ML/AI Frameworks</label>
-                            <div class="skill-tags">
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="mlFrameworks" value="tensorflow">
-                                    <span>TensorFlow</span>
-                                </label>
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="mlFrameworks" value="pytorch">
-                                    <span>PyTorch</span>
-                                </label>
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="mlFrameworks" value="keras">
-                                    <span>Keras</span>
-                                </label>
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="mlFrameworks" value="scikit">
-                                    <span>Scikit-learn</span>
-                                </label>
-                                <label class="skill-tag">
-                                    <input type="checkbox" name="mlFrameworks" value="huggingface">
-                                    <span>Hugging Face</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="otherSkills">Other Technical Skills</label>
-                        <input type="text" id="otherSkills" name="otherSkills" placeholder="e.g., Docker, AWS, Git, SQL, etc.">
-                    </div>
-                </div>
-
-                <!-- Project Preferences -->
-                <div class="form-section">
-                    <h3>Internship Preferences</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="duration">Preferred Duration *</label>
-                            <select id="duration" name="duration" required>
-                                <option value="">Select Duration</option>
-                                <option value="3months">3 Months</option>
-                                <option value="6months">6 Months</option>
-                                <option value="12months">12 Months</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="startDate">Preferred Start Date</label>
-                            <input type="date" id="startDate" name="startDate">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="motivation">Why do you want to join our research team? *</label>
-                        <textarea id="motivation" name="motivation" rows="4" placeholder="Tell us about your motivation, goals, and what you hope to achieve..." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="contribution">How can you contribute to our research? *</label>
-                        <textarea id="contribution" name="contribution" rows="4" placeholder="Describe your unique skills, perspectives, or ideas you'd bring to the team..." required></textarea>
-                    </div>
-                </div>
-
-                <!-- File Uploads -->
-                <div class="form-section">
-                    <h3>Documents</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="resume">Resume/CV *</label>
-                            <div class="file-upload">
-                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-                                <span class="file-upload-text">Choose file or drag here</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="portfolio">Portfolio/GitHub (Optional)</label>
-                            <input type="url" id="portfolio" name="portfolio" placeholder="https://github.com/yourusername or portfolio link">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="transcripts">Academic Transcripts (Optional)</label>
-                        <div class="file-upload">
-                            <input type="file" id="transcripts" name="transcripts" accept=".pdf" multiple>
-                            <span class="file-upload-text">Choose files or drag here</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Agreement -->
-                <div class="form-section">
-                    <div class="form-group">
-                        <label class="checkbox-item agreement">
-                            <input type="checkbox" id="agreement" name="agreement" required>
-                            <span>I agree to the terms and conditions and confirm that all information provided is accurate *</span>
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label class="checkbox-item">
-                            <input type="checkbox" id="newsletter" name="newsletter">
-                            <span>Subscribe to research updates and newsletter</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="form-actions">
-                    <button type="button" onclick="closeRegistration()" class="btn-secondary">Cancel</button>
-                    <button type="submit" class="btn-primary">Submit Application</button>
-                </div>
-            </form>
+    <!-- Footer Section -->
+    <footer class="custom-footer" style="background-color: black;"  >
+        <div class="footer-left">
+            <span class="red-dot"></span>
+            <span>© Zynapse 2025</span>
         </div>
-    </div>
-
-    <!-- Save Notification
-    <div class="save-notification" id="saveNotification">
-        ✅ Research progress saved successfully!
-    </div> -->
-
-
-
-<!-- Footer Section -->
-<footer class="custom-footer hidden">
-  <div class="footer-left">
-    <span class="red-dot"></span>
-    <span>© Zynapse 2025</span>
-  </div>
-  <div class="footer-center">
-    <p><span class="author">[Mark Weiser]</span> “The most profound technologies are those that disappear.”</p>
-  </div>
-  <div class="footer-right">
-    <a href="#" class="social-link">X</a>
-    <a href="#" class="social-link">in</a>
-  </div>
-</footer>
+        <div class="footer-center">
+            <p><span class="author">[Mark Weiser]</span> "The most profound technologies are those that disappear."</p>
+        </div>
+        <div class="footer-right">
+            <a href="#" class="social-link">X</a>
+            <a href="#" class="social-link">in</a>
+        </div>
+    </footer>
 
     <!-- Registration Form Modal -->
     <div class="form-modal" id="registrationModal">
@@ -999,19 +707,9 @@
         </div>
     </div>
 
-    <!-- Save Notification -->
-    <div class="save-notification" id="saveNotification">
-        ✅ Research progress saved successfully!
-    </div>
-
-  <script src="js/hero.js"></script>
-  <script src="js/about.js"></script>
-  <script src="js/work.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/contact.js"></script>
+    <script src="js/hero.js"></script>
     <script src="js/researchForm.js" ></script>
     <script src="js/researchPage.js"></script>
-     <script src="js/footer.js"></script>
-    </body>
-</head>
+    <script src="js/footer.js"></script>
+</body>
 </html>

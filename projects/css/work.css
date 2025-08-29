@@ -1,16 +1,13 @@
 .work {
-   margin-top: 200px;
-  background-color: black;
+  background-color: white;
   color: #fff; 
-  position: relative;/* Light violet text color */ /* allow scrolling */
-  z-index: 3;
+  padding: 50px 20px;
   font-family: 'Poppins', sans-serif;
   text-align: center;
 }
 .btn-container {
   display: flex;
   justify-content: flex-end;  /* push button to right */
-  margin-top: 20px;
   margin-right: 160px;           /* spacing from above */
 }
 
@@ -65,9 +62,8 @@
 }
 
 .work-content h2 {
-font-size: 5rem;
+  font-size: clamp(2rem, 5vw, 4rem);
   margin-bottom: 20px;
-  margin-top: 10px;
   color: #9b5de5;
   font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
 }
@@ -76,7 +72,7 @@ font-size: 5rem;
   max-width: 100%;
   margin: 0 auto 1px auto;
   font-size: 1rem;
-  color: #fff;
+  color: #000;
 }
 
 /* Video background */
@@ -101,7 +97,7 @@ font-size: 5rem;
   transform: scale(1);
 }
   .styled-heading {
-  background-color: black;
+    border-radius: 30px;
   padding: 10px 20px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -143,18 +139,18 @@ font-size: 5rem;
 /* Updated CSS */
 .carousel {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   width: 100%;        /* full width */
-  max-width: 1200px;  /* optional: keep it neat */
+  max-width: 1100px;  /* optional: keep it neat */
   margin: 0 auto;     /* center align */
-  padding: 0 20px;    /* even spacing left/right */
+  padding: 50px 90px;    /* even spacing left/right */
 }
 
 .carousel-item {
   position: relative;
   width: 100%;       /* take full grid width */
-  height: 200px;
+  height: 250px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(179, 136, 255, 0.2);

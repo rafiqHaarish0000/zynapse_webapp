@@ -3,6 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Initial hidden state */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+/* Visible state */
+.fade-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .circle-back-btn {
   position: fixed;        /* stays in corner */
   top: 20px;
@@ -55,44 +68,7 @@ body {
     overflow: hidden;
 }
 
-.service-nav {
-  position: sticky;          /* stick at top */
-  top: 0;                    /* sticks to top */
-  left: 0;
-  width: 100%;
-  z-index: 1000;             /* stay above content */
-  background-color: white;   /* ensure visibility */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* optional shadow */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 20px;
-  transition: all 0.3s ease;
-}
 
-.service-nav .logo img {
-  height: 40px; /* adjust logo size */
-}
-
-.service-nav .nav-links {
-  display: flex;
-  gap: 60px;
-}
-
-.service-nav .nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.service-nav .nav-links a:hover {
-  color: #667eea; /* highlight on hover */
-}
-
-.service-nav .mobile-menu-btn {
-  display: none; /* show only for mobile with media query */
-}
 
 /* Mobile responsive */
 @media (max-width: 768px) {
@@ -192,7 +168,7 @@ body {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1.5px;
-
+margin-bottom: 80px;
   color: #333; /* adjust to match your theme */
 }
 
@@ -309,12 +285,18 @@ body {
 
 /* Section 3 - Solutions */
 .solutions-section {
-    padding: 100px 20px;
-    background: white;
+    margin: 100px 120px;          /* top & bottom 100px, left & right 120px */
+    background: #fff;
+    border-radius: 28px;          /* smooth rounded corners */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* soft floating effect */
+    padding: 80px 40px;           /* inner spacing so content doesn’t touch edges */
 }
 
+
 .solutions-container {
+
     max-width: 1200px;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -386,9 +368,13 @@ body {
 
 /* Section 4 - Domains */
 .domains-section {
-    padding: 100px 20px;
+    margin: 100px 120px;              /* space from top/bottom + left/right */
     background: #f8fafc;
+    border-radius: 28px;              /* smooth rounded corners */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* soft floating effect */
+    padding: 80px 40px;               /* inner spacing */
 }
+
 
 .domains-container {
     max-width: 1200px;
@@ -484,11 +470,14 @@ body {
 /* Section 5 & 6 - Success Stories */
 .success-section {
     position: relative;
-    padding: 80px 20px 160px; /* extra bottom space for testimonial */
+    margin: 100px 120px;                    /* spacing from top/bottom & sides */
+    padding: 80px 40px 160px;               /* extra bottom space for testimonial */
     background: #2d3748;
     color: white;
-    border-bottom-left-radius: 100px;  /* adjust value as needed */
-  border-bottom-right-radius: 100px; /* adjust value as needed */
+    border-radius: 28px;                    /* smooth rounded corners */
+    border-bottom-left-radius: 100px;       /* custom curved bottom */
+    border-bottom-right-radius: 100px;      /* custom curved bottom */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* stronger shadow for dark bg */
 }
 
 .success-container {
@@ -549,7 +538,7 @@ body {
 /* Employee Feedback Section */
 .feedback-section {
     margin-top: 400px;
-    padding: 150px 20px 100px 20px;
+      padding: 100px 40px;  
     background: #f8fafc;
     text-align: center;
 }

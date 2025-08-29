@@ -26,7 +26,7 @@ section {
 main {
     max-width: 1200px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 20px;
     padding: 0 20px 60px;
     overflow: hidden;
 }
@@ -37,9 +37,22 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    background: linear-gradient(135deg, #0f0f15 0%, #000 100%);
+    z-index: -1;   /* keeps it behind the content */
+    overflow: hidden;
 }
+
+.particles video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;  /* makes it behave like background-size: cover */
+}
+
 
 .particle {
     position: absolute;
@@ -47,6 +60,7 @@ main {
 }
 
 .content-container {
+
     max-width: 1400px;
     margin: 0 auto;
     padding: 40px 20px;
@@ -61,6 +75,7 @@ main {
     font-size: 4.5rem;
     font-weight: 800;
     background: linear-gradient(90deg, #fff 0%, #a5b4fc 100%);
+    color: #000;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
@@ -69,7 +84,7 @@ main {
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: #d1d5db;
+    color: #000;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
@@ -277,6 +292,7 @@ main {
 }
 
 .offices-section {
+    margin-top: 100px;
     margin-bottom: 100px;
 }
 
@@ -285,7 +301,7 @@ main {
     font-weight: 700;
     text-align: center;
     margin-bottom: 60px;
-    color: #fff;
+    color: #000;
     position: relative;
     display: inline-block;
     left: 50%;

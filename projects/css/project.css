@@ -5,8 +5,8 @@
 }
 
 body {
-  background:black;
-  color: white;
+  background:white;
+  color: black;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
 }
@@ -15,10 +15,13 @@ body {
 .hero-section {
   margin-top: 100px;
   display: flex;
+  border-radius: 20px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 4rem 8%;
-  background: #000; /* White bg */
+  background: #F7F9FC; /* White bg */
 }
 
 .hero-content {
@@ -29,14 +32,14 @@ body {
 .hero-content h1 {
   font-size: 5.5rem;
   font-weight: bold;
-  color: #fff;
+  color: #000;
   margin-bottom: 1rem;
 }
 
 .hero-content h2 {
-  font-size: 1.8rem;
-  font-weight: 400;
-  color: #555;
+  font-size: 3.8rem;
+  font-weight: 500;
+  color: #000;
   margin-bottom: 1rem;
 }
 
@@ -68,11 +71,10 @@ body {
 /* Sticky wrapper */
 .sticky-wrapper {
   position: relative;
-  padding-top: 80%;
   padding: 100px;
+
   overflow: visible;
  height: 200vh; /* increased scrollable area */
-  margin-top: 200px; /* add margin to push it down */
 }
 
 /* Sticky image container */
@@ -143,16 +145,35 @@ body {
   text-align: left;     /* optional: center text */
 }
 .card-image {
-  margin-top: 60px;
-  width: 100%;           /* Full width of the parent container or viewport */
-  max-width: 100%;       /* Prevent exceeding viewport */
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  text-align: center;
-  background-color: #000;
-  box-sizing: border-box; /* Include padding in width */
+  max-width: 100%;
+  width: 90%;
+  margin: 1rem auto;
+  background: #fff;
+  border-radius: 28px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* gradient border that respects radius */
+  position: relative;
+  z-index: 0;
 }
+
+.card-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  padding: 2px; /* border thickness */
+  background: linear-gradient(90deg, #9b5de5, #f15bb5, #fee440, #00bbf9, #00f5d4);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  z-index: -1;
+}
+
+
 
 .container {
     max-width: 100%;
@@ -182,7 +203,7 @@ p {
   margin-bottom: 1.5rem;   /* optional: spacing below paragraph */
 }
 
-  video {
+video {
    width: 100vw;          /* full viewport width */
   height: auto;           /* maintain aspect ratio */
   max-height: 100vh;      /* prevent overflow vertically */
@@ -194,8 +215,7 @@ p {
 
 .card-image h1 {
 font-size: 2.8rem;
-  margin-bottom: 10px;
-  color: #fff;
+  color: #9b5de5;
   text-align: left;
 }
 
@@ -213,7 +233,17 @@ font-size: 2.8rem;
   margin-bottom: 15px;
 }
 
+.card-video {
+  display: block;
+  width: 100%;            /* scale to container */
+  height: auto;           /* keep aspect ratio */
+  border-radius: 16px;    /* optional: match card style */
+  margin: 20px 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* optional: soft shadow */
+}
+
 .image-container {
+  
   display: flex;
   justify-content: center;  /* Center the image horizontally */
   overflow: hidden;         /* Prevent scrollbars during animation */
@@ -243,8 +273,15 @@ font-size: 2.8rem;
 }
 
 .animate-image {
-  transform: translateX(100%);  /* Start off-screen to the right */
-  animation: slideIn 8s forwards; /* Slide in animation */
+  max-width: 100%;
+  opacity: 0;                           /* hidden before animation */
+  transform: translateX(150px);         /* start off to the right */
+  transition: transform 4s ease-out, opacity 1s ease-out;
+}
+
+.animate-image.show {
+  opacity: 1;
+  transform: translateX(0);             /* slides into place */
 }
 
 @keyframes slideIn {
@@ -283,9 +320,9 @@ font-size: 2.8rem;
 /* Paragraph */
 .center-text p {
   font-size: 1.2rem;
-  color: #fff;
+  color: #000;
   line-height: 1.6;
-  max-width: 300px;
+  max-width: 600px;
   margin: 0 auto;
 }
 

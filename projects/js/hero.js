@@ -36,17 +36,7 @@ function scrollToSection(id) {
 function handleNavigation(e, link) {
   const href = link.getAttribute('href');
   
-  // Only handle About link for smooth scrolling to aboutContainer on index page
-  if (href === 'index.html' && link.getAttribute('data-section') === 'aboutContainer') {
-    const currentPage = window.location.pathname;
-    const isIndexPage = currentPage.endsWith('index.html') || currentPage === '/' || currentPage.endsWith('/');
-    
-    if (isIndexPage) {
-      e.preventDefault();
-      scrollToSection('aboutContainer');
-    }
-  }
-  // For all other links (Products, Services, Research, Contact), allow normal navigation
+
   
   // Close mobile menu if open
   if (mobileMenu.classList.contains('active')) {
@@ -69,20 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // =========================
 // Hero parallax effect
 // =========================
-const heroBg = document.querySelector('.hero-bg');
-const heroSection = document.querySelector('.hero');
 
-window.addEventListener('scroll', () => {
-  const scrollPosition = window.pageYOffset;
-  const heroHeight = heroSection?.offsetHeight || 0;
-
-  if (heroSection && scrollPosition < heroHeight) {
-    const scale = 1 + scrollPosition * 0.0005;
-    const opacity = 1 - scrollPosition * 0.002;
-    heroBg.style.transform = `scale(${scale})`;
-    heroBg.style.opacity = opacity;
-  }
-});
 
 // =========================
 // Smart Sticky Header
