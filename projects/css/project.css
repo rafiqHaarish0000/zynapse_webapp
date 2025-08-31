@@ -97,7 +97,7 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,7 +108,7 @@ body {
 .image-wrapper {
   position: absolute;
   border-radius: clamp(15px, 3vw, 20px);
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to visible for titles */
   transform: translate(0, 0);
   transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
   cursor: pointer;
@@ -122,6 +122,12 @@ body {
   height: 100%;
   object-fit: cover;
   transition: transform 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: clamp(15px, 3vw, 20px);
+}
+
+.image-wrapper:hover img {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .image-title {
@@ -136,6 +142,48 @@ body {
   opacity: 0.9;
   pointer-events: none;
   padding: 0 1rem;
+}
+
+/* Card Titles - FIXED VERSION */
+.card-title {
+  position: absolute;
+  bottom: -60px; /* Fixed positioning instead of clamp with negatives */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.5s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 100; /* Much higher z-index */
+  font-family: 'Inter', Arial, sans-serif;
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Show titles when expanded - WORKING VERSION */
+.image-wrapper.show-title .card-title {
+  opacity: 1;
+  bottom: -50px; /* Visible positioning */
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* Hover effect for better visibility */
+.image-wrapper:hover .card-title {
+  opacity: 0.8;
+  bottom: -45px;
+}
+
+.image-wrapper.show-title:hover .card-title {
+  opacity: 1;
+  bottom: -45px;
+  transform: translateX(-50%) translateY(0) scale(1.05);
 }
 
 /* Sticky Section & Title - Responsive */
@@ -322,6 +370,7 @@ video {
   text-align: center;
   opacity: 0;
   transition: opacity 1s ease, transform 1s ease;
+  z-index: 6;
 }
 
 .center-text.show {
@@ -436,7 +485,7 @@ video {
   color: #9b5de5;
 }
 
-/* Responsive Breakpoints */
+/* Responsive Breakpoints for Card Titles */
 
 /* Large Desktop */
 @media (min-width: 1400px) {
@@ -451,6 +500,15 @@ video {
   
   .hero-content {
     text-align: left;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    bottom: -65px;
+  }
+  
+  .image-wrapper.show-title .card-title {
+    bottom: -55px;
   }
 }
 
@@ -473,6 +531,15 @@ video {
   .footer-left, .footer-center, .footer-right {
     width: auto;
   }
+  
+  .card-title {
+    font-size: 18px;
+    bottom: -60px;
+  }
+  
+  .image-wrapper.show-title .card-title {
+    bottom: -50px;
+  }
 }
 
 /* Tablet */
@@ -488,6 +555,15 @@ video {
   .sticky-title {
     padding-left: clamp(2rem, 6vw, 4rem);
     font-size: clamp(2.5rem, 5vw, 3rem);
+  }
+  
+  .card-title {
+    font-size: 16px;
+    bottom: -55px;
+  }
+  
+  .image-wrapper.show-title .card-title {
+    bottom: -45px;
   }
 }
 
@@ -505,6 +581,16 @@ video {
   .sticky-title {
     padding-left: clamp(1rem, 4vw, 2rem);
     font-size: clamp(2rem, 7vw, 2.5rem);
+  }
+  
+  .card-title {
+    font-size: 15px;
+    bottom: -50px;
+    padding: 6px 12px;
+  }
+  
+  .image-wrapper.show-title .card-title {
+    bottom: -40px;
   }
 }
 
@@ -543,6 +629,16 @@ video {
     max-height: 60vh;
   }
   
+  .card-title {
+    font-size: 14px;
+    bottom: -45px;
+    padding: 5px 10px;
+  }
+  
+  .image-wrapper.show-title .card-title {
+    bottom: -35px;
+  }
+  
   /* Ensure footer stacks properly on mobile */
   .custom-footer {
     padding: 20px 15px;
@@ -567,6 +663,15 @@ video {
   
   .hero-content h2 {
     font-size: 4rem;
+  }
+  
+  .card-title {
+    font-size: 22px;
+    bottom: -70px;
+  }
+  
+  .image-wrapper.show-title .card-title {
+    bottom: -60px;
   }
 }
 
@@ -593,6 +698,10 @@ video {
   .hidden {
     transform: translateY(0);
     opacity: 1;
+  }
+  
+  .card-title {
+    transition: none;
   }
 }
 
@@ -630,6 +739,11 @@ video {
   .center-text p {
     color: #fff;
   }
+  
+  .card-title {
+    color: #f0f0f0;
+
+  }
 }
 
 /* Print styles */
@@ -638,7 +752,8 @@ video {
   .images-container,
   .hero-image video,
   .card-video,
-  video {
+  video,
+  .card-title {
     display: none;
   }
   
@@ -652,3 +767,23 @@ video {
     color: #000;
   }
 }
+
+/* Focus styles for accessibility */
+.image-wrapper:focus-within {
+  outline: 2px solid #9b5de5;
+  outline-offset: 4px;
+}
+
+.image-wrapper:focus-within .card-title {
+  opacity: 1;
+}
+
+/* DEBUG: Temporary force show - REMOVE AFTER TESTING */
+/* 
+.card-title {
+  opacity: 1 !important;
+  bottom: -50px !important;
+  background: #ff0000 !important;
+  color: white !important;
+}
+*/
