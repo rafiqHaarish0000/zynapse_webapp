@@ -1,35 +1,51 @@
+/* Base styles with mobile-first approach */
 .work {
   background-color: white;
   color: #fff; 
-  padding: 50px 20px;
+  padding: clamp(20px, 5vw, 50px) clamp(10px, 4vw, 20px);
   font-family: 'Poppins', sans-serif;
   text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
+/* Remove from styled-heading only */
+.styled-heading {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
 .btn-container {
   display: flex;
-  justify-content: flex-end;  /* push button to right */
-  margin-right: 160px;           /* spacing from above */
+  justify-content: center;
+  margin: clamp(10px, 3vw, 20px) auto;
+  padding: 0 clamp(10px, 4vw, 160px);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .view-btn {
-  background: #000;              /* black background */
-  color: #fff;                   /* white text */
-  padding: 4px 4px;            /* padding */
+  background: #000;
+  color: #fff;
+  padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 20px);
   border: none;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: clamp(14px, 2.5vw, 16px);
   font-weight: 600;
   cursor: pointer;
-  display: inline-flex;          /* align text + arrow */
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
+  white-space: nowrap;
+  min-height: 40px;
 }
 
 .view-btn:hover {
-  background: #9b5de5;            /* purple bg on hover */
+  background: #9b5de5;
   color: #fff;
+  transform: translateY(-2px);
 }
 
 .arrow {
@@ -37,42 +53,56 @@
 }
 
 .view-btn:hover .arrow {
-  transform: translateX(4px);    /* arrow slides on hover */
+  transform: translateX(4px);
+}
+
+.work-image {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .work-image img {
   position: sticky;
   top: 0;
   z-index: 10;
-  width: 100%;       /* instead of 100vw */
+  width: 100%;
   height: auto;
+  max-width: 100%;
   display: block;
-  margin: 0 auto;    /* centers image */
-  padding: 0;        /* remove padding from image */
+  margin: 0 auto;
+  padding: 0;
   border-radius: 0;
   box-shadow: none;
   transition: transform 0.3s ease;
+  object-fit: cover;
 }
+
 .work-image.visible img {
   transform: translateY(0);
   opacity: 1;
 }
+
 .work-image img:hover {
-  transform: scale(1.05); /* subtle zoom on hover */
+  transform: scale(1.02);
 }
 
 .work-content h2 {
-  font-size: clamp(2rem, 5vw, 4rem);
-  margin-bottom: 20px;
-  color: #9b5de5;
+  font-size: clamp(1.5rem, 6vw, 4rem);
+  margin-bottom: clamp(10px, 3vw, 20px);
+  color: #0d6efd;
   font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
+  line-height: 1.2;
+  padding: 0 10px;
 }
 
 .work-description {
   max-width: 100%;
   margin: 0 auto 1px auto;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   color: #000;
+  padding: 0 15px;
+  line-height: 1.6;
 }
 
 /* Video background */
@@ -84,73 +114,70 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
-
-  /* Hidden initially */
   opacity: 0;
   transform: scale(1.1);
   transition: opacity 1.2s ease, transform 2s ease;
 }
 
-/* Visible state */
 .work-bg.visible {
   opacity: 1;
   transform: scale(1);
 }
-  .styled-heading {
-    border-radius: 30px;
-  padding: 10px 20px;
+
+.styled-heading {
+  border-radius: clamp(15px, 4vw, 30px);
+  padding: clamp(5px, 2vw, 10px) clamp(10px, 4vw, 20px);
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
-  }
+  margin: 0 10px;
+}
 
-  .styled-heading h2 {
-    font-size: 4rem;
+.styled-heading h2 {
+  font-size: clamp(1.8rem, 6vw, 4rem);
   color: #9b5de5;
   font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
-  }
+  margin: 0;
+  line-height: 1.2;
+}
 
-
-  .product-btn {
+.product-btn {
   background: white;
   color: black;
   border: none;
-  padding: 16px 32px;
+  padding: clamp(12px, 3vw, 16px) clamp(20px, 5vw, 32px);
   border-radius: 50px;
-  margin-top: 60px;
-  font-size: 1.2rem;
+  margin-top: clamp(30px, 5vw, 60px);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   font-weight: 500;
   cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 44px; /* Touch-friendly */
 }
 
 .product-btn:hover {
-  transform:translateY(-2px);opacity:.9; background-color: #9b5de5; color: white;
+  transform: translateY(-2px);
+  opacity: 0.9;
+  background-color: #9b5de5;
+  color: white;
 }
 
-  @media (max-width: 768px) {
-    .styled-heading h2 {
-      font-size: 1.8rem;
-    }
-    .styled-heading .work-description {
-      font-size: 1rem;
-    }
-  }
-
-/* Updated CSS */
+/* Carousel - Mobile First - FIXED */
 .carousel {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  width: 100%;        /* full width */
-  max-width: 1100px;  /* optional: keep it neat */
-  margin: 0 auto;     /* center align */
-  padding: 50px 90px;    /* even spacing left/right */
+  grid-template-columns: 1fr;
+  gap: clamp(15px, 3vw, 20px);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(20px, 5vw, 50px) clamp(15px, 4vw, 90px);
+  box-sizing: border-box;
 }
 
 .carousel-item {
   position: relative;
-  width: 100%;       /* take full grid width */
-  height: 250px;
+  width: 100%;
+  height: clamp(200px, 40vw, 300px);
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(179, 136, 255, 0.2);
@@ -158,6 +185,7 @@
   opacity: 0;
   transform: translateY(30px) scale(0.95);
   filter: grayscale(20%);
+  margin-bottom: 10px;
 }
 
 .carousel-item.visible {
@@ -183,145 +211,62 @@
   transform: scale(1.1);
 }
 
-
-/* Compact Card Stack Styles */
-.card-stack-section {
-  position: relative;
-  padding: 60px 0;
-  background: #f8f9fa;
-  overflow: hidden;
-}
-
-.stack-container {
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Cards appear after text */
-.card-stack {
-  position: relative;
-  display: grid;
-  grid-template: 
-    "top1 . top2" auto
-    ". . ." 20px
-    "bottom1 . bottom2" auto / 1fr 1fr 1fr;
-  justify-items: center;
-  align-items: center;
-  gap: 0;
-  padding: 20px 0;
+/* Project Info Overlay */
+.project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   opacity: 0;
-  transform: scale(0.95);
-  animation: fadeInScale 0.6s 0.6s forwards;
+  width: 90%;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+  padding: 10px;
 }
 
-@keyframes fadeInScale {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.carousel-item:hover .project-info,
+.carousel-item:focus .project-info,
+.carousel-item:active .project-info {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
-/* Smaller Cards */
-.card {
-  width: 160px;
-  height: 220px;
-  perspective: 800px;
+.project-info h3 {
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  margin-bottom: 8px;
+  color: white;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+  line-height: 1.3;
 }
 
-.card-inner {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.project-info p {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  color: #e0d6ff;
+  margin-bottom: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+  line-height: 1.4;
 }
 
-/* Sticky Top Cards */
-.top-card {
-  position: sticky;
-  top: 100px;
-  z-index: 10;
+.carousel-item:hover .project-info h3,
+.carousel-item:hover .project-info p {
+  transform: translateY(0);
 }
 
-.top-card-1 {
-  grid-area: top1;
-  transform: rotate(-5deg) translateZ(10px);
-}
-
-.top-card-2 {
-  grid-area: top2;
-  transform: rotate(5deg) translateZ(10px);
-}
-
-/* Bottom Cards */
-.bottom-card {
-  grid-row-start: 3;
-  margin-top: 10px;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bottom-card-1 {
-  grid-area: bottom1;
-  transform: rotate(3deg);
-}
-
-.bottom-card-2 {
-  grid-area: bottom2;
-  transform: rotate(-3deg);
-}
-
-/* Scroll Effects */
-.card-stack-section:hover .bottom-card {
-  transform: translateY(-40px) rotate(0deg);
-  opacity: 0.9;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .card-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .card {
-    width: 180px;
-    height: 240px;
-  }
-  
-  .top-card {
-    position: relative;
-    top: auto !important;
-  }
-}
-/* Add to your existing CSS */
 .project-info::after {
   content: "→";
   display: block;
-  width: 50px;
-  height: 50px;
+  width: clamp(40px, 10vw, 50px);
+  height: clamp(40px, 10vw, 50px);
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 50%;
-  margin: 20px auto 0;
-  line-height: 50px;
-  font-size: 24px;
+  margin: 15px auto 0;
+  line-height: clamp(40px, 10vw, 50px);
+  font-size: clamp(18px, 4vw, 24px);
   font-weight: bold;
   color: white;
   transform: translateY(20px) scale(0.8);
@@ -341,65 +286,547 @@
   transform: translateY(0) scale(1.1) !important;
 }
 
-.project-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 0;
-  width: 90%;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 2;
+/* Tablet Styles */
+@media (min-width: 481px) {
+  .carousel {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  /* Create the 2x2 layout */
+  .carousel-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .carousel-item:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  
+  .carousel-item:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .carousel-item:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  
+  .carousel-item:nth-child(5) {
+    grid-column: 1;
+    grid-row: 3;
+  }
 }
 
-.carousel-item:hover .project-info {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1.05);
+/* Small Desktop/Large Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .carousel {
+    gap: 25px;
+  }
+  
+  .carousel-item {
+    height: 250px;
+  }
 }
 
-.project-info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-  color: white;
-  text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-  transform: translateY(20px);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+/* Large Desktop */
+@media (min-width: 1025px) {
+  .carousel {
+    gap: 30px;
+  }
 }
 
-.project-info p {
-  font-size: 1rem;
-  color: #e0d6ff;
-  margin-bottom: 0;
-  transform: translateY(20px);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+/* Small Mobile (Portrait) - 320px to 480px */
+@media (max-width: 480px) {
+  .work {
+    padding: 15px 8px;
+  }
+  
+  .btn-container {
+    padding: 0 8px;
+    margin: 8px auto;
+  }
+  
+  .view-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    min-height: 36px;
+  }
+  
+  .carousel {
+    padding: 15px 8px;
+    gap: 12px;
+  }
+  
+  .carousel-item {
+    height: clamp(180px, 35vw, 220px);
+    border-radius: 8px;
+  }
+  
+  .work-content h2 {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+    padding: 0 5px;
+  }
+  
+  .styled-heading {
+    margin: 0 5px;
+    padding: 5px 10px;
+  }
 }
 
-.carousel-item:hover .project-info h3,
-.carousel-item:hover .project-info p {
-  transform: translateY(0);
+/* Touch device optimizations */
+@media (hover: none) {
+  .carousel-item:hover {
+    transform: none;
+  }
+  
+  .carousel-item:hover img {
+    filter: none;
+    transform: none;
+  }
+  
+  .carousel-item:active .project-info {
+    opacity: 1;
+  }
+  
+  .view-btn:hover {
+    transform: none;
+  }
+  
+  .product-btn:hover {
+    transform: none;
+  }
 }
-.project-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  width: 100%;
+
+/* High contrast and reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .work-bg {
+    transform: none;
+  }
+  
+  .carousel-item {
+    transform: none;
+  }
 }
-.carousel-item:hover .project-info {
-  opacity: 1;
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .work-content h2,
+  .styled-heading h2 {
+    color: #7c3aed;
+  }
+  
+  .view-btn,
+  .product-btn {
+    border: 2px solid #333;
+  }
+  
+  .carousel-item {
+    border: 2px solid #333;
+  }
 }
-.project-info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-  color: white;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+/* Print styles */
+@media print {
+  .work {
+    background: white;
+    color: black;
+  }
+  
+  .view-btn,
+  .product-btn {
+    border: 2px solid black;
+    background: white;
+    color: black;
+  }
+  
+  .carousel-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .work-content h2,
+  .styled-heading h2 {
+    color: black;
+  }
+  
+  .work-description {
+    color: #333;
+  }
 }
-.project-info p {
-  font-size: 0.8rem;
-  color: #e0d6ff;
-  margin-bottom: 0;
+/* ===== OPTIMIZED CSS FOR 1265x585 SCREEN (Work Section) ===== */
+
+/* Primary media query for wide but short screens */
+@media (min-width: 1200px) and (max-height: 650px) {
+  
+  /* Main Work Container - Height optimization */
+  .work {
+    min-height: auto; /* Remove 100vh constraint */
+    padding: 15px 20px; /* Much reduced vertical padding */
+    max-height: 100vh;
+    overflow-y: auto; /* Allow scrolling if needed */
+  }
+  
+  /* Button Container - Compact spacing */
+  .btn-container {
+    margin: 8px auto; /* Reduced from clamp(10px, 3vw, 20px) */
+    padding: 0 clamp(10px, 3vw, 100px); /* Reduced horizontal padding */
+  }
+  
+  /* View Button - Smaller size */
+  .view-btn {
+    padding: 8px 16px; /* Reduced padding */
+    font-size: 14px; /* Fixed smaller size */
+    min-height: 36px; /* Reduced height */
+    border-radius: 4px; /* Smaller border radius */
+  }
+  
+  /* Work Content Heading - Compressed */
+  .work-content h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Reduced max size */
+    margin-bottom: 8px; /* Reduced from clamp(10px, 3vw, 20px) */
+    padding: 0 8px;
+  }
+  
+  /* Work Description - Minimal spacing */
+  .work-description {
+    font-size: 0.9rem; /* Fixed smaller size */
+    padding: 0 10px;
+    margin-bottom: 8px; /* Add small margin */
+    line-height: 1.5; /* Tighter line height */
+  }
+  
+  /* Styled Heading - Compact design */
+  .styled-heading {
+    margin: 0 8px;
+    padding: 6px 15px; /* Reduced padding */
+    border-radius: 20px; /* Smaller border radius */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4); /* Reduced shadow */
+  }
+  
+  .styled-heading h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem); /* Reduced size */
+    line-height: 1.1;
+  }
+  
+  /* Product Button - Smaller */
+  .product-btn {
+    padding: 10px 20px; /* Reduced padding */
+    margin-top: 20px; /* Reduced from clamp(30px, 5vw, 60px) */
+    font-size: 1rem; /* Fixed size */
+    min-height: 40px; /* Reduced height */
+  }
+  
+  /* Work Image - Optimized */
+  .work-image img {
+    max-height: 300px; /* Limit image height */
+    object-fit: cover;
+  }
+  
+  /* Carousel - Horizontal optimization */
+  .carousel {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for wide screen */
+    grid-template-rows: 1fr; /* Single row */
+    gap: 15px; /* Reduced gap */
+    padding: 20px 30px; /* Much reduced padding */
+    max-width: 1100px; /* Slightly smaller max width */
+  }
+  
+  /* Carousel Items - Compact height */
+  .carousel-item {
+    height: 180px; /* Fixed smaller height */
+    border-radius: 10px; /* Smaller border radius */
+    margin-bottom: 0; /* Remove bottom margin */
+  }
+  
+  /* Override tablet grid layout for this screen size */
+  .carousel-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .carousel-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .carousel-item:nth-child(3) { grid-column: 3; grid-row: 1; }
+  .carousel-item:nth-child(4) { grid-column: 4; grid-row: 1; }
+  .carousel-item:nth-child(5) { grid-column: 1; grid-row: 2; }
+  .carousel-item:nth-child(6) { grid-column: 2; grid-row: 2; }
+  
+  /* Project Info - Smaller overlay text */
+  .project-info h3 {
+    font-size: clamp(1rem, 3vw, 1.3rem); /* Reduced size */
+    margin-bottom: 6px;
+  }
+  
+  .project-info p {
+    font-size: clamp(0.7rem, 2vw, 0.85rem); /* Reduced size */
+  }
+  
+  .project-info::after {
+    width: 35px; /* Smaller arrow button */
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    margin-top: 10px; /* Reduced margin */
+  }
+}
+
+/* Specific optimization for exactly 1265x585 */
+@media (min-width: 1200px) and (max-width: 1300px) and (min-height: 550px) and (max-height: 650px) {
+  
+  /* Ultra-compact layout */
+  .work {
+    padding: 12px 16px;
+  }
+  
+  .carousel {
+    padding: 15px 25px;
+    gap: 12px;
+    /* Try 3 columns if 4 is too cramped */
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .carousel-item {
+    height: 160px; /* Even smaller for tight fit */
+  }
+  
+  .work-content h2 {
+    font-size: 2rem;
+    margin-bottom: 6px;
+  }
+  
+  .styled-heading h2 {
+    font-size: 1.8rem;
+  }
+  
+  .view-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+    min-height: 32px;
+  }
+  
+  .product-btn {
+    padding: 8px 18px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    min-height: 36px;
+  }
+  
+  /* Adjust project info for smaller carousel items */
+  .project-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  
+  .project-info p {
+    font-size: 0.75rem;
+  }
+  
+  .project-info::after {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+}
+
+/* Alternative layout for ultra-wide short screens */
+@media (min-width: 1400px) and (max-height: 650px) {
+  
+  /* Use all available width with 5 columns */
+  .carousel {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1200px;
+    gap: 18px;
+  }
+  
+  .carousel-item {
+    height: 200px; /* Slightly taller for wider screen */
+  }
+  
+  /* Distribute items across single row */
+  .carousel-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .carousel-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .carousel-item:nth-child(3) { grid-column: 3; grid-row: 1; }
+  .carousel-item:nth-child(4) { grid-column: 4; grid-row: 1; }
+  .carousel-item:nth-child(5) { grid-column: 5; grid-row: 1; }
+  .carousel-item:nth-child(6) { grid-column: 1; grid-row: 2; }
+}
+
+/* Fallback for very short screens */
+@media (max-height: 585px) {
+  .work {
+    min-height: auto;
+    padding: 10px 15px;
+  }
+  
+  .carousel {
+    padding: 12px 20px;
+    grid-template-columns: repeat(3, 1fr); /* Fewer columns for height constraint */
+    gap: 10px;
+  }
+  
+  .carousel-item {
+    height: 140px; /* Very compact */
+  }
+  
+  .work-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+  }
+  
+  .styled-heading h2 {
+    font-size: 1.5rem;
+  }
+  
+  .work-description {
+    font-size: 0.8rem;
+    padding: 0 8px;
+  }
+  
+  .btn-container {
+    margin: 6px auto;
+  }
+  
+  .view-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-height: 30px;
+  }
+  
+  .product-btn {
+    padding: 6px 16px;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    min-height: 32px;
+  }
+  
+  .project-info h3 {
+    font-size: 1rem;
+  }
+  
+  .project-info p {
+    font-size: 0.7rem;
+  }
+  
+  .project-info::after {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+  }
+}
+
+/* Landscape orientation specific adjustments */
+@media (min-width: 1200px) and (max-height: 650px) and (orientation: landscape) {
+  
+  /* Optimize for landscape viewing */
+  .work-image img {
+    max-height: 250px; /* Shorter for landscape */
+  }
+  
+  /* Ensure carousel items maintain aspect ratio */
+  .carousel-item {
+    aspect-ratio: 16/9; /* Wide aspect ratio */
+    height: auto;
+    min-height: 150px;
+    max-height: 180px;
+  }
+  
+  /* Faster transitions for landscape */
+  .carousel-item,
+  .carousel-item img,
+  .project-info {
+    transition-duration: 0.3s;
+  }
+  
+  .work-bg {
+    transition: opacity 0.8s ease, transform 1.5s ease; /* Faster background transition */
+  }
+}
+
+/* Two-column layout for content + carousel */
+@media (min-width: 1200px) and (max-height: 650px) {
+  
+  /* Optional: Create side-by-side layout */
+  .work-layout-horizontal {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Text content | Carousel */
+    gap: 30px;
+    align-items: start;
+  }
+  
+  .work-content-section {
+    padding-right: 20px;
+  }
+  
+  .carousel-section {
+    /* Carousel takes up more space */
+  }
+  
+  /* Apply this class to work container for horizontal layout */
+  .work.horizontal-layout {
+    text-align: left; /* Left-align text in horizontal mode */
+  }
+  
+  .work.horizontal-layout .work-content h2,
+  .work.horizontal-layout .styled-heading {
+    text-align: left;
+    margin-left: 0;
+  }
+  
+  .work.horizontal-layout .btn-container {
+    justify-content: flex-start;
+  }
+}
+
+/* Performance optimizations for this screen size */
+@media (min-width: 1200px) and (max-height: 650px) {
+  
+  /* Reduce animation complexity on smaller screens */
+  .carousel-item {
+    will-change: transform, opacity; /* Only animate necessary properties */
+  }
+  
+  .carousel-item:hover {
+    transform: translateY(-3px) scale(1.01); /* Less dramatic hover effect */
+  }
+  
+  .carousel-item:hover img {
+    transform: scale(1.05); /* Less dramatic image scale */
+    filter: blur(8px) brightness(0.8); /* Lighter blur effect */
+  }
+  
+  /* Faster hover transitions */
+  .view-btn:hover .arrow {
+    transform: translateX(2px); /* Smaller arrow movement */
+  }
+  
+  .product-btn:hover,
+  .view-btn:hover {
+    transform: translateY(-1px); /* Smaller lift effect */
+  }
+}
+
+/* High DPI optimizations */
+@media (min-width: 1200px) and (max-height: 650px) and (-webkit-min-device-pixel-ratio: 2) {
+  
+  .work-content h2,
+  .styled-heading h2,
+  .project-info h3 {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .carousel-item {
+    /* Sharper borders on high DPI */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(179, 136, 255, 0.25);
+  }
 }

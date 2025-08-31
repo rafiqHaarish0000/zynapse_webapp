@@ -1,227 +1,302 @@
-
+/* Base styles - Mobile First */
 body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
-    background-color: #f5f1eb;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
 .service {
     height: auto;
-    background-color: #000;
+    background-color: #fff;
     color: #fff;
     font-family: 'Poppins', sans-serif;
     text-align: center;
     transition: opacity 0.5s ease, transform 0.5s ease;
+    width: 100%;
+    padding: 0;
+    min-height: 100vh;
 }
 
-/* Main Container */
+/* Main Container - Plain White Background */
 .main-container {
     min-height: 100vh;
-    padding: 2rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
     background-color: #fff;
     transform-origin: top center;
     overflow: hidden;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
 }
 
-/* Upper half black */
+/* Background Sections */
 .bg-upper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 50vh;
-    background-color: black;
+    height: 50%;
+    background: #000;
     z-index: 0;
 }
 
-/* Lower half gradient with bubbles */
 .bg-lower {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50vh;
+    height: 50%;
     background: #000;
     z-index: 0;
     overflow: hidden;
 }
 
-/* Bubble styles */
+/* Responsive Bubble Styles */
 .bubble {
     position: absolute;
     bottom: 0;
-    width: 100px;
-    height: 200px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.15);
     border-radius: 50%;
-    animation: rise 8s infinite ease-in;
+    animation: rise 8s infinite ease-in-out;
+    will-change: transform, opacity;
+    backdrop-filter: blur(2px);
 }
 
-/* Random bubble positions and sizes */
-.bubble:nth-child(1) { left: 10%; width: 20px; height: 20px; animation-duration: 6s; }
-.bubble:nth-child(2) { left: 30%; width: 60px; height: 60px; animation-duration: 7s; }
-.bubble:nth-child(3) { left: 50%; width: 5px; height: 5px; animation-duration: 5s; }
-.bubble:nth-child(4) { left: 70%; width: 12px; height: 12px; animation-duration: 9s; }
-.bubble:nth-child(5) { left: 85%; width: 7px; height: 7px; animation-duration: 6.5s; }
-.bubble:nth-child(6) { left: 40%; width: 10px; height: 10px; animation-duration: 8s; }
+/* Fluid bubble sizes and positions */
+.bubble:nth-child(1) { 
+    left: 10%; 
+    width: clamp(12px, 2.5vw, 18px); 
+    height: clamp(12px, 2.5vw, 18px); 
+    animation-duration: 6s;
+    animation-delay: 0s;
+}
+.bubble:nth-child(2) { 
+    left: 25%; 
+    width: clamp(35px, 6vw, 55px); 
+    height: clamp(35px, 6vw, 55px); 
+    animation-duration: 8s;
+    animation-delay: 1s;
+}
+.bubble:nth-child(3) { 
+    left: 45%; 
+    width: clamp(8px, 1.5vw, 12px); 
+    height: clamp(8px, 1.5vw, 12px); 
+    animation-duration: 5s;
+    animation-delay: 2s;
+}
+.bubble:nth-child(4) { 
+    left: 65%; 
+    width: clamp(15px, 3vw, 20px); 
+    height: clamp(15px, 3vw, 20px); 
+    animation-duration: 9s;
+    animation-delay: 0.5s;
+}
+.bubble:nth-child(5) { 
+    left: 80%; 
+    width: clamp(10px, 2vw, 14px); 
+    height: clamp(10px, 2vw, 14px); 
+    animation-duration: 7s;
+    animation-delay: 3s;
+}
+.bubble:nth-child(6) { 
+    left: 35%; 
+    width: clamp(20px, 3.5vw, 28px); 
+    height: clamp(20px, 3.5vw, 28px); 
+    animation-duration: 6.5s;
+    animation-delay: 1.5s;
+}
 
-/* Bubble rise animation */
+/* Enhanced bubble animation */
 @keyframes rise {
     0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.2;
+        transform: translateY(0) scale(0.8) rotate(0deg);
+        opacity: 0;
     }
-    50% {
-        opacity: 0.5;
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.3;
     }
     100% {
-        transform: translateY(-100vh) scale(1.5);
+        transform: translateY(-110vh) scale(1.2) rotate(360deg);
         opacity: 0;
     }
 }
 
-/* Floating Cards */
+/* Responsive Floating Cards */
 .floating-card {
-    width: 200px;
-    height: 200px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: clamp(100px, 22vw, 180px);
+    height: clamp(100px, 22vw, 180px);
+    border-radius: clamp(8px, 2vw, 16px);
+    box-shadow: 
+        0 8px 25px rgba(0,0,0,0.15),
+        0 3px 12px rgba(0,0,0,0.1);
     position: absolute;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     overflow: hidden;
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1.5s ease, transform 1.5s ease, width 0.5s ease, height 0.5s ease;
-    z-index: 1;
+    transform: translateY(40px) scale(0.9);
+    z-index: 5;
+    will-change: transform, opacity;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
 }
 
 .floating-card.scrolled {
-    width: 220px;
-    height: 220px;
+    width: clamp(120px, 25vw, 200px);
+    height: clamp(120px, 25vw, 200px);
     z-index: 100;
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.2),
+        0 5px 15px rgba(0,0,0,0.15);
 }
 
 .floating-card.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
-.floating-card img, .floating-card video {
+.floating-card img, 
+.floating-card video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .floating-card:hover img, 
 .floating-card:hover video,
 .floating-card.scrolled img,
 .floating-card.scrolled video {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
+/* Responsive card positions */
 .card-1 {
-    top:14%;
-    left: 15%;
-    transform: rotate(-15deg) translateY(50px);
-    transition-delay: 1.5s;
+    top: clamp(8%, 12vw, 15%);
+    left: clamp(2%, 5vw, 8%);
+    transform: rotate(-8deg) translateY(40px) scale(0.9);
+    transition-delay: 1.2s;
 }
 
 .card-1.active {
-    transform: rotate(-15deg) translateY(0);
+    transform: rotate(-8deg) translateY(0) scale(1);
 }
 
 .card-2 {
-    top: 15%;
-    right: 15%;
-    transform: rotate(20deg) translateY(50px);
-    transition-delay: 1.7s;
+    top: clamp(8%, 12vw, 15%);
+    right: clamp(2%, 5vw, 8%);
+    transform: rotate(8deg) translateY(40px) scale(0.9);
+    transition-delay: 1.4s;
 }
 
 .card-2.active {
-    transform: rotate(20deg) translateY(0);
+    transform: rotate(8deg) translateY(0) scale(1);
 }
 
 .card-3 {
-    bottom: 5%;
-    left: 18%;
-    transform: rotate(-40deg) translateY(-80px);
-    transition-delay: 1.9s;
+    bottom: clamp(20%, 25vw, 30%);
+    left: clamp(5%, 8vw, 12%);
+    transform: rotate(-12deg) translateY(-30px) scale(0.9);
+    transition-delay: 1.6s;
 }
 
 .card-3.active {
-    transform: rotate(20deg) translateY(0);
+    transform: rotate(-12deg) translateY(0) scale(1);
 }
 
 .card-6 {
-    top: 60%;
-    right: 10%;
-    transform: scale(1.05) rotate(-40deg) translateY(-40px);
-    transition-delay: 2.1s;
+    bottom: clamp(20%, 25vw, 30%);
+    right: clamp(5%, 8vw, 12%);
+    transform: rotate(12deg) translateY(-30px) scale(0.95);
+    transition-delay: 1.8s;
 }
 
 .card-6.active {
-    transform: scale(1.05) rotate(-20deg) translateY(0);
+    transform: rotate(12deg) translateY(0) scale(1);
 }
 
 /* Profile Section */
 .profile-section {
     position: relative;
     text-align: center;
-    margin: 4rem auto;
+    margin: clamp(2rem, 6vw, 4rem) auto;
     z-index: 10;
+    padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 .profile-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 20px;
+    width: clamp(100px, 20vw, 160px);
+    height: clamp(100px, 20vw, 160px);
+    border-radius: clamp(8px, 2vw, 16px);
     object-fit: cover;
-    margin: 0 auto 1rem;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    margin: 0 auto clamp(1rem, 2vw, 1.5rem);
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.15),
+        0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    border: 3px solid rgba(255, 255, 255, 0.8);
 }
 
 .profile-image:hover {
     transform: scale(1.05) rotate(-2deg);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.2),
+        0 6px 20px rgba(0,0,0,0.15);
 }
 
 .profile-text {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 3rem;
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+    color: #555;
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.6;
+    max-width: clamp(280px, 80vw, 500px);
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
 }
 
 /* Main Title */
 .main-title {
     text-align: center;
-    margin: 3rem 0;
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0;
     z-index: 10;
-    margin-top: 320px;
+    margin-top: clamp(120px, 25vw, 200px);
     position: relative;
     transition: all 0.5s ease;
+    padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 .main-title.scrolled {
-    transform: scale(0.95);
+    transform: scale(0.98);
 }
-
-
 
 .title-text {
-    font-size: clamp(2.5rem, 8vw, 2rem);
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
     font-style: italic;
     color: #9b5de5;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.1;
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1.5s ease 0s, transform 1.5s ease 0s;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease 0s, transform 1.2s ease 0s;
+    margin-bottom: clamp(0.8rem, 2vw, 1.5rem);
+    text-shadow: 0 2px 10px rgba(155, 93, 229, 0.2);
 }
+
 
 .title-text.active {
     opacity: 1;
@@ -229,12 +304,17 @@ body {
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
     color: #666;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.5s ease 0.5s, transform 1.5s ease 0.5s;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
+    line-height: 1.5;
+    max-width: clamp(300px, 85vw, 600px);
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
 }
 
 .subtitle.active {
@@ -246,39 +326,56 @@ body {
 .cta-button {
     display: inline-flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 2.5rem;
-    background: #fff;
-    color: black;
+    justify-content: center;
+    gap: clamp(0.5rem, 1.5vw, 0.8rem);
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.2rem);
+    background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+    color: #333;
     border: none;
     border-radius: 50px;
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(208, 53, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 8px 25px rgba(155, 93, 229, 0.25),
+        0 3px 12px rgba(0, 0, 0, 0.1);
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.5s ease 1s, transform 1.5s ease 1s;
+    transform: translateY(20px);
+    min-height: clamp(40px, 8vw, 48px);
+    text-decoration: none;
+    white-space: nowrap;
+    border: 2px solid rgba(155, 93, 229, 0.1);
 }
 
 .cta-button.active {
     opacity: 1;
     transform: translateY(0);
+    transition-delay: 0.6s;
 }
 
-/* Animations */
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 35px rgba(155, 93, 229, 0.35),
+        0 5px 20px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #9b5de5 0%, #b877f7 100%);
+    color: white;
+    border-color: rgba(155, 93, 229, 0.3);
+}
+
+/* Enhanced Float Animation */
 @keyframes float {
     0%, 100% {
-        transform: translateY(0px) rotate(var(--rotation));
+        transform: translateY(0px) rotate(var(--rotation)) scale(var(--scale, 1));
     }
     50% {
-        transform: translateY(-20px) rotate(var(--rotation));
+        transform: translateY(-15px) rotate(var(--rotation)) scale(var(--scale, 1));
     }
 }
 
 .floating-card {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
     animation-play-state: paused;
 }
 
@@ -286,34 +383,475 @@ body {
     animation-play-state: running;
 }
 
-.card-1 { --rotation: -15deg; animation-delay: 0s; }
-.card-2 { --rotation: 10deg; animation-delay: 1s; }
-.card-3 { --rotation: 20deg; animation-delay: 2s; }
-.card-6 { --rotation: -20deg; animation-delay: 5s; }
+.card-1 { --rotation: -8deg; --scale: 1; animation-delay: 0s; }
+.card-2 { --rotation: 8deg; --scale: 1; animation-delay: 2s; }
+.card-3 { --rotation: -12deg; --scale: 1; animation-delay: 4s; }
+.card-6 { --rotation: 12deg; --scale: 1; animation-delay: 6s; }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .floating-card {
-        width: 150px;
-        height: 150px;
+/* Extra Small Mobile (Portrait) - up to 320px */
+@media (max-width: 320px) {
+    .service {
+        padding: 10px;
     }
-
-    .floating-card.scrolled {
-        width: 165px;
-        height: 165px;
-    }
-
-    .profile-image {
-        width: 150px;
-        height: 150px;
-    }
-
+    
     .main-container {
         padding: 1rem;
+        border-radius: 16px;
+        min-height: 80vh;
     }
+    
+    .floating-card {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .floating-card.scrolled {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .profile-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .main-title {
+        margin-top: 100px;
+    }
+}
 
+/* Small Mobile (Portrait) - 321px to 480px */
+@media (min-width: 321px) and (max-width: 480px) {
+    .main-container {
+        padding: 1.25rem;
+        border-radius: 18px;
+        min-height: 82vh;
+    }
+    
+    .floating-card {
+        width: clamp(90px, 20vw, 120px);
+        height: clamp(90px, 20vw, 120px);
+    }
+    
+    .floating-card.scrolled {
+        width: clamp(100px, 22vw, 130px);
+        height: clamp(100px, 22vw, 130px);
+    }
+    
+    .card-1, .card-2 {
+        top: 8%;
+    }
+    
+    .card-3, .card-6 {
+        bottom: 25%;
+    }
+    
+    .profile-image {
+        width: clamp(100px, 22vw, 130px);
+        height: clamp(100px, 22vw, 130px);
+    }
+    
+    .main-title {
+        margin-top: 140px;
+    }
+    
+    .title-text {
+        font-size: 1.6rem;
+    }
+}
+
+/* Large Mobile (Landscape) / Small Tablet - 481px to 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    .main-container {
+        padding: clamp(1.5rem, 3vw, 2rem);
+        border-radius: clamp(20px, 3vw, 24px);
+        min-height: 85vh;
+    }
+    
+    .floating-card {
+        width: clamp(120px, 18vw, 160px);
+        height: clamp(120px, 18vw, 160px);
+    }
+    
+    .floating-card.scrolled {
+        width: clamp(135px, 20vw, 175px);
+        height: clamp(135px, 20vw, 175px);
+    }
+    
+    .card-1 {
+        top: 10%;
+        left: 6%;
+        transform: rotate(-10deg) translateY(40px) scale(0.9);
+    }
+    
+    .card-1.active {
+        transform: rotate(-10deg) translateY(0) scale(1);
+    }
+    
+    .card-2 {
+        top: 10%;
+        right: 6%;
+        transform: rotate(10deg) translateY(40px) scale(0.9);
+    }
+    
+    .card-2.active {
+        transform: rotate(10deg) translateY(0) scale(1);
+    }
+    
+    .card-3 {
+        bottom: 22%;
+        left: 8%;
+        transform: rotate(-15deg) translateY(-35px) scale(0.9);
+    }
+    
+    .card-3.active {
+        transform: rotate(-15deg) translateY(0) scale(1);
+    }
+    
+    .card-6 {
+        bottom: 22%;
+        right: 8%;
+        transform: rotate(15deg) translateY(-35px) scale(0.95);
+    }
+    
+    .card-6.active {
+        transform: rotate(15deg) translateY(0) scale(1);
+    }
+    
+    .main-title {
+        margin-top: 180px;
+    }
+    
+    .profile-section {
+        margin: 2.5rem auto;
+    }
+    
+    .card-1 { --rotation: -10deg; }
+    .card-2 { --rotation: 10deg; }
+    .card-3 { --rotation: -15deg; }
+    .card-6 { --rotation: 15deg; }
+}
+
+/* Tablet / Small Desktop - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .main-container {
+        padding: clamp(2rem, 3.5vw, 2.5rem);
+        border-radius: clamp(24px, 3.5vw, 32px);
+    }
+    
+    .floating-card {
+        width: clamp(140px, 16vw, 180px);
+        height: clamp(140px, 16vw, 180px);
+    }
+    
+    .floating-card.scrolled {
+        width: clamp(160px, 18vw, 200px);
+        height: clamp(160px, 18vw, 200px);
+    }
+    
+    .card-1 {
+        top: 12%;
+        left: 10%;
+        transform: rotate(-12deg) translateY(40px) scale(0.9);
+    }
+    
+    .card-1.active {
+        transform: rotate(-12deg) translateY(0) scale(1);
+    }
+    
+    .card-2 {
+        top: 12%;
+        right: 10%;
+        transform: rotate(12deg) translateY(40px) scale(0.9);
+    }
+    
+    .card-2.active {
+        transform: rotate(12deg) translateY(0) scale(1);
+    }
+    
+    .card-3 {
+        bottom: 18%;
+        left: 12%;
+        transform: rotate(-18deg) translateY(-40px) scale(0.9);
+    }
+    
+    .card-3.active {
+        transform: rotate(-18deg) translateY(0) scale(1);
+    }
+    
+    .card-6 {
+        bottom: 18%;
+        right: 10%;
+        transform: rotate(18deg) translateY(-40px) scale(0.95);
+    }
+    
+    .card-6.active {
+        transform: rotate(18deg) translateY(0) scale(1);
+    }
+    
+    .main-title {
+        margin-top: 200px;
+    }
+    
+    .title-text {
+        font-size: clamp(2.2rem, 4vw, 3rem);
+    }
+    
+    .card-1 { --rotation: -12deg; }
+    .card-2 { --rotation: 12deg; }
+    .card-3 { --rotation: -18deg; }
+    .card-6 { --rotation: 18deg; }
+}
+
+/* Large Desktop - 1025px to 1440px */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .main-container {
+        padding: 3rem;
+        border-radius: 36px;
+    }
+    
+    .card-1 {
+        top: 14%;
+        left: 12%;
+        transform: rotate(-15deg) translateY(40px) scale(0.9);
+    }
+    
+    .card-1.active {
+        transform: rotate(-15deg) translateY(0) scale(1);
+    }
+    
+    .card-2 {
+        top: 15%;
+        right: 12%;
+        transform: rotate(15deg) translateY(40px) scale(0.9);
+    }
+    
+    .card-2.active {
+        transform: rotate(15deg) translateY(0) scale(1);
+    }
+    
+    .card-3 {
+        bottom: 8%;
+        left: 15%;
+        transform: rotate(-20deg) translateY(-50px) scale(0.9);
+    }
+    
+    .card-3.active {
+        transform: rotate(-20deg) translateY(0) scale(1);
+    }
+    
+    .card-6 {
+        bottom: 8%;
+        right: 12%;
+        transform: rotate(20deg) translateY(-50px) scale(0.95);
+    }
+    
+    .card-6.active {
+        transform: rotate(20deg) translateY(0) scale(1);
+    }
+    
+    .main-title {
+        margin-top: 220px;
+    }
+    
+    .title-text {
+        font-size: clamp(2.5rem, 3.5vw, 3.5rem);
+    }
+    
+    .card-1 { --rotation: -15deg; }
+    .card-2 { --rotation: 15deg; }
+    .card-3 { --rotation: -20deg; }
+    .card-6 { --rotation: 20deg; }
+}
+
+/* Ultra-wide screens - 1441px+ */
+@media (min-width: 1441px) {
+    .service {
+        padding: 60px;
+    }
+    
+    .main-container {
+        max-width: 1200px;
+        padding: 4rem;
+        border-radius: 40px;
+    }
+    
+    .floating-card {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .floating-card.scrolled {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .title-text {
+        font-size: 4rem;
+    }
+    
+    .subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .profile-image {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .card-1 { --rotation: -15deg; }
+    .card-2 { --rotation: 20deg; }
+    .card-3 { --rotation: -22deg; }
+    .card-6 { --rotation: 22deg; }
+}
+
+/* Landscape orientation specific */
+@media (orientation: landscape) and (max-height: 600px) {
+    .main-container {
+        min-height: 75vh;
+        padding: clamp(1rem, 2vw, 1.5rem);
+    }
+    
+    .main-title {
+        margin-top: clamp(60px, 15vw, 120px);
+    }
+    
+    .title-text {
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+    }
+    
+    .floating-card {
+        width: clamp(80px, 15vw, 140px);
+        height: clamp(80px, 15vw, 140px);
+    }
+    
+    .profile-image {
+        width: clamp(80px, 15vw, 120px);
+        height: clamp(80px, 15vw, 120px);
+    }
+    
+    .bubble {
+        animation-duration: 4s;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .main-container:hover {
+        transform: none;
+    }
+    
+    .floating-card:hover img,
+    .floating-card:hover video {
+        transform: none;
+    }
+    
+    .profile-image:hover {
+        transform: none;
+    }
+    
+    .cta-button:hover {
+        transform: none;
+        background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+        color: #333;
+    }
+    
+    .cta-button:active {
+        background: linear-gradient(135deg, #9b5de5 0%, #b877f7 100%);
+        color: white;
+        transform: scale(0.95);
+    }
+    
+    .floating-card:active {
+        transform: scale(0.95) rotate(var(--rotation));
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .floating-card {
+        animation: none;
+    }
+    
+    .bubble {
+        animation: none;
+        opacity: 0.1;
+    }
+    
+    .main-container:hover {
+        transform: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .main-container {
+        background: rgba(255, 255, 255, 1);
+        border: 3px solid #333;
+    }
+    
+    .title-text {
+        color: #7c3aed;
+    }
+    
+    .subtitle,
+    .profile-text {
+        color: #222;
+    }
+    
+    .floating-card {
+        border: 3px solid #333;
+    }
+    
     .cta-button {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
+        border: 2px solid #333;
+        background: white;
+        color: #333;
+    }
+}
+
+/* Print styles */
+@media print {
+    .service {
+        background: white;
+        padding: 20px;
+    }
+    
+    .main-container {
+        background: white;
+        box-shadow: none;
+        border: 1px solid #ccc;
+        border-radius: 0;
+    }
+    
+    .bubble,
+    .floating-card {
+        display: none;
+    }
+    
+    .bg-upper,
+    .bg-lower {
+        background: white;
+    }
+    
+    .title-text {
+        color: #333;
+    }
+    
+    .subtitle,
+    .profile-text {
+        color: #666;
+    }
+    
+    .cta-button {
+        background: white;
+        color: #333;
+        border: 2px solid #333;
     }
 }

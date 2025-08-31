@@ -26,8 +26,8 @@ section {
 main {
     max-width: 1200px;
     margin: auto;
-    margin-top: 20px;
-    padding: 0 20px 60px;
+    margin-top: clamp(10px, 2vw, 20px);
+    padding: 0 clamp(10px, 3vw, 20px) clamp(30px, 8vw, 60px);
     overflow: hidden;
 }
 
@@ -37,7 +37,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;   /* keeps it behind the content */
+    z-index: -1;
     overflow: hidden;
 }
 
@@ -50,9 +50,8 @@ main {
     width: auto;
     height: auto;
     transform: translate(-50%, -50%);
-    object-fit: cover;  /* makes it behave like background-size: cover */
+    object-fit: cover;
 }
-
 
 .particle {
     position: absolute;
@@ -60,56 +59,62 @@ main {
 }
 
 .content-container {
-
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
 }
 
 .hero-section {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: clamp(40px, 10vw, 80px);
+    padding-top: clamp(20px, 5vw, 40px);
 }
 
 .hero-title {
-    font-size: 4.5rem;
+    font-size: clamp(2rem, 8vw, 4.5rem);
     font-weight: 800;
     background: linear-gradient(90deg, #fff 0%, #a5b4fc 100%);
     color: #000;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
+    margin-bottom: clamp(15px, 3vw, 20px);
     line-height: 1.2;
+    padding: 0 clamp(10px, 2vw, 0);
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
     color: #000;
-    max-width: 800px;
+    max-width: min(800px, 90vw);
     margin: 0 auto;
     line-height: 1.6;
+    padding: 0 clamp(15px, 3vw, 0);
 }
 
 .contact-globe-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: clamp(20px, 5vw, 40px);
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: clamp(50px, 12vw, 100px);
+    padding: 0 clamp(10px, 2vw, 0);
 }
 
 .contact-form {
-    flex: 1 1 500px;
-    min-width: 350px;
+    flex: 1 1 min(500px, 90vw);
+    min-width: min(350px, 90vw);
+    max-width: 600px;
+    max-height: 85vh;
     backdrop-filter: blur(16px);
     background-color: rgba(15, 15, 25, 0.7);
-    border-radius: 24px;
+    border-radius: clamp(16px, 3vw, 24px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
-    padding: 40px;
+    padding: clamp(20px, 4vw, 30px);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     transition: box-shadow 0.3s ease;
+    margin: clamp(15px, 3vw, 0) auto;
 }
 
 .contact-form:hover {
@@ -118,31 +123,32 @@ main {
 
 .form-decoration {
     position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 300px;
-    height: 300px;
+    top: clamp(-60px, -15vw, -100px);
+    right: clamp(-60px, -15vw, -100px);
+    width: clamp(200px, 40vw, 300px);
+    height: clamp(200px, 40vw, 300px);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(115, 117, 254, 0.125) 0%, transparent 70%);
     z-index: -1;
 }
 
 .form-title {
-    font-size: 2.2rem;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: clamp(15px, 3vw, 20px);
     color: #fff;
     position: relative;
+    padding-left: clamp(15px, 4vw, 0);
 }
 
 .form-title::before {
     content: '';
     position: absolute;
-    left: -20px;
+    left: clamp(-15px, -4vw, -20px);
     top: 50%;
     transform: translateY(-50%);
-    width: 8px;
-    height: 40px;
+    width: clamp(6px, 1.5vw, 8px);
+    height: clamp(30px, 6vw, 40px);
     background: #7375fe;
     border-radius: 4px;
 }
@@ -150,7 +156,7 @@ main {
 .form-fields {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: clamp(12px, 2vw, 18px);
 }
 
 .form-field {
@@ -164,38 +170,40 @@ main {
 
 .field-icon {
     position: absolute;
-    left: 15px;
-    top: 15px;
-    font-size: 1.2rem;
+    left: clamp(10px, 2vw, 15px);
+    top: clamp(12px, 2vw, 15px);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
 
 .form-input, .form-textarea {
     width: 100%;
-    padding: 15px 15px 15px 50px;
-    border-radius: 12px;
+    padding: clamp(12px, 3vw, 15px) clamp(12px, 3vw, 15px) clamp(12px, 3vw, 15px) clamp(35px, 8vw, 50px);
+    border-radius: clamp(8px, 2vw, 12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.05);
     color: #fff;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     transition: all 0.3s ease;
 }
 
 .form-textarea {
-    padding: 20px;
+    padding: clamp(12px, 3vw, 15px);
     resize: vertical;
-    height: 150px;
+    height: clamp(100px, 15vw, 120px);
+    min-height: 80px;
+    max-height: 150px;
 }
 
 .submit-btn {
-    padding: 18px 0;
+    padding: clamp(15px, 3vw, 18px) 0;
     font-weight: 700;
-    font-size: 1.8rem;
-    border-radius: 12px;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    border-radius: clamp(8px, 2vw, 12px);
     border: none;
     background: linear-gradient(45deg, #7375fe, #8b5cf6);
     color: #111;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: clamp(8px, 2vw, 10px);
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -228,10 +236,11 @@ main {
 }
 
 .globe-container {
-    flex: 1 1 900px;
-    min-width: 350px;
-    height: 500px;
-    border-radius: 24px;
+    flex: 1 1 min(500px, 90vw);
+    min-width: min(350px, 90vw);
+    max-width: 900px;
+    height: clamp(350px, 60vw, 500px);
+    border-radius: clamp(16px, 3vw, 24px);
     overflow: hidden;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -255,79 +264,81 @@ main {
 
 .globe-label {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: clamp(15px, 3vw, 20px);
+    right: clamp(15px, 3vw, 20px);
     background: rgba(15, 15, 25, 0.7);
     backdrop-filter: blur(10px);
-    padding: 10px 15px;
-    border-radius: 8px;
+    padding: clamp(8px, 2vw, 10px) clamp(12px, 2vw, 15px);
+    border-radius: clamp(6px, 1.5vw, 8px);
     color: #fff;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .marker-tooltip {
     position: absolute;
-    bottom: 40px;
-    left: 40px;
+    bottom: clamp(20px, 5vw, 40px);
+    left: clamp(20px, 5vw, 40px);
+    right: clamp(20px, 5vw, auto);
     background: rgba(15, 15, 25, 0.8);
     backdrop-filter: blur(10px);
     color: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 300px;
+    padding: clamp(15px, 3vw, 20px);
+    border-radius: clamp(8px, 2vw, 12px);
+    max-width: min(300px, 80vw);
     border: 1px solid rgba(115, 117, 254, 0.25);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .tooltip-title {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    margin-bottom: clamp(8px, 2vw, 10px);
     color: #7375fe;
 }
 
 .tooltip-text {
-    margin: 5px 0;
-    font-size: 0.95rem;
+    margin: clamp(3px, 1vw, 5px) 0;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
 }
 
 .offices-section {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: clamp(50px, 12vw, 100px);
+    margin-bottom: clamp(50px, 12vw, 100px);
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 700;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: clamp(30px, 8vw, 60px);
     color: #000;
     position: relative;
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
+    padding: 0 clamp(15px, 3vw, 0);
 }
 
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: clamp(-8px, -2vw, -10px);
     left: 0;
     width: 100%;
-    height: 4px;
+    height: clamp(3px, 1vw, 4px);
     background: #7375fe;
     border-radius: 2px;
 }
 
 .offices-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 0 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(15px, 3vw, 25px);
+    padding: 0 clamp(10px, 3vw, 20px);
 }
 
 .office-card {
-    border-radius: 16px;
+    border-radius: clamp(12px, 3vw, 16px);
     overflow: hidden;
     background: rgba(15, 15, 25, 0.7);
     backdrop-filter: blur(10px);
@@ -342,7 +353,7 @@ main {
 }
 
 .office-image {
-    height: 200px;
+    height: clamp(150px, 25vw, 200px);
     position: relative;
     overflow: hidden;
 }
@@ -359,63 +370,66 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 20px;
+    padding: clamp(15px, 3vw, 20px);
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
 }
 
 .office-name {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 600;
     color: #fff;
     margin: 0;
 }
 
 .office-details {
-    padding: 25px;
+    padding: clamp(20px, 4vw, 25px);
 }
 
 .office-detail {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: clamp(12px, 2vw, 15px);
     color: #d1d5db;
 }
 
 .detail-icon {
-    width: 40px;
-    height: 40px;
+    width: clamp(35px, 6vw, 40px);
+    height: clamp(35px, 6vw, 40px);
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 15px;
+    margin-right: clamp(12px, 2vw, 15px);
     flex-shrink: 0;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .detail-label {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 2vw, 0.9rem);
     color: #7375fe;
 }
 
 .cta-section {
     background: linear-gradient(135deg, rgba(15, 15, 25, 0.8) 0%, rgba(30, 30, 60, 0.9) 100%);
-    border-radius: 24px;
-    padding: 80px 40px;
+    border-radius: clamp(16px, 3vw, 24px);
+    padding: clamp(40px, 10vw, 80px) clamp(20px, 5vw, 40px);
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 50px rgba(115, 117, 254, 0.125);
-    margin-bottom: 60px;
+    margin-bottom: clamp(40px, 8vw, 60px);
     position: relative;
     overflow: hidden;
+    margin-left: clamp(10px, 2vw, 0);
+    margin-right: clamp(10px, 2vw, 0);
 }
 
 .cta-decoration-top {
     position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 300px;
-    height: 300px;
+    top: clamp(-60px, -15vw, -100px);
+    right: clamp(-60px, -15vw, -100px);
+    width: clamp(200px, 40vw, 300px);
+    height: clamp(200px, 40vw, 300px);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(115, 117, 254, 0.125) 0%, transparent 70%);
     z-index: -1;
@@ -423,36 +437,38 @@ main {
 
 .cta-decoration-bottom {
     position: absolute;
-    bottom: -150px;
-    left: -150px;
-    width: 400px;
-    height: 400px;
+    bottom: clamp(-100px, -20vw, -150px);
+    left: clamp(-100px, -20vw, -150px);
+    width: clamp(250px, 50vw, 400px);
+    height: clamp(250px, 50vw, 400px);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(115, 117, 254, 0.0625) 0%, transparent 70%);
     z-index: -1;
 }
 
 .cta-title {
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vw, 3rem);
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: clamp(15px, 3vw, 20px);
     background: linear-gradient(90deg, #fff 0%, #a5b4fc 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding: 0 clamp(10px, 2vw, 0);
 }
 
 .cta-text {
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
     color: #d1d5db;
-    max-width: 800px;
-    margin: 0 auto 40px;
+    max-width: min(800px, 90vw);
+    margin: 0 auto clamp(25px, 5vw, 40px);
     line-height: 1.6;
+    padding: 0 clamp(15px, 3vw, 0);
 }
 
 .cta-btn {
-    padding: 18px 36px;
+    padding: clamp(15px, 3vw, 18px) clamp(25px, 5vw, 36px);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
     border-radius: 50px;
     border: none;
     background: linear-gradient(45deg, #7375fe, #8b5cf6);
@@ -473,213 +489,505 @@ main {
     transform: scale(0.98);
 }
 
-
-/* Overlay background */
+/* Dialog Overlay Styles */
 .dialog-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 10, 25, 0.85); /* dark navy overlay */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-  backdrop-filter: blur(6px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 25, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    backdrop-filter: blur(6px);
+    padding: clamp(20px, 5vw, 40px);
 }
 
-/* Show overlay */
 .dialog-overlay.show {
-  opacity: 1;
-  pointer-events: all;
+    opacity: 1;
+    pointer-events: all;
 }
 
-/* Container with 3D pop effect */
 .dialog-container {
-  perspective: 1500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    perspective: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
 }
 
-/* Dialog content */
 .dialog-content {
-  background: linear-gradient(135deg, #0a0a25, #3b0066); /* navy to violet */
-  border-radius: 25px;
-  padding: 40px 35px;
-  width: 450px;
-  max-width: 90%;
-  color: #fff;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(75,0,150,0.4);
-  transform: rotateX(30deg) rotateY(10deg) scale(0.7);
-  transition: transform 0.8s cubic-bezier(0.25, 1.5, 0.5, 1);
+    background: linear-gradient(135deg, #0a0a25, #3b0066);
+    border-radius: clamp(16px, 4vw, 25px);
+    padding: clamp(25px, 6vw, 40px) clamp(20px, 5vw, 35px);
+    width: 100%;
+    max-width: min(450px, 95vw);
+    color: #fff;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(75,0,150,0.4);
+    transform: rotateX(30deg) rotateY(10deg) scale(0.7);
+    transition: transform 0.8s cubic-bezier(0.25, 1.5, 0.5, 1);
+    position: relative;
 }
 
-/* Show 3D pop effect */
 .dialog-overlay.show .dialog-content {
-  transform: rotateX(0deg) rotateY(0deg) scale(1);
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
 }
 
-/* Close button */
 .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 28px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+    position: absolute;
+    top: clamp(15px, 3vw, 20px);
+    right: clamp(15px, 3vw, 20px);
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: clamp(24px, 5vw, 28px);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
 }
+
 .close-btn:hover {
-  transform: rotate(90deg) scale(1.2);
+    transform: rotate(90deg) scale(1.2);
 }
 
-/* Form title */
-.form-title {
-  font-size: 28px;
-  margin-bottom: 25px;
-  text-align: center;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+.dialog-content .form-title {
+    font-size: clamp(1.5rem, 5vw, 28px);
+    margin-bottom: clamp(20px, 4vw, 25px);
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    padding-left: 0;
 }
 
-/* Input fields */
-.form-field {
-  position: relative;
-  margin-bottom: 20px;
+.dialog-content .form-title::before {
+    display: none;
 }
 
-.form-input, .form-textarea {
-  width: 100%;
-  padding: 12px 15px 12px 45px;
-  border-radius: 12px;
-  border: none;
-  outline: none;
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  font-size: 16px;
-  transition: 0.3s;
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.1);
+.dialog-content .form-field {
+    position: relative;
+    margin-bottom: clamp(15px, 3vw, 20px);
 }
 
-.form-input:focus, .form-textarea:focus {
-  background: rgba(255,255,255,0.15);
-  box-shadow: inset 0 0 15px rgba(200,100,255,0.4);
+.dialog-content .form-input, 
+.dialog-content .form-textarea {
+    width: 100%;
+    padding: clamp(10px, 2vw, 12px) clamp(10px, 2vw, 15px) clamp(10px, 2vw, 12px) clamp(35px, 7vw, 45px);
+    border-radius: clamp(8px, 2vw, 12px);
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: clamp(14px, 3vw, 16px);
+    transition: 0.3s;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.1);
 }
 
-/* Field icons */
-.field-icon {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 18px;
-  opacity: 0.8;
+.dialog-content .form-input:focus, 
+.dialog-content .form-textarea:focus {
+    background: rgba(255,255,255,0.15);
+    box-shadow: inset 0 0 15px rgba(200,100,255,0.4);
 }
 
-/* Submit button */
-.submit-btn {
-  position: relative;
-  width: 100%;
-  padding: 12px 0;
-  border: none;
-  border-radius: 15px;
-  background: linear-gradient(90deg, #6a00ff, #2a00ff);
-  color: #fff;
-  font-size: 18px;
-  cursor: pointer;
-  overflow: hidden;
-  transition: 0.3s;
+.dialog-content .field-icon {
+    position: absolute;
+    left: clamp(12px, 2vw, 15px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: clamp(16px, 3vw, 18px);
+    opacity: 0.8;
 }
 
-.submit-btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+.dialog-content .submit-btn {
+    position: relative;
+    width: 100%;
+    padding: clamp(10px, 2vw, 12px) 0;
+    border: none;
+    border-radius: clamp(12px, 2vw, 15px);
+    background: linear-gradient(90deg, #6a00ff, #2a00ff);
+    color: #fff;
+    font-size: clamp(16px, 3vw, 18px);
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s;
+    margin-top: clamp(10px, 2vw, 15px);
 }
 
-.btn-bg {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 300%;
-  height: 100%;
-  background: rgba(255,255,255,0.1);
-  transform: skewX(-20deg);
-  transition: all 0.7s ease;
-}
-.submit-btn:hover .btn-bg {
-  left: 0;
+.dialog-content .submit-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-/* Glass morphism decoration */
-.form-decoration {
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 100px;
-  height: 100px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 50%;
-  filter: blur(50px);
-  z-index: 0;
+.dialog-content .btn-bg {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    transform: skewX(-20deg);
+    transition: all 0.7s ease;
 }
 
+.dialog-content .submit-btn:hover .btn-bg {
+    left: 0;
+}
 
+.dialog-content .form-decoration {
+    position: absolute;
+    top: clamp(-15px, -3vw, -20px);
+    right: clamp(-15px, -3vw, -20px);
+    width: clamp(80px, 15vw, 100px);
+    height: clamp(80px, 15vw, 100px);
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: 0;
+}
 
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
+/* Enhanced Media Queries for Better Control */
+@media (max-width: 1200px) {
     .contact-globe-container {
-        flex-direction: column;
+        gap: 30px;
     }
     
     .globe-container {
-        height: 400px;
+        flex: 1 1 100%;
+        max-width: none;
     }
     
-    .section-title {
-        font-size: 2rem;
+    .offices-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(12px, 2vw, 20px);
+    }
+}
+
+@media (max-width: 900px) {
+    .offices-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(10px, 2vw, 15px);
     }
     
-    .cta-title {
-        font-size: 2.2rem;
+    .office-card {
+        border-radius: clamp(10px, 2vw, 14px);
+    }
+    
+    .office-image {
+        height: clamp(120px, 20vw, 150px);
+    }
+    
+    .office-details {
+        padding: clamp(15px, 3vw, 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-globe-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-form,
+    .globe-container {
+        flex: none;
+        width: 100%;
+        max-width: 600px;
+    }
+    
+    .contact-form {
+        max-height: 80vh;
+        padding: clamp(15px, 3vw, 20px);
+    }
+    
+    .offices-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(15px, 3vw, 20px);
+        max-width: none;
+        margin: 0;
+    }
+    
+    .marker-tooltip {
+        position: static;
+        margin-top: 20px;
+        max-width: none;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.2rem;
+    .content-container {
+        padding: 15px 10px;
     }
     
-    .form-title {
-        font-size: 1.8rem;
+    .contact-form {
+        min-width: calc(100vw - 40px);
+        padding: 15px 12px;
+        margin: 10px auto;
+        max-height: 75vh;
+    }
+    
+    .form-fields {
+        gap: 10px;
+    }
+    
+    .form-input,
+    .form-textarea {
+        padding: 8px 8px 8px 30px;
+        font-size: 0.9rem;
+    }
+    
+    .form-textarea {
+        height: 80px;
+        min-height: 60px;
+        max-height: 100px;
+    }
+    
+    .field-icon {
+        left: 8px;
+        top: 8px;
+        font-size: 0.9rem;
     }
     
     .submit-btn {
-        font-size: 1.4rem;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .cta-title {
-        font-size: 1.8rem;
-    }
-    
-    .cta-text {
+        padding: 10px 0;
         font-size: 1.1rem;
+        margin-top: 8px;
     }
+    
+    .offices-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .globe-container {
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    .cta-section {
+        padding: 30px 15px;
+        margin: 20px 5px;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .contact-form {
+        min-width: calc(100vw - 20px);
+        padding: 15px 10px;
+    }
+    
+    .form-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .submit-btn {
+        font-size: 1.1rem;
+        padding: 12px 0;
+    }
+}
+
+/* Landscape Phone Orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        margin-bottom: 30px;
+        padding-top: 15px;
+    }
+    
+    .contact-globe-container {
+        margin-bottom: 40px;
+    }
+    
+    .offices-section {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    
+    .cta-section {
+        margin-bottom: 30px;
+        padding: 30px 20px;
+    }
+}
+
+/* Large Screens */
+@media (min-width: 1400px) {
+    .contact-globe-container {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .contact-form {
+        max-width: 550px;
+    }
+    
+    .globe-container {
+        max-width: 800px;
+    }
+}
+@media (min-width: 1200px) and (max-height: 650px) {
+  .contact-page {
+    min-height: 500px;
+  }
+  
+  main {
+    margin-top: 10px;
+    padding: 0 20px 30px;
+  }
+  
+  .hero-section {
+    margin-bottom: 40px;
+    padding-top: 20px;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.2rem, 6vw, 3rem);
+    margin-bottom: 12px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .contact-globe-container {
+    gap: 25px;
+    margin-bottom: 40px;
+    flex-direction: row;
+  }
+  
+  .contact-form {
+    max-height: 400px;
+    padding: 20px;
+    flex: 1 1 45%;
+    min-width: 400px;
+  }
+  
+  .form-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  .form-fields {
+    gap: 10px;
+  }
+  
+  .form-input,
+  .form-textarea {
+    padding: 10px 10px 10px 35px;
+    font-size: 0.9rem;
+  }
+  
+  .form-textarea {
+    height: 80px;
+    max-height: 100px;
+  }
+  
+  .submit-btn {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    margin-top: 8px;
+  }
+  
+  .globe-container {
+    height: 300px;
+    flex: 1 1 50%;
+    min-width: 400px;
+  }
+  
+  .offices-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .offices-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  
+  .office-card {
+    border-radius: 12px;
+  }
+  
+  .office-image {
+    height: 120px;
+  }
+  
+  .office-details {
+    padding: 15px;
+  }
+  
+  .office-detail {
+    margin-bottom: 8px;
+  }
+  
+  .detail-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+  .cta-section {
+    padding: 40px 30px;
+    margin-bottom: 30px;
+  }
+  
+  .cta-title {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    margin-bottom: 15px;
+  }
+  
+  .cta-text {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+  
+  .cta-btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+  
+  /* Dialog adjustments for shorter screens */
+  .dialog-overlay {
+    padding: 20px;
+  }
+  
+  .dialog-content {
+    padding: 25px 30px;
+    max-width: 400px;
+  }
+  
+  .dialog-content .form-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  
+  .dialog-content .form-field {
+    margin-bottom: 12px;
+  }
+  
+  .dialog-content .form-input,
+  .dialog-content .form-textarea {
+    padding: 8px 8px 8px 35px;
+    font-size: 14px;
+  }
+  
+  .dialog-content .submit-btn {
+    padding: 10px 0;
+    font-size: 16px;
+    margin-top: 10px;
+  }
 }

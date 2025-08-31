@@ -1,33 +1,54 @@
 /* Base styles and navigation */
-* {margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-html {scroll-behavior:smooth;}
-body {overflow-x:hidden;color:#000;}
-nav { position: fixed;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  color: #000;
+}
+
+/* ========================
+   NAVIGATION
+   ======================== */
+nav {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  height: 80px; /* fixed height */
+  height: 80px; /* desktop default */
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
   z-index: 9999;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, height 0.3s ease;
   color: black;
 }
+
 /* hidden state */
 nav.hide {
   transform: translateY(-100%);
 }
-.logo {font-size:1.50rem;font-weight:900;}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
 .logo img {
-  height: 80px;     /* adjust size as needed */
+  height: 70px;
   width: auto;
   display: block;
-
-  /* Rotation animation */
   animation: rotateLogo 10s linear infinite;
 }
 
@@ -36,35 +57,141 @@ nav.hide {
   animation-play-state: paused;
 }
 
-/* base.css */
-.nav-links a.active,
-.mobile-menu a.active {
-  color: #a855f7;  /* violet highlight */
-  font-weight: bold;
+/* nav links */
+.nav-links {
+  display: flex;
+  gap: 32px;
 }
 
-.nav-links {display:flex;gap:32px;}
-.nav-links a {color:inherit;text-decoration:none;font-size:1rem; font-weight: 700; text-transform:uppercase;letter-spacing:.1em;position:relative;}
 .nav-links a {
-  color: inherit; /* initial text color */
+  color: inherit;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .1em;
   position: relative;
-  transition: color 0.3s ease; /* smooth text color change */
+  transition: color 0.3s ease;
 }
-
 
 .nav-links a:hover {
-  color: rgb(205, 13, 227); /* change text color on hover */
+  color: rgb(205, 13, 227);
 }
-.mobile-menu-btn {display:none;background:none;border:none;color:inherit;cursor:pointer;}
-.mobile-menu {position:fixed;top:0;left:0;right:0;bottom:0;background:black;z-index:90;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .3s ease;}
-.mobile-menu.active {opacity:1;pointer-events:all;}
-.mobile-menu a {color:white;text-decoration:none;font-size:1.5rem;text-transform:uppercase;letter-spacing:.1em;}
-@media (max-width:768px){.nav-links{display:none;}.mobile-menu-btn{display:block;}}
+
+.nav-links a.active,
+.mobile-menu a.active {
+  color: #a855f7;
+  font-weight: bold;
+}
+
+/* mobile menu button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+
+/* mobile menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+/* ========================
+   RESPONSIVE ADJUSTMENTS
+   ======================== */
+
+/* Tablets (<=1024px) */
+@media (max-width: 1024px) {
+  nav {
+    height: 70px;
+    padding: 8px 16px;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .nav-links {
+    gap: 24px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile (<=768px) */
+@media (max-width: 768px) {
+  nav {
+    height: 65px;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
+/* Small Mobile (<=480px) */
+@media (max-width: 480px) {
+  nav {
+    height: 60px;
+    padding: 6px 12px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .mobile-menu a {
+    font-size: 1.2rem;
+  }
+}
+
+/* ========================
+   Animations
+   ======================== */
 @keyframes rotateLogo {
   from {
     transform: rotate(0deg);

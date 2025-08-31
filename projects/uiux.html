@@ -7,28 +7,41 @@
     <title>Product UIUX</title>
 
     <!-- Template Main CSS File -->
+       <link rel="stylesheet" href="css/base.css">
     <link href="css/uiux.css" rel="stylesheet">
   </head>
 <body>
-  <nav class="service-nav">
-  <div class="logo">
-    <a href="index.html">
-      <img src="assets/logo.png" alt="Zynapse Logo">
-    </a>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <div class="logo">
+  <a href="index.html">
+    <img src="assets/logo.png" alt="Zynapse Logo">
+  </a>
+</div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" id="about-link" class="nav-link" data-section="aboutContainer">About</a>
+      <a href="project.html" id="products-link" class="nav-link" data-section="work">Products</a>
+      <a href="service.html" id="services-link" class="nav-link" data-section="service">Services</a>
+      <a href="research.html" id="research-link" class="nav-link" data-section="reseach">Research</a>
+      <a href="contact.html" id="contact-link" class="nav-link">Contact Us</a>
+    </div>
+    <button class="mobile-menu-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html" id="about-link-mobile" class="nav-link" data-section="aboutContainer">About</a>
+    <a href="project.html" id="products-link-mobile" class="nav-link" data-section="work">Products</a>
+    <a href="service.html" id="services-link-mobile" class="nav-link" data-section="service">Services</a>
+    <a href="research.html" id="research-link-mobile" class="nav-link" data-section="reseach">Research</a>
+    <a href="contact.html" id="contact-link-mobile" class="nav-link">Contact Us</a>
   </div>
-  <div class="nav-links">
-    <a href="index.html">About</a>
-    <a href="project.html" id="products-link" class="nav-link">Products</a>
-    <a href="service.html">Services</a>
-    <a href="research.html">Research</a>
-    <a href="contact.html">Contact Us</a>
-  </div>
-  <button class="mobile-menu-btn">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M3 12h18M3 6h18M3 18h18"></path>
-    </svg>
-  </button>
-</nav>
   <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
@@ -59,7 +72,7 @@
             <div class="col-12">
                 <div class="section-title animate__animated animate__fadeInUp">
                     <div class="subtitle">OVERVIEW</div>
-                    <h2>SSmart Scaling for Modern eCommerce</h2>
+                    <h2>Smart Scaling for Modern eCommerce</h2>
 <p>Empower your eCommerce platform to scale effortlessly with our B2B Product Catalog Management—designed for retailers and brands. Accelerate your time to market by personalizing B2B catalogs, collaborating in real time with suppliers, launching new products seamlessly, and updating prices dynamically to stay competitive in today’s fast-changing B2B landscape.</p>                </div>
             </div>
         </div>
@@ -71,7 +84,6 @@
                     <img src="https://www.payoda.com/wp-content/uploads/2023/09/Catalog-management-in-eCommerce.jpg" alt="Digital product catalog interface" class="img-fluid rounded">
                 </div>
             </div>
-            
             <div class="overview-card">
                 <h3>Unified Catalog Management</h3>
 <p>With countless stakeholders and endless product details, eCommerce data can get messy. Our B2B Catalog Management solution organizes and unifies your product information into one digital hub, making collaboration effortless for all your partners.</p>                <div class="interface-mockup">

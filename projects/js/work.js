@@ -54,7 +54,7 @@ window.addEventListener("scroll", () => {
   const progress = (scrollY - sectionTop) / sectionHeight;
 
   if (progress >= 0 && progress <= 1) {
-    workSection.style.opacity = 1 - progress;   // fade out
+    workSection.style.opacity = 3 - progress;   // fade out
     workSection.style.transform = `translateY(${progress * 50}px)`; // smooth drift
   } else if (progress < 0) {
     workSection.style.opacity = 1;

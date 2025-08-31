@@ -17,28 +17,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/development.css">
 </head>
 <body>
-<nav class="service-nav">
-  <div class="logo">
-    <a href="index.html">
-      <img src="assets/logo.png" alt="Zynapse Logo">
-    </a>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <div class="logo">
+  <a href="index.html">
+    <img src="assets/logo.png" alt="Zynapse Logo">
+  </a>
+</div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" id="about-link" class="nav-link" data-section="aboutContainer">About</a>
+      <a href="project.html" id="products-link" class="nav-link" data-section="work">Products</a>
+      <a href="service.html" id="services-link" class="nav-link" data-section="service">Services</a>
+      <a href="research.html" id="research-link" class="nav-link" data-section="reseach">Research</a>
+      <a href="contact.html" id="contact-link" class="nav-link">Contact Us</a>
+    </div>
+    <button class="mobile-menu-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html" id="about-link-mobile" class="nav-link" data-section="aboutContainer">About</a>
+    <a href="project.html" id="products-link-mobile" class="nav-link" data-section="work">Products</a>
+    <a href="service.html" id="services-link-mobile" class="nav-link" data-section="service">Services</a>
+    <a href="research.html" id="research-link-mobile" class="nav-link" data-section="reseach">Research</a>
+    <a href="contact.html" id="contact-link-mobile" class="nav-link">Contact Us</a>
   </div>
-  <div class="nav-links">
-    <a href="index.html">About</a>
-    <a href="project.html" id="products-link" class="nav-link">Products</a>
-    <a href="service.html">Services</a>
-    <a href="research.html">Research</a>
-    <a href="contact.html">Contact Us</a>
-  </div>
-  <button class="mobile-menu-btn">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M3 12h18M3 6h18M3 18h18"></path>
-    </svg>
-  </button>
-</nav>
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
