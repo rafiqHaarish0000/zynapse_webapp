@@ -463,178 +463,6 @@
     color: #333;
   }
 }
-/* ===== OPTIMIZED CSS FOR 1265x585 SCREEN (Work Section) ===== */
-
-/* Primary media query for wide but short screens */
-@media (min-width: 1200px) and (max-height: 650px) {
-  
-  /* Main Work Container - Height optimization */
-  .work {
-    min-height: auto; /* Remove 100vh constraint */
-    padding: 15px 20px; /* Much reduced vertical padding */
-    max-height: 100vh;
-    overflow-y: auto; /* Allow scrolling if needed */
-  }
-  
-  /* Button Container - Compact spacing */
-  .btn-container {
-    margin: 8px auto; /* Reduced from clamp(10px, 3vw, 20px) */
-    padding: 0 clamp(10px, 3vw, 100px); /* Reduced horizontal padding */
-  }
-  
-  /* View Button - Smaller size */
-  .view-btn {
-    padding: 8px 16px; /* Reduced padding */
-    font-size: 14px; /* Fixed smaller size */
-    min-height: 36px; /* Reduced height */
-    border-radius: 4px; /* Smaller border radius */
-  }
-  
-  /* Work Content Heading - Compressed */
-  .work-content h2 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Reduced max size */
-    margin-bottom: 8px; /* Reduced from clamp(10px, 3vw, 20px) */
-    padding: 0 8px;
-  }
-  
-  /* Work Description - Minimal spacing */
-  .work-description {
-    font-size: 0.9rem; /* Fixed smaller size */
-    padding: 0 10px;
-    margin-bottom: 8px; /* Add small margin */
-    line-height: 1.5; /* Tighter line height */
-  }
-  
-  /* Styled Heading - Compact design */
-  .styled-heading {
-    margin: 0 8px;
-    padding: 6px 15px; /* Reduced padding */
-    border-radius: 20px; /* Smaller border radius */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4); /* Reduced shadow */
-  }
-  
-  .styled-heading h2 {
-    font-size: clamp(1.6rem, 4vw, 2.2rem); /* Reduced size */
-    line-height: 1.1;
-  }
-  
-  /* Product Button - Smaller */
-  .product-btn {
-    padding: 10px 20px; /* Reduced padding */
-    margin-top: 20px; /* Reduced from clamp(30px, 5vw, 60px) */
-    font-size: 1rem; /* Fixed size */
-    min-height: 40px; /* Reduced height */
-  }
-  
-  /* Work Image - Optimized */
-  .work-image img {
-    max-height: 300px; /* Limit image height */
-    object-fit: cover;
-  }
-  
-  /* Carousel - Horizontal optimization */
-  .carousel {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns for wide screen */
-    grid-template-rows: 1fr; /* Single row */
-    gap: 15px; /* Reduced gap */
-    padding: 20px 30px; /* Much reduced padding */
-    max-width: 1100px; /* Slightly smaller max width */
-  }
-  
-  /* Carousel Items - Compact height */
-  .carousel-item {
-    height: 180px; /* Fixed smaller height */
-    border-radius: 10px; /* Smaller border radius */
-    margin-bottom: 0; /* Remove bottom margin */
-  }
-  
-  /* Override tablet grid layout for this screen size */
-  .carousel-item:nth-child(1) { grid-column: 1; grid-row: 1; }
-  .carousel-item:nth-child(2) { grid-column: 2; grid-row: 1; }
-  .carousel-item:nth-child(3) { grid-column: 3; grid-row: 1; }
-  .carousel-item:nth-child(4) { grid-column: 4; grid-row: 1; }
-  .carousel-item:nth-child(5) { grid-column: 1; grid-row: 2; }
-  .carousel-item:nth-child(6) { grid-column: 2; grid-row: 2; }
-  
-  /* Project Info - Smaller overlay text */
-  .project-info h3 {
-    font-size: clamp(1rem, 3vw, 1.3rem); /* Reduced size */
-    margin-bottom: 6px;
-  }
-  
-  .project-info p {
-    font-size: clamp(0.7rem, 2vw, 0.85rem); /* Reduced size */
-  }
-  
-  .project-info::after {
-    width: 35px; /* Smaller arrow button */
-    height: 35px;
-    line-height: 35px;
-    font-size: 16px;
-    margin-top: 10px; /* Reduced margin */
-  }
-}
-
-/* Specific optimization for exactly 1265x585 */
-@media (min-width: 1200px) and (max-width: 1300px) and (min-height: 550px) and (max-height: 650px) {
-  
-  /* Ultra-compact layout */
-  .work {
-    padding: 12px 16px;
-  }
-  
-  .carousel {
-    padding: 15px 25px;
-    gap: 12px;
-    /* Try 3 columns if 4 is too cramped */
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .carousel-item {
-    height: 160px; /* Even smaller for tight fit */
-  }
-  
-  .work-content h2 {
-    font-size: 2rem;
-    margin-bottom: 6px;
-  }
-  
-  .styled-heading h2 {
-    font-size: 1.8rem;
-  }
-  
-  .view-btn {
-    padding: 6px 14px;
-    font-size: 13px;
-    min-height: 32px;
-  }
-  
-  .product-btn {
-    padding: 8px 18px;
-    margin-top: 15px;
-    font-size: 0.9rem;
-    min-height: 36px;
-  }
-  
-  /* Adjust project info for smaller carousel items */
-  .project-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-  }
-  
-  .project-info p {
-    font-size: 0.75rem;
-  }
-  
-  .project-info::after {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 14px;
-    margin-top: 8px;
-  }
-}
-
 /* Alternative layout for ultra-wide short screens */
 @media (min-width: 1400px) and (max-height: 650px) {
   
@@ -721,112 +549,218 @@
     font-size: 12px;
   }
 }
+/* ===== UPDATED CSS FOR 1302x638 SCREEN - FORCE 2×2 GRID ===== */
 
-/* Landscape orientation specific adjustments */
-@media (min-width: 1200px) and (max-height: 650px) and (orientation: landscape) {
+/* Primary media query for wide but short screens - UPDATED FOR 2×2 GRID */
+@media (min-width: 1200px) and (max-height: 650px) {
   
-  /* Optimize for landscape viewing */
+  /* Main Work Container - Height optimization */
+  .work {
+    min-height: auto;
+    padding: 15px 20px;
+    max-height: 200vh;
+    overflow-y: auto;
+  }
+  
+  /* Button Container - Compact spacing */
+  .btn-container {
+    margin: 8px auto;
+    padding: 0 clamp(10px, 3vw, 100px);
+  }
+  
+  /* View Button - Smaller size */
+  .view-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-height: 36px;
+    border-radius: 4px;
+  }
+  
+  /* Work Content Heading - Compressed */
+  .work-content h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 8px;
+    padding: 0 8px;
+  }
+  
+  /* Work Description - Minimal spacing */
+  .work-description {
+    font-size: 0.9rem;
+    padding: 0 10px;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  
+  /* Styled Heading - Compact design */
+  .styled-heading {
+    margin: 0 8px;
+    padding: 6px 15px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  }
+  
+  .styled-heading h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    line-height: 1.1;
+  }
+  
+  /* Product Button - Smaller */
+  .product-btn {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1rem;
+    min-height: 40px;
+  }
+  
+  /* Work Image - Optimized */
   .work-image img {
-    max-height: 250px; /* Shorter for landscape */
+    max-height: 350px; /* Increased for taller screen */
+    object-fit: cover;
   }
   
-  /* Ensure carousel items maintain aspect ratio */
+  /* CAROUSEL - FORCE 2×2 GRID LAYOUT */
+  .carousel {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 4 */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
+    gap: 20px; /* Increased gap for better spacing */
+    padding: 25px 40px; /* Adjusted padding for taller screen */
+    max-width: 1200px;
+  }
+  
+  /* Carousel Items - Optimized for 2×2 grid */
   .carousel-item {
-    aspect-ratio: 16/9; /* Wide aspect ratio */
-    height: auto;
-    min-height: 150px;
-    max-height: 180px;
-  }
-  
-  /* Faster transitions for landscape */
-  .carousel-item,
-  .carousel-item img,
-  .project-info {
-    transition-duration: 0.3s;
-  }
-  
-  .work-bg {
-    transition: opacity 0.8s ease, transform 1.5s ease; /* Faster background transition */
-  }
-}
-
-/* Two-column layout for content + carousel */
-@media (min-width: 1200px) and (max-height: 650px) {
-  
-  /* Optional: Create side-by-side layout */
-  .work-layout-horizontal {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Text content | Carousel */
-    gap: 30px;
-    align-items: start;
-  }
-  
-  .work-content-section {
-    padding-right: 20px;
-  }
-  
-  .carousel-section {
-    /* Carousel takes up more space */
-  }
-  
-  /* Apply this class to work container for horizontal layout */
-  .work.horizontal-layout {
-    text-align: left; /* Left-align text in horizontal mode */
-  }
-  
-  .work.horizontal-layout .work-content h2,
-  .work.horizontal-layout .styled-heading {
-    text-align: left;
-    margin-left: 0;
-  }
-  
-  .work.horizontal-layout .btn-container {
-    justify-content: flex-start;
-  }
-}
-
-/* Performance optimizations for this screen size */
-@media (min-width: 1200px) and (max-height: 650px) {
-  
-  /* Reduce animation complexity on smaller screens */
-  .carousel-item {
-    will-change: transform, opacity; /* Only animate necessary properties */
-  }
-  
-  .carousel-item:hover {
-    transform: translateY(-3px) scale(1.01); /* Less dramatic hover effect */
-  }
-  
-  .carousel-item:hover img {
-    transform: scale(1.05); /* Less dramatic image scale */
-    filter: blur(8px) brightness(0.8); /* Lighter blur effect */
-  }
-  
-  /* Faster hover transitions */
-  .view-btn:hover .arrow {
-    transform: translateX(2px); /* Smaller arrow movement */
-  }
-  
-  .product-btn:hover,
-  .view-btn:hover {
-    transform: translateY(-1px); /* Smaller lift effect */
-  }
-}
-
-/* High DPI optimizations */
-@media (min-width: 1200px) and (max-height: 650px) and (-webkit-min-device-pixel-ratio: 2) {
-  
-  .work-content h2,
-  .styled-heading h2,
-  .project-info h3 {
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .carousel-item {
-    /* Sharper borders on high DPI */
+    height: 220px; /* Increased height for taller screen */
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(179, 136, 255, 0.25);
+    margin-bottom: 0;
+  }
+  
+  /* FORCE 2×2 GRID POSITIONING - 2 cards top, 2 cards bottom */
+  .carousel-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .carousel-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .carousel-item:nth-child(3) { grid-column: 1; grid-row: 2; }
+  .carousel-item:nth-child(4) { grid-column: 2; grid-row: 2; }
+  .carousel-item:nth-child(5) { grid-column: 1; grid-row: 3; }
+  .carousel-item:nth-child(6) { grid-column: 2; grid-row: 3; }
+  
+  /* Project Info - Adjusted for larger carousel items */
+  .project-info h3 {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    margin-bottom: 6px;
+  }
+  
+  .project-info p {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+  }
+  
+  .project-info::after {
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 18px;
+    margin-top: 12px;
+  }
+}
+
+/* Specific optimization for 1302x638 and similar tall wide screens */
+@media (min-width: 1300px) and (max-width: 1400px) and (min-height: 600px) and (max-height: 650px) {
+  
+  /* Optimized for exactly 1302x638 */
+  .work {
+    padding: 18px 24px; /* More comfortable padding for taller screen */
+  }
+  
+  .carousel {
+    padding: 30px 50px; /* More generous padding */
+    gap: 25px; /* Larger gaps for better visual separation */
+  }
+  
+  .carousel-item {
+    height: 240px; /* Optimal height for 638px screen */
+  }
+  
+  .work-content h2 {
+    font-size: 2.2rem; /* Slightly larger for more comfortable viewing */
+    margin-bottom: 10px;
+  }
+  
+  .styled-heading h2 {
+    font-size: 2rem;
+  }
+  
+  .view-btn {
+    padding: 10px 18px; /* More comfortable button size */
+    font-size: 15px;
+    min-height: 38px;
+  }
+  
+  .product-btn {
+    padding: 12px 24px;
+    margin-top: 25px;
+    font-size: 1.1rem;
+    min-height: 42px;
+  }
+  
+  /* Enhanced project info for larger cards */
+  .project-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+  
+  .project-info p {
+    font-size: 0.9rem;
+  }
+  
+  .project-info::after {
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+}
+
+/* Ensure consistent 2×2 layout across all large screens */
+@media (min-width: 1025px) {
+  .carousel {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: clamp(20px, 3vw, 30px);
+  }
+  
+  /* Force 2×2 positioning for all large screens */
+  .carousel-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .carousel-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .carousel-item:nth-child(3) { grid-column: 1; grid-row: 2; }
+  .carousel-item:nth-child(4) { grid-column: 2; grid-row: 2; }
+  .carousel-item:nth-child(5) { grid-column: 1; grid-row: 3; }
+  .carousel-item:nth-child(6) { grid-column: 2; grid-row: 3; }
+}
+
+/* Handle different zoom levels for 1302x638 screen */
+@media (min-width: 1000px) and (max-width: 1199px) and (min-height: 500px) {
+  /* 110% zoom of 1302x638 → ~1183x580 */
+  .carousel {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 18px;
+    padding: 20px 35px;
+  }
+  
+  .carousel-item {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) and (min-height: 550px) {
+  /* 100% zoom of 1302x638 */
+  .carousel {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 22px;
+    padding: 25px 40px;
+  }
+  
+  .carousel-item {
+    height: 220px;
   }
 }

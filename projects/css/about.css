@@ -1,4 +1,6 @@
-/* About Section */
+/* ===== ZOOM-CONSISTENT CSS - MAINTAINS CENTERED LAYOUT ===== */
+
+/* Base styles with fluid scaling */
 .about {
   height: auto;
   width: 100%;
@@ -8,10 +10,10 @@
   justify-content: center;
 }
 
-/* Panels (sliding cover) */
+/* Container with fluid height based on viewport */
 .about-container {
   height: 100vh;
-  min-height: 600px; /* Ensure minimum height on small screens */
+  min-height: clamp(350px, 60vh, 600px);
   position: relative;
   overflow: hidden;
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -20,18 +22,19 @@
 
 .slide-container {
   position: relative;
-  margin-bottom: clamp(30px, 8vw, 60px);
+  margin-bottom: clamp(0px, 3vh, 30px);
   width: 100%;
   height: 100%;
 }
 
+/* Slide panels with consistent behavior */
 .slide-panel {
   position: absolute;
   width: 100%;
   height: 25%;
   overflow: hidden;
   background: linear-gradient(45deg, #0d6efd, #9c27b0);
-  transition: transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform clamp(1.2s, 2s, 2.5s) cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 10;
 }
 
@@ -48,7 +51,7 @@
   transform: translateX(100%);
 }
 
-/* Content wrapper */
+/* ALWAYS CENTERED CONTENT LAYOUT - No horizontal switching */
 .about-content {
   position: absolute;
   top: 0;
@@ -59,15 +62,14 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-/* smaller top & bottom padding */
-padding: clamp(1rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
-
+  padding: clamp(0.5rem, 4vh, 2rem) clamp(1rem, 4vw, 2rem);
   text-align: center;
   opacity: 0;
   background-color: #fff;
   transform: translateY(40px);
   transition: opacity 1s ease, transform 1s ease;
   box-sizing: border-box;
+  gap: clamp(5px, 1.5vh, 15px);
 }
 
 .slide-container.open .about-content {
@@ -75,28 +77,30 @@ padding: clamp(1rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
   transform: translateY(0);
 }
 
-/* About heading */
+/* Fluid typography - always centered */
 .about-content h2 {
-  font-size: clamp(1.8rem, 6vw, 3rem);
-  margin-bottom: clamp(15px, 3vw, 20px);
+  font-size: clamp(1.2rem, 4vw + 0.5rem, 3rem);
+  margin-bottom: clamp(4px, 1vh, 12px);
   color: #9b5de5;
   font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
-  line-height: 1.2;
+  line-height: 1.1;
   word-break: break-word;
+  text-align: center;
 }
 
-/* About description */
+/* Responsive description - always centered */
 .about-description {
-  max-width: min(700px, 90vw);
-  margin: 0 auto clamp(30px, 6vw, 50px) auto;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  max-width: min(90vw, 700px);
+  margin: 0 auto clamp(8px, 2vh, 25px) auto;
+  font-size: clamp(0.7rem, 1.8vw + 0.2rem, 1rem);
   color: #000;
-  line-height: 1.6;
+  line-height: 1.4;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease, transform 1s ease;
-  transition-delay: 1.5s;
+  transition-delay: clamp(0.8s, 1.2s, 1.5s);
   word-break: break-word;
+  text-align: center;
 }
 
 .slide-container.open .about-description {
@@ -104,20 +108,20 @@ padding: clamp(1rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
   transform: translateY(0);
 }
 
-/* Smiley Container */
+/* Adaptive smiley container */
 .smiley-container {
   position: relative;
-  margin-top: clamp(20px, 6vw, 50px);
-  border-radius: clamp(20px, 5vw, 40px);
-  box-shadow: 0 0 clamp(8px, 2vw, 15px) #9b5de5, 
-              0 0 clamp(15px, 4vw, 30px) #6B4285, 
-              0 0 clamp(22px, 6vw, 45px) rgba(36,20,213,0.6);
+  margin-top: clamp(5px, 2vh, 30px);
+  border-radius: clamp(12px, 3vw, 25px);
+  box-shadow: 0 0 clamp(5px, 1.5vw, 12px) #9b5de5, 
+              0 0 clamp(10px, 2.5vw, 20px) #6B4285, 
+              0 0 clamp(15px, 4vw, 30px) rgba(36,20,213,0.6);
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease, transform 1s ease;
-  transition-delay: 2.5s;
+  transition-delay: clamp(1.2s, 1.8s, 2.5s);
   width: 100%;
-  max-width: min(900px, 95vw);
+  max-width: min(95vw, 800px);
 }
 
 .slide-container.open .smiley-container {
@@ -125,22 +129,22 @@ padding: clamp(1rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
   transform: translateY(0);
 }
 
-/* Stack Header */
+/* Responsive stack header */
 .stack-header {
   position: absolute;
-  top: clamp(-15px, -2vw, -20px);
+  top: clamp(-8px, -1.5vw, -15px);
   left: 50%;
   transform: translateX(-50%);
   background: #000;
   color: #fff;
-  padding: clamp(6px, 1.5vw, 8px) clamp(15px, 4vw, 30px);
-  font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+  padding: clamp(2px, 0.8vw, 6px) clamp(8px, 2.5vw, 20px);
+  font-size: clamp(0.55rem, 1.5vw + 0.1rem, 1rem);
   font-weight: bold;
   border: 2px solid #6B4285;
-  border-radius: clamp(10px, 3vw, 20px);
+  border-radius: clamp(8px, 2vw, 15px);
   z-index: 10;
   text-transform: uppercase;
-  letter-spacing: clamp(1px, 0.3vw, 2px);
+  letter-spacing: clamp(0.5px, 0.2vw, 1.5px);
   animation: pulse 3s ease-in-out infinite;
   white-space: nowrap;
   overflow: hidden;
@@ -148,17 +152,76 @@ padding: clamp(1rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
   max-width: 90%;
 }
 
-/* Smiley Row */
+/* ZOOM-RESPONSIVE SMILEY ROW - Adapts layout based on available space */
 .smiley-row {
   display: flex;
   justify-content: center;
-  gap: clamp(15px, 4vw, 40px);
+  gap: clamp(8px, 2.5vw, 25px);
   width: 100%;
-  padding: clamp(15px, 3vw, 20px);
+  padding: clamp(6px, 1.5vh, 15px) clamp(8px, 2vw, 15px);
   flex-wrap: wrap;
   position: relative;
-  padding-top: clamp(40px, 8vw, 60px);
+  padding-top: clamp(18px, 4vh, 40px);
   box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* Responsive breakpoints for smiley layout */
+
+/* Very wide screens - 6 items per row */
+@media (min-width: 1400px) {
+  .smiley-row {
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+}
+
+/* Wide screens (1200-1399px) - Fits 6 items comfortably, no wrapping */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .smiley-row {
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    gap: clamp(12px, 2vw, 20px);
+  }
+}
+
+/* Medium-wide screens (1000-1199px) - 6 items may wrap to 2 rows */
+@media (min-width: 1000px) and (max-width: 1199px) {
+  .smiley-row {
+    justify-content: center;
+    gap: clamp(15px, 2.5vw, 20px);
+    max-width: 100%;
+  }
+}
+
+/* Tablet screens (768-999px) - 3 items per row */
+@media (min-width: 768px) and (max-width: 999px) {
+  .smiley-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(15px, 3vw, 25px);
+    justify-items: center;
+  }
+}
+
+/* Small tablet/large mobile (600-767px) - 2-3 items per row */
+@media (min-width: 600px) and (max-width: 767px) {
+  .smiley-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: clamp(15px, 4vw, 20px);
+    justify-items: center;
+  }
+}
+
+/* Mobile screens (less than 600px) - 2 items per row */
+@media (max-width: 599px) {
+  .smiley-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(10px, 4vw, 15px);
+    justify-items: center;
+  }
 }
 
 .smiley-col {
@@ -169,8 +232,9 @@ padding: clamp(1rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease, transform 1s ease;
-  min-width: clamp(60px, 12vw, 100px);
-  margin-bottom: clamp(10px, 2vw, 20px);
+  min-width: clamp(45px, 8vw, 90px);
+  margin-bottom: clamp(4px, 1vh, 12px);
+  max-width: clamp(80px, 12vw, 120px);
 }
 
 .slide-container.open .smiley-col {
@@ -178,40 +242,25 @@ padding: clamp(1rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
   transform: translateY(0);
 }
 
-/* Smiley Image with Continuous Animation */
+/* Scalable smiley images */
 .smiley-img {
-  width: clamp(50px, 8vw, 80px);
-  height: clamp(40px, 6vw, 60px);
+  width: clamp(30px, 6vw + 0.5rem, 70px);
+  height: clamp(24px, 4.8vw + 0.4rem, 56px);
   object-fit: contain;
   filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
   animation: none;
   transition: transform 0.3s ease, filter 0.3s ease;
+  margin-bottom: clamp(2px, 0.5vh, 6px);
 }
 
 .slide-container.open .smiley-img {
   animation: subtleJiggle 4s ease-in-out infinite;
 }
 
-/* Stagger animations */
-.slide-container.open .smiley-col:nth-child(1) .smiley-img { animation-delay: 3.2s; }
-.slide-container.open .smiley-col:nth-child(2) .smiley-img { animation-delay: 3.6s; }
-.slide-container.open .smiley-col:nth-child(3) .smiley-img { animation-delay: 4s; }
-.slide-container.open .smiley-col:nth-child(4) .smiley-img { animation-delay: 4.4s; }
-.slide-container.open .smiley-col:nth-child(5) .smiley-img { animation-delay: 4.8s; }
-.slide-container.open .smiley-col:nth-child(6) .smiley-img { animation-delay: 5.2s; }
-.slide-container.open .smiley-col:nth-child(7) .smiley-img { animation-delay: 5.6s; }
-
-/* Hover effect */
-.smiley-img:hover {
-  animation: subtleJiggle 1.5s ease-in-out infinite !important;
-  filter: drop-shadow(0 0 20px rgba(155, 93, 229, 0.8)) !important;
-  transform: scale(1.1) !important;
-  cursor: pointer;
-}
-
+/* Responsive text labels */
 .smiley-col p {
-  margin-top: clamp(8px, 2vw, 15px);
-  font-size: clamp(0.5rem, 1.5vw, 0.6rem);
+  margin-top: clamp(2px, 0.8vh, 8px);
+  font-size: clamp(0.35rem, 1vw + 0.1rem, 0.6rem);
   color: #c090de;
   font-family: 'Poppins', 'Montserrat', 'Helvetica Neue', sans-serif;
   font-weight: 700;
@@ -221,7 +270,7 @@ padding: clamp(1rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
   text-align: center;
   word-break: break-word;
   hyphens: auto;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .slide-container.open .smiley-col p {
@@ -229,7 +278,114 @@ padding: clamp(1rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
   transform: translateY(0);
 }
 
-/* Keyframes */
+/* ===== SPECIAL HANDLING FOR SHORT SCREENS (height-based) ===== */
+
+/* Very short screens - optimize for height, maintain center layout */
+@media (max-height: 450px) {
+  .about-container {
+    height: 95vh;
+    min-height: 400px;
+  }
+  
+  .about-content {
+    padding: clamp(0.3rem, 2vh, 1rem) clamp(1rem, 3vw, 2rem);
+    gap: clamp(3px, 1vh, 8px);
+  }
+  
+  .about-content h2 {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    margin-bottom: clamp(3px, 0.5vh, 6px);
+  }
+  
+  .about-description {
+    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+    margin-bottom: clamp(5px, 1vh, 10px);
+    line-height: 1.3;
+  }
+  
+  .smiley-container {
+    margin-top: clamp(3px, 1vh, 8px);
+    max-height: clamp(180px, 40vh, 250px);
+  }
+  
+  .smiley-row {
+    padding: clamp(4px, 1vh, 8px);
+    padding-top: clamp(15px, 3vh, 20px);
+    gap: clamp(6px, 1.5vw, 12px);
+    max-height: clamp(140px, 30vh, 200px);
+    overflow: hidden;
+  }
+  
+  .stack-header {
+    font-size: clamp(0.5rem, 2vw, 0.7rem);
+    padding: clamp(2px, 0.5vh, 4px) clamp(6px, 1.5vw, 12px);
+    top: clamp(-6px, -1vh, -10px);
+  }
+  
+  .smiley-img {
+    width: clamp(25px, 4vw, 45px);
+    height: clamp(20px, 3.2vw, 36px);
+  }
+  
+  .smiley-col p {
+    font-size: clamp(0.3rem, 1.2vw, 0.5rem);
+    margin-top: clamp(1px, 0.3vh, 3px);
+  }
+}
+
+/* Ultra short screens */
+@media (max-height: 375px) {
+  .about-container {
+    height: 100vh;
+    min-height: 375px;
+    max-height: 375px;
+  }
+  
+  .about-content {
+    padding: clamp(0.2rem, 1vh, 0.8rem) clamp(0.8rem, 2vw, 1.5rem);
+    gap: clamp(2px, 0.5vh, 5px);
+  }
+  
+  .about-content h2 {
+    font-size: clamp(1rem, 4vw, 1.8rem);
+    margin-bottom: clamp(2px, 0.3vh, 4px);
+  }
+  
+  .about-description {
+    font-size: clamp(0.65rem, 2vw, 0.85rem);
+    margin-bottom: clamp(3px, 0.8vh, 8px);
+  }
+  
+  .smiley-container {
+    margin-top: clamp(2px, 0.5vh, 5px);
+    max-height: clamp(140px, 35vh, 200px);
+  }
+  
+  .smiley-row {
+    padding: clamp(3px, 0.8vh, 6px);
+    padding-top: clamp(12px, 2.5vh, 18px);
+    gap: clamp(4px, 1vw, 8px);
+    max-height: clamp(100px, 25vh, 150px);
+  }
+  
+  .stack-header {
+    font-size: clamp(0.45rem, 1.5vw, 0.65rem);
+    padding: 2px clamp(5px, 1vw, 10px);
+    top: clamp(-5px, -0.8vh, -8px);
+  }
+  
+  .smiley-img {
+    width: clamp(22px, 3.5vw, 35px);
+    height: clamp(18px, 2.8vw, 28px);
+  }
+  
+  .smiley-col p {
+    font-size: clamp(0.28rem, 1vw, 0.4rem);
+    margin-top: 1px;
+  }
+}
+
+/* Animation adjustments */
 @keyframes pulse {
   0% { transform: translateX(-50%) scale(1); }
   50% { transform: translateX(-50%) scale(1.05); }
@@ -239,552 +395,46 @@ padding: clamp(1rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
 @keyframes subtleJiggle {
   0%, 100% { 
     transform: translateY(0) rotate(0deg) scale(1);
-    filter: drop-shadow(0 5px 10px rgba(155, 93, 229, 0.4));
+    filter: drop-shadow(0 clamp(2px, 1vh, 5px) clamp(4px, 2vh, 10px) rgba(155, 93, 229, 0.4));
   }
   25% { 
-    transform: translateY(clamp(-2px, -0.5vw, -3px)) rotate(-1deg) scale(1.02);
-    filter: drop-shadow(0 8px 15px rgba(155, 93, 229, 0.6));
+    transform: translateY(clamp(-1px, -0.3vh, -2px)) rotate(-0.5deg) scale(1.02);
+    filter: drop-shadow(0 clamp(4px, 1.5vh, 8px) clamp(6px, 3vh, 15px) rgba(155, 93, 229, 0.6));
   }
   50% { 
-    transform: translateY(0) rotate(0.5deg) scale(1);
+    transform: translateY(0) rotate(0.3deg) scale(1);
   }
   75% { 
-    transform: translateY(clamp(2px, 0.5vw, 3px)) rotate(1deg) scale(1.02);
-    filter: drop-shadow(0 8px 15px rgba(155, 93, 229, 0.6));
+    transform: translateY(clamp(1px, 0.3vh, 2px)) rotate(0.5deg) scale(1.02);
+    filter: drop-shadow(0 clamp(4px, 1.5vh, 8px) clamp(6px, 3vh, 15px) rgba(155, 93, 229, 0.6));
   }
 }
 
-/* Media Queries for Additional Responsiveness */
-
-/* Large tablets and small desktops */
-@media (max-width: 1024px) {
-  .about-content {
-    padding: clamp(1.5rem, 8vw, 8rem) clamp(1rem, 3vw, 1.5rem);
-  }
-  
-  .smiley-row {
-    gap: clamp(20px, 3vw, 30px);
-  }
+/* Hover effects scale with viewport */
+.smiley-img:hover {
+  animation: subtleJiggle clamp(1s, 1.5s, 2s) ease-in-out infinite !important;
+  filter: drop-shadow(0 0 clamp(10px, 3vw, 20px) rgba(155, 93, 229, 0.8)) !important;
+  transform: scale(clamp(1.05, 1.1, 1.15)) !important;
+  cursor: pointer;
 }
 
-/* Tablets */
-@media (max-width: 768px) {
-  .about-container {
-    min-height: 500px;
-  }
-  
-  .about-content {
-    justify-content: center;
-    padding: clamp(1rem, 6vw, 6rem) clamp(1rem, 3vw, 1.5rem);
-  }
-  
-  .about-content h2 { 
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    margin-bottom: clamp(12px, 2vw, 16px);
-  }
-  
-  .about-description { 
-    font-size: clamp(0.85rem, 2vw, 1.1rem);
-    margin-bottom: clamp(25px, 4vw, 35px);
-  }
-  
-  .smiley-row { 
-    gap: clamp(15px, 3vw, 25px);
-    padding: clamp(12px, 2vw, 16px);
-    padding-top: clamp(35px, 6vw, 45px);
-  }
-  
-  .smiley-img { 
-    width: clamp(45px, 7vw, 60px);
-    height: clamp(35px, 5vw, 50px);
-  }
-  
-  .stack-header { 
-    font-size: clamp(0.7rem, 2vw, 1.2rem);
-    padding: clamp(4px, 1vw, 6px) clamp(12px, 3vw, 20px);
-    top: clamp(-12px, -1.5vw, -16px);
-  }
-  
-  .smiley-col {
-    min-width: clamp(50px, 10vw, 80px);
-    margin-bottom: clamp(8px, 1.5vw, 15px);
-  }
-  
-  .smiley-col p {
-    font-size: clamp(0.45rem, 1.2vw, 0.55rem);
-    margin-top: clamp(6px, 1.5vw, 10px);
-  }
-}
+/* Stagger animation delays - responsive timing */
+.slide-container.open .smiley-col:nth-child(1) .smiley-img { animation-delay: clamp(1.5s, 2.5s, 3.2s); }
+.slide-container.open .smiley-col:nth-child(2) .smiley-img { animation-delay: clamp(1.7s, 2.8s, 3.6s); }
+.slide-container.open .smiley-col:nth-child(3) .smiley-img { animation-delay: clamp(1.9s, 3.1s, 4s); }
+.slide-container.open .smiley-col:nth-child(4) .smiley-img { animation-delay: clamp(2.1s, 3.4s, 4.4s); }
+.slide-container.open .smiley-col:nth-child(5) .smiley-img { animation-delay: clamp(2.3s, 3.7s, 4.8s); }
+.slide-container.open .smiley-col:nth-child(6) .smiley-img { animation-delay: clamp(2.5s, 4s, 5.2s); }
+.slide-container.open .smiley-col:nth-child(7) .smiley-img { animation-delay: clamp(2.7s, 4.3s, 5.6s); }
 
-/* Mobile phones */
-@media (max-width: 480px) {
-  .about-container {
-    min-height: 450px;
-  }
-  
-  .about-content {
-    padding: clamp(0.8rem, 4vw, 4rem) clamp(0.8rem, 2vw, 1rem);
-  }
-  
-  .about-content h2 {
-    font-size: clamp(1.3rem, 4vw, 2rem);
-    margin-bottom: 10px;
-  }
-  
-  .about-description {
-    font-size: clamp(0.8rem, 1.8vw, 1rem);
-    margin-bottom: clamp(20px, 3vw, 30px);
-  }
-  
-  .smiley-container {
-    margin-top: clamp(15px, 4vw, 30px);
-    border-radius: 15px;
-  }
-  
-  .smiley-row {
-    gap: clamp(10px, 2vw, 20px);
-    padding: 10px;
-    padding-top: clamp(30px, 5vw, 40px);
-    justify-content: space-around;
-  }
-  
-  .smiley-col {
-    min-width: clamp(40px, 8vw, 65px);
-    margin-bottom: 8px;
-  }
-  
-  .smiley-img {
-    width: clamp(35px, 6vw, 50px);
-    height: clamp(28px, 4vw, 40px);
-  }
-  
-  .stack-header {
-    font-size: clamp(0.6rem, 1.5vw, 1rem);
-    padding: 3px clamp(8px, 2vw, 15px);
-    top: -10px;
-    letter-spacing: 1px;
-  }
-  
-  .smiley-col p {
-    font-size: clamp(0.4rem, 1vw, 0.5rem);
-    margin-top: 5px;
-    line-height: 1.2;
-  }
-  
-  /* Adjust animation for mobile */
-  @keyframes subtleJiggle {
-    0%, 100% { 
-      transform: translateY(0) rotate(0deg) scale(1);
-      filter: drop-shadow(0 3px 6px rgba(155, 93, 229, 0.4));
-    }
-    25% { 
-      transform: translateY(-1px) rotate(-0.5deg) scale(1.01);
-      filter: drop-shadow(0 5px 10px rgba(155, 93, 229, 0.6));
-    }
-    75% { 
-      transform: translateY(1px) rotate(0.5deg) scale(1.01);
-      filter: drop-shadow(0 5px 10px rgba(155, 93, 229, 0.6));
-    }
-  }
-}
-
-/* Very small mobile phones */
-@media (max-width: 320px) {
-  .about-container {
-    min-height: 400px;
-  }
-  
-  .about-content {
-    padding: clamp(0.5rem, 3vw, 3rem) clamp(0.5rem, 1.5vw, 0.8rem);
-  }
-  
-  .about-content h2 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-  
-  .about-description {
-    font-size: 0.75rem;
-    margin-bottom: 18px;
-  }
-  
-  .smiley-row {
-    gap: 8px;
-    padding: 8px;
-    padding-top: 25px;
-  }
-  
-  .smiley-col {
-    min-width: 35px;
-    margin-bottom: 6px;
-  }
-  
-  .smiley-img {
-    width: 30px;
-    height: 25px;
-  }
-  
-  .stack-header {
-    font-size: 0.55rem;
-    padding: 2px 8px;
-    top: -8px;
-  }
-  
-  .smiley-col p {
-    font-size: 0.35rem;
-    margin-top: 3px;
-  }
-}
-
-/* Landscape mobile orientation */
-@media (max-height: 500px) and (orientation: landscape) {
-  .about-container {
-    min-height: 450px;
-  }
-  
-  .about-content {
-    justify-content: flex-start;
-    padding: clamp(0.5rem, 3vh, 3rem) clamp(1rem, 3vw, 2rem);
-  }
-  
-  .about-content h2 {
-    font-size: clamp(1rem, 4vw, 2rem);
-    margin-bottom: clamp(8px, 1vh, 15px);
-  }
-  
-  .about-description {
-    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-    margin-bottom: clamp(15px, 2vh, 25px);
-  }
-  
-  .smiley-container {
-    margin-top: clamp(10px, 2vh, 25px);
-  }
-  
-  .smiley-row {
-    padding-top: clamp(25px, 4vh, 35px);
-  }
-}
-
-/* High DPI and large screens */
-@media (min-width: 1400px) {
-  .about-content h2 {
-    font-size: 4rem;
-  }
-  
-  .about-description {
-    font-size: 1.2rem;
-  }
-  
-  .smiley-img {
-    width: 100px;
-    height: 80px;
-  }
-  
-  .stack-header {
-    font-size: 1rem;
-    padding: 10px 35px;
-  }
-}
-/* ===== OPTIMIZED CSS FOR 1265x585 SCREEN (About Section) ===== */
-
-/* Primary media query for wide but short screens */
-@media (min-width: 1200px) and (max-height: 650px) {
-  
-  /* Main About Container - Reduce height constraint */
-  .about-container {
-    height: 85vh; /* Reduced from 100vh */
-    min-height: 450px; /* Reduced from 600px */
-    max-height: 550px; /* Add max height to prevent overflow */
-  }
-  
-  /* Slide Container - Compact spacing */
-  .slide-container {
-    margin-bottom: 15px; /* Reduced from clamp(30px, 8vw, 60px) */
-  }
-  
-  /* About Content - Optimized padding and layout */
-  .about-content {
-    padding: 0.8rem 1.5rem; /* Much smaller vertical padding */
-    justify-content: flex-start; /* Start from top instead of center */
-    gap: 10px; /* Add gap between elements */
-  }
-  
-  /* About Heading - Compressed size */
-  .about-content h2 {
-    font-size: clamp(1.5rem, 2.8vw, 2rem); /* Reduced maximum size */
-    margin-bottom: 8px; /* Reduced from clamp(15px, 3vw, 20px) */
-    line-height: 1.1; /* Tighter line height */
-  }
-  
-  /* About Description - Compact text */
-  .about-description {
-    font-size: 0.85rem; /* Reduced from clamp(0.9rem, 2.5vw, 1rem) */
-    margin: 0 auto 15px auto; /* Reduced bottom margin */
-    max-width: 600px; /* Slightly smaller max width */
-    line-height: 1.5; /* Tighter line height */
-  }
-  
-  /* Smiley Container - Minimal spacing */
-  .smiley-container {
-    margin-top: 10px; /* Reduced from clamp(20px, 6vw, 50px) */
-    border-radius: 20px; /* Smaller border radius */
-    box-shadow: 0 0 8px #9b5de5, 
-                0 0 15px #6B4285, 
-                0 0 20px rgba(36,20,213,0.6); /* Reduced shadow size */
-    max-width: 800px; /* Smaller max width */
-  }
-  
-  /* Stack Header - Compact design */
-  .stack-header {
-    font-size: 0.7rem; /* Reduced from clamp(0.8rem, 2.5vw, 1.5rem) */
-    padding: 4px 12px; /* Reduced padding */
-    top: -10px; /* Reduced from clamp(-15px, -2vw, -20px) */
-    border-radius: 12px; /* Smaller border radius */
-    letter-spacing: 1px; /* Reduced letter spacing */
-  }
-  
-  /* Smiley Row - Horizontal optimization */
-  .smiley-row {
-    padding: 8px; /* Much reduced padding */
-    padding-top: 25px; /* Reduced top padding */
-    gap: 15px; /* Fixed smaller gap */
-    flex-wrap: nowrap; /* Prevent wrapping to save vertical space */
-    justify-content: space-evenly; /* Even distribution */
-  }
-  
-  /* Smiley Columns - Compact spacing */
-  .smiley-col {
-    min-width: 70px; /* Smaller minimum width */
-    margin-bottom: 5px; /* Minimal bottom margin */
-  }
-  
-  /* Smiley Images - Smaller size */
-  .smiley-img {
-    width: clamp(35px, 5vw, 50px); /* Reduced size */
-    height: clamp(28px, 4vw, 40px); /* Reduced height */
-  }
-  
-  /* Smiley Text - Minimal spacing */
-  .smiley-col p {
-    font-size: 0.45rem; /* Reduced font size */
-    margin-top: 4px; /* Minimal top margin */
-    line-height: 1.2; /* Tight line height */
-  }
-  
-  /* Animation adjustments for smaller space */
-  @keyframes subtleJiggle {
-    0%, 100% { 
-      transform: translateY(0) rotate(0deg) scale(1);
-      filter: drop-shadow(0 2px 5px rgba(155, 93, 229, 0.4));
-    }
-    25% { 
-      transform: translateY(-1px) rotate(-0.5deg) scale(1.01);
-      filter: drop-shadow(0 4px 8px rgba(155, 93, 229, 0.6));
-    }
-    50% { 
-      transform: translateY(0) rotate(0.3deg) scale(1);
-    }
-    75% { 
-      transform: translateY(1px) rotate(0.5deg) scale(1.01);
-      filter: drop-shadow(0 4px 8px rgba(155, 93, 229, 0.6));
-    }
-  }
-  
-  /* Transition timing adjustments */
-  .about-description {
-    transition-delay: 1s; /* Reduced from 1.5s */
-  }
-  
-  .smiley-container {
-    transition-delay: 1.8s; /* Reduced from 2.5s */
-  }
-  
-  /* Stagger animation delays - faster */
-  .slide-container.open .smiley-col:nth-child(1) .smiley-img { animation-delay: 2.2s; }
-  .slide-container.open .smiley-col:nth-child(2) .smiley-img { animation-delay: 2.4s; }
-  .slide-container.open .smiley-col:nth-child(3) .smiley-img { animation-delay: 2.6s; }
-  .slide-container.open .smiley-col:nth-child(4) .smiley-img { animation-delay: 2.8s; }
-  .slide-container.open .smiley-col:nth-child(5) .smiley-img { animation-delay: 3.0s; }
-  .slide-container.open .smiley-col:nth-child(6) .smiley-img { animation-delay: 3.2s; }
-  .slide-container.open .smiley-col:nth-child(7) .smiley-img { animation-delay: 3.4s; }
-}
-
-/* Specific optimization for exactly 1265x585 and similar resolutions */
-@media (min-width: 1200px) and (max-width: 1300px) and (min-height: 550px) and (max-height: 650px) {
-  
-  /* Force horizontal layout if too many smiley items */
-  .smiley-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-    grid-gap: 10px 15px;
-    padding: 8px;
-    padding-top: 25px;
-    max-height: 120px; /* Limit height */
-    overflow: hidden; /* Prevent overflow */
-  }
-  
-  /* Even more compact for this specific range */
-  .about-content {
-    padding: 0.6rem 1.2rem;
-    max-height: 480px; /* Strict height limit */
-    overflow-y: auto; /* Allow scrolling if needed */
-  }
-  
-  .about-content h2 {
-    font-size: 1.6rem;
-    margin-bottom: 6px;
-  }
-  
-  .about-description {
-    font-size: 0.8rem;
-    margin-bottom: 12px;
-    max-width: 550px;
-  }
-  
-  .smiley-container {
-    margin-top: 8px;
-    max-width: 700px;
-  }
-  
-  .stack-header {
-    font-size: 0.65rem;
-    padding: 3px 10px;
-    top: -8px;
-  }
-  
-  .smiley-img {
-    width: 35px;
-    height: 28px;
-  }
-  
-  .smiley-col p {
-    font-size: 0.4rem;
-    margin-top: 3px;
-  }
-}
-
-/* Ultra-wide short screen optimization */
-@media (min-width: 1400px) and (max-height: 650px) {
-  
-  /* Use two-column layout for very wide screens */
-  .about-content {
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
-    gap: 30px;
-  }
-  
-  .about-text-section {
-    flex: 1;
-  }
-  
-  .about-content h2 {
-    text-align: left;
-    font-size: 2rem;
-  }
-  
-  .about-description {
-    text-align: left;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  
-  .smiley-container {
-    flex: 1;
-    margin-top: 0;
-  }
-}
-
-/* Fallback for screens shorter than 585px */
-@media (max-height: 585px) {
-  .about-container {
-    height: 95vh;
-    min-height: 400px;
-    max-height: 500px;
-  }
-  
-  .about-content {
-    padding: 0.5rem 1rem;
-    gap: 5px;
-  }
-  
-  .about-content h2 {
-    font-size: 1.4rem;
-    margin-bottom: 4px;
-  }
-  
-  .about-description {
-    font-size: 0.75rem;
-    margin-bottom: 8px;
-    line-height: 1.4;
-  }
-  
-  .smiley-container {
-    margin-top: 5px;
-  }
-  
-  .smiley-row {
-    padding: 5px;
-    padding-top: 20px;
-    gap: 8px;
-  }
-  
-  .stack-header {
-    font-size: 0.55rem;
-    padding: 2px 8px;
-    top: -6px;
-  }
-  
-  .smiley-img {
-    width: 30px;
-    height: 24px;
-  }
-  
-  .smiley-col p {
-    font-size: 0.35rem;
-    margin-top: 2px;
-  }
-}
-
-/* Landscape orientation specific adjustments */
-@media (min-width: 1200px) and (max-height: 650px) and (orientation: landscape) {
-  
-  .slide-panel {
-    transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Faster transition */
-  }
-  
-  .slide-panel:nth-child(1) { transition-delay: 0s; }
-  .slide-panel:nth-child(2) { transition-delay: 0.05s; }
-  .slide-panel:nth-child(3) { transition-delay: 0.1s; }
-  .slide-panel:nth-child(4) { transition-delay: 0.15s; }
-  
-  /* Faster content appearance */
-  .about-content {
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  
-  .about-description {
-    transition-delay: 0.8s;
-  }
-  
-  .smiley-container {
-    transition-delay: 1.2s;
-  }
-}
-
-/* High DPI display adjustments for 1265x585 */
-@media (min-width: 1200px) and (max-height: 650px) and (-webkit-min-device-pixel-ratio: 2) {
-  
+/* High DPI optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .about-content h2,
   .about-description,
-  .smiley-col p {
+  .smiley-col p,
+  .stack-header {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .stack-header {
-    font-weight: 600; /* Slightly bolder for better readability on high DPI */
   }
 }

@@ -1,6 +1,9 @@
 // =========================
 // Mobile Menu Toggle
 // =========================
+console.log("Screen width:", window.innerWidth);
+console.log("Screen height:", window.innerHeight);
+
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mobileMenu = document.querySelector('.mobile-menu');
 
